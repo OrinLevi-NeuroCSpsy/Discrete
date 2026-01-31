@@ -1,0 +1,160 @@
+
+% ===============================
+% Language (Hebrew + English)
+% ===============================
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont{DavidCLM-Medium}[
+  Path = /Users/orinlevi/Library/Fonts/,
+  Extension = .otf,
+  BoldFont = DavidCLM-Bold,
+  ItalicFont = DavidCLM-MediumItalic,
+  BoldItalicFont = DavidCLM-BoldItalic,
+]
+\newfontfamily\hebrewfonttt{DavidCLM-Medium}[
+  Path = /Users/orinlevi/Library/Fonts/,
+  Extension = .otf,
+]
+
+% ===============================
+% Mathematics
+% ===============================
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+
+% ===============================
+% Page Layout
+% ===============================
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+% ===============================
+% Lists
+% ===============================
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=0.3em}
+
+% ===============================
+% Tables and Colors
+% ===============================
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% ===============================
+% Graphics (TikZ + pgfplots)
+% ===============================
+\usepackage{float}
+\usepackage{caption}
+\usepackage{pifont}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, decorations.pathreplacing}
+
+% ===============================
+% Theorem Environments
+% ===============================
+\theoremstyle{definition}
+\newtheorem{definition}{הגדרה}[section]
+\newtheorem{example}{דוגמה}[section]
+\newtheorem{exercise}{תרגיל}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{משפט}[section]
+\newtheorem{lemma}[theorem]{למה}
+\newtheorem{corollary}[theorem]{מסקנה}
+\newtheorem{proposition}[theorem]{טענה}
+
+\theoremstyle{remark}
+\newtheorem{remark}{הערה}[section]
+\newtheorem{note}{הערה}[section]
+
+% ===============================
+% Custom Commands - Set Theory
+% ===============================
+\newcommand{\N}{\mathbb{N}}          % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}          % Integers
+\newcommand{\Q}{\mathbb{Q}}          % Rationals
+\newcommand{\R}{\mathbb{R}}          % Reals
+\newcommand{\C}{\mathbb{C}}          % Complex
+\newcommand{\powerset}{\mathcal{P}}  % Power set
+\newcommand{\almark}{\aleph}         % Aleph
+\newcommand{\card}[1]{\left|#1\right|}  % Cardinality
+
+% Set operations
+\newcommand{\union}{\cup}
+\newcommand{\intersect}{\cap}
+\newcommand{\setminus}{\smallsetminus}
+\newcommand{\symdiff}{\triangle}     % Symmetric difference
+
+% Relations and functions
+\newcommand{\dom}{\text{Dom}}        % Domain
+\newcommand{\range}{\text{Range}}    % Range
+\newcommand{\im}{\text{Im}}          % Image
+\newcommand{\id}{\text{Id}}          % Identity
+
+% Logic
+\newcommand{\then}{\rightarrow}      % Implication
+\newcommand{\iff}{\leftrightarrow}   % If and only if
+\newcommand{\xmark}{\ding{55}}       % X mark
+\newcommand{\cmark}{\ding{51}}       % Check mark
+
+% ===============================
+% Colored Boxes
+% ===============================
+\newtcolorbox{defbox}[1][]{
+  colback=blue!5,
+  colframe=blue!75!black,
+  fonttitle=\bfseries,
+  title=הגדרה,
+  #1
+}
+
+\newtcolorbox{thmbox}[1][]{
+  colback=green!5,
+  colframe=green!75!black,
+  fonttitle=\bfseries,
+  title=משפט,
+  #1
+}
+
+\newtcolorbox{exbox}[1][]{
+  colback=orange!5,
+  colframe=orange!75!black,
+  fonttitle=\bfseries,
+  title=דוגמה,
+  #1
+}
+
+\newtcolorbox{notebox}[1][]{
+  colback=yellow!5,
+  colframe=yellow!75!black,
+  fonttitle=\bfseries,
+  title=הערה,
+  #1
+}
+
+\newtcolorbox{proofbox}[1][]{
+  colback=gray!5,
+  colframe=gray!75!black,
+  fonttitle=\bfseries,
+  title=הוכחה,
+  #1
+}
+
+% ===============================
+% Links (last)
+% ===============================
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=green,
+    filecolor=magenta,
+    urlcolor=cyan
+}
