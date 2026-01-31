@@ -1,19 +1,19 @@
 % יחידה 1 - לוגיקה ופסוקים
 %====================================
-\section{מבוא לקורס}
+\section{יחידה 1: לוגיקה ופסוקים}
+
+\subsection{מבוא לקורס}
 %====================================
 
-\subsection{מטרת הקורס}
-\begin{notebox}
+\subsubsection{מטרת הקורס}
 מטרת הקורס היא להכשיר כלים מתמטיים של מדעי המחשב:
 \begin{itemize}
     \item שפה מתמטית מדויקת
     \item הוכחות מתמטיות
     \item מושגים בסיסיים (קבוצות, יחסים, פונקציות וכו')
 \end{itemize}
-\end{notebox}
 
-\subsection{נושאי הקורס}
+\subsubsection{נושאי הקורס}
 \begin{enumerate}
     \item קבוצות, יחסים והעתקות (כולל אינדוקציה)
     \item מושג המספר ואלגברה בסיסית
@@ -22,25 +22,28 @@
 \end{enumerate}
 
 %====================================
-\section{היגדים ולוגיקה}
+\subsection{היגדים ולוגיקה}
 %====================================
 
-\subsection{מוטיבציה}
+\subsubsection{מוטיבציה}
 רוצים להגדיר שפה פורמלית לתיאור טענות מתמטיות. לשם כך נשתמש ב\textbf{לוגיקה} -- תורה העוסקת במבנה הפורמלי של טענות וב\textbf{ערכי אמת} שלהן.
 
-\subsection{פסוק (היגד)}
-\begin{defbox}[title=הגדרה: פסוק]
+\subsubsection{פסוק (היגד)}
+\begin{defbox}
+\textbf{הגדרה: פסוק}
+
 \textbf{פסוק} (או \textbf{היגד}, באנגלית: Proposition) הוא קביעה שניתן להכריע אם היא \textbf{אמת} ($T$ -- True) או \textbf{שקר} ($F$ -- False).
 \end{defbox}
 
-\begin{notebox}[title=תכונות של פסוק]
+\begin{notebox}
+\textbf{תכונות של פסוק:}
 \begin{itemize}
     \item לפסוק יש ערך אמת \textbf{יחיד} -- אמת או שקר, אך לא שניהם.
     \item פסוק מוגדר \textbf{חד-משמעית} -- אין מצב ביניים.
 \end{itemize}
 \end{notebox}
 
-\subsection{דוגמאות לפסוקים}
+\subsubsection{דוגמאות לפסוקים}
 \begin{exbox}
 \textbf{פסוקים:}
 \begin{itemize}
@@ -58,166 +61,165 @@
 \end{itemize}
 \end{exbox}
 
-\begin{notebox}[title=הערה חשובה]
-כשכותבים ``$x$ הוא מספר גדול מ-5'', זהו \textbf{משפט פתוח} (או נוסחה פתוחה) -- ערך האמת שלו תלוי ב-$x$. רק כשנקבע ערך ספציפי ל-$x$, הופך המשפט לפסוק.
-\end{notebox}
+\textbf{הערה חשובה:} כשכותבים ``$x$ הוא מספר גדול מ-5'', זהו \textbf{משפט פתוח} (או נוסחה פתוחה) -- ערך האמת שלו תלוי ב-$x$. רק כשנקבע ערך ספציפי ל-$x$, הופך המשפט לפסוק.
 
-\subsection{פרדוקסים}
-\begin{defbox}[title=פרדוקס]
-\textbf{פרדוקס} הוא משפט שלא ניתן לייחס לו ערך אמת -- אם נניח שהוא אמת, נגיע לסתירה, ואם נניח שהוא שקר, גם נגיע לסתירה.
-\end{defbox}
+\subsubsection{פרדוקסים}
+\textbf{הגדרה:} \textbf{פרדוקס} הוא משפט שלא ניתן לייחס לו ערך אמת -- אם נניח שהוא אמת, נגיע לסתירה, ואם נניח שהוא שקר, גם נגיע לסתירה.
 
-\begin{exbox}[title=פרדוקס ברי (Berry Paradox)]
+\textbf{דוגמה -- פרדוקס ברי (Berry Paradox):}
 ``המספר השלם הקטן ביותר שלא ניתן להגדיר בפחות מ-20 מילים.''
 
-\textbf{הסבר הפרדוקס:}
+הסבר הפרדוקס:
 \begin{itemize}
     \item המשפט עצמו מכיל פחות מ-20 מילים
     \item לכן, המשפט מגדיר מספר בפחות מ-20 מילים
     \item אבל המספר הוגדר כמספר שלא ניתן להגדיר בפחות מ-20 מילים -- סתירה!
 \end{itemize}
-\end{exbox}
 
-\begin{exbox}[title=פרדוקס השקרן]
+\textbf{דוגמה -- פרדוקס השקרן:}
 ``המשפט הזה הוא שקר.''
 \begin{itemize}
     \item אם המשפט אמת $\Rightarrow$ הוא אומר על עצמו שהוא שקר $\Rightarrow$ סתירה
     \item אם המשפט שקר $\Rightarrow$ הוא לא שקר $\Rightarrow$ הוא אמת $\Rightarrow$ סתירה
 \end{itemize}
-\end{exbox}
 
-\begin{notebox}
-פרדוקסים אינם פסוקים! הם ממחישים את הצורך בהגדרות מדויקות ובזהירות בבניית טענות לוגיות.
-\end{notebox}
+\textbf{הערה:} פרדוקסים אינם פסוקים! הם ממחישים את הצורך בהגדרות מדויקות ובזהירות בבניית טענות לוגיות.
 
 %====================================
-\section{קשרים לוגיים (קונקטורים)}
+\subsection{קשרים לוגיים (קונקטורים)}
 %====================================
 
 קשרים לוגיים (או קונקטורים) הם פעולות שמאפשרות לבנות פסוקים מורכבים מפסוקים פשוטים יותר.
 
-\subsection{שלילה (NOT)}
-\begin{defbox}[title=שלילה]
-אם $P$ הוא פסוק, אז $\neg P$ (``לא $P$'') הוא פסוק ששולל את $P$.
+\subsubsection{שלילה (NOT)}
+\textbf{הגדרה:} אם $P$ הוא פסוק, אז $\neg P$ (``לא $P$'') הוא פסוק ששולל את $P$.
 
 \textbf{סימון:} $\neg P$ או $\lnot P$ או $\overline{P}$
-\end{defbox}
 
 \begin{center}
 \textbf{טבלת אמת לשלילה:}
 
-\begin{tabular}{|c|c|}
+\vspace{0.5em}
+\begin{tabular}{|C|C|}
 \hline
-$P$ & $\neg P$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$\neg P$} \\
 \hline
-$T$ & $F$ \\
-$F$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
 
-\subsection{וגם (AND) -- קוניונקציה}
-\begin{defbox}[title=וגם (קוניונקציה)]
-אם $P$ ו-$Q$ הם פסוקים, אז $P \land Q$ (``$P$ וגם $Q$'') הוא פסוק שאמיתי \textbf{רק אם} שני הפסוקים אמיתיים.
+\subsubsection{וגם (AND) -- קוניונקציה}
+\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \land Q$ (``$P$ וגם $Q$'') הוא פסוק שאמיתי \textbf{רק אם} שני הפסוקים אמיתיים.
 
 \textbf{סימון:} $P \land Q$ או $P \cdot Q$ או $P \& Q$
-\end{defbox}
 
 \begin{center}
 \textbf{טבלת אמת ל-AND:}
 
-\begin{tabular}{|c|c|c|}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
 \hline
-$P$ & $Q$ & $P \land Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \land Q$} \\
 \hline
-$T$ & $T$ & $T$ \\
-$T$ & $F$ & $F$ \\
-$F$ & $T$ & $F$ \\
-$F$ & $F$ & $F$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
 \hline
 \end{tabular}
 \end{center}
 
-\subsection{או (OR) -- דיסיונקציה}
-\begin{defbox}[title=או (דיסיונקציה)]
-אם $P$ ו-$Q$ הם פסוקים, אז $P \lor Q$ (``$P$ או $Q$'') הוא פסוק שאמיתי אם \textbf{לפחות אחד} מהפסוקים אמיתי.
+\subsubsection{או (OR) -- דיסיונקציה}
+\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \lor Q$ (``$P$ או $Q$'') הוא פסוק שאמיתי אם \textbf{לפחות אחד} מהפסוקים אמיתי.
 
 \textbf{סימון:} $P \lor Q$ או $P + Q$
 
 \textbf{שימו לב:} זהו ``או'' \textbf{לא מוציא} (inclusive OR) -- גם אם שניהם אמיתיים, התוצאה אמת.
-\end{defbox}
 
 \begin{center}
 \textbf{טבלת אמת ל-OR:}
 
-\begin{tabular}{|c|c|c|}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
 \hline
-$P$ & $Q$ & $P \lor Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \lor Q$} \\
 \hline
-$T$ & $T$ & $T$ \\
-$T$ & $F$ & $T$ \\
-$F$ & $T$ & $T$ \\
-$F$ & $F$ & $F$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
 \hline
 \end{tabular}
 \end{center}
 
-\subsection{או מוציא (XOR)}
-\begin{defbox}[title=או מוציא]
-$P \oplus Q$ (``$P$ או $Q$ אך לא שניהם'') הוא פסוק שאמיתי אם \textbf{בדיוק אחד} מהפסוקים אמיתי.
+\subsubsection{או מוציא (XOR)}
+\textbf{הגדרה:} $P \oplus Q$ (``$P$ או $Q$ אך לא שניהם'') הוא פסוק שאמיתי אם \textbf{בדיוק אחד} מהפסוקים אמיתי.
 
 \textbf{סימון:} $P \oplus Q$ או $P \veebar Q$
-\end{defbox}
 
 \begin{center}
 \textbf{טבלת אמת ל-XOR:}
 
-\begin{tabular}{|c|c|c|}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
 \hline
-$P$ & $Q$ & $P \oplus Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \oplus Q$} \\
 \hline
-$T$ & $T$ & $F$ \\
-$T$ & $F$ & $T$ \\
-$F$ & $T$ & $T$ \\
-$F$ & $F$ & $F$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
 \hline
 \end{tabular}
 \end{center}
 
-\subsection{גרירה (אימפליקציה)}
-\begin{defbox}[title=גרירה (אימפליקציה)]
-אם $P$ ו-$Q$ הם פסוקים, אז $P \then Q$ (``$P$ גורר $Q$'' או ``אם $P$ אז $Q$'') הוא פסוק.
+\subsubsection{גרירה (אימפליקציה)}
+\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \then Q$ (``$P$ גורר $Q$'' או ``אם $P$ אז $Q$'') הוא פסוק.
 
 \textbf{סימון:} $P \then Q$ או $P \Rightarrow Q$ או $P \supset Q$
 
 \textbf{פירוש:} ``אם $P$ אמת, אז $Q$ חייב להיות אמת''
-\end{defbox}
 
 \begin{center}
 \textbf{טבלת אמת לגרירה:}
 
-\begin{tabular}{|c|c|c|}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
 \hline
-$P$ & $Q$ & $P \then Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \then Q$} \\
 \hline
-$T$ & $T$ & $T$ \\
-$T$ & $F$ & $F$ \\
-$F$ & $T$ & $T$ \\
-$F$ & $F$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
 
-\begin{notebox}[title=הערה חשובה על גרירה]
+\textbf{הערה חשובה על גרירה:}
 \begin{itemize}
     \item הגרירה $P \then Q$ היא \textbf{שקר רק} כאשר $P$ אמת ו-$Q$ שקר.
     \item כאשר $P$ שקר, הגרירה \textbf{תמיד אמת}, ללא קשר לערך של $Q$!
     \item זה נקרא ``מהשקר נובע הכל'' (ex falso quodlibet).
     \item דוגמה: ``אם 2+2=5, אז אני נשיא ארה"ב'' -- זהו פסוק אמיתי!
 \end{itemize}
-\end{notebox}
 
-\begin{exbox}[title=דוגמה]
+\textbf{דוגמה:}
 נניח $P$: ``יורד גשם'', $Q$: ``הכביש רטוב''.
 
 $P \then Q$: ``אם יורד גשם, אז הכביש רטוב''.
@@ -227,200 +229,193 @@ $P \then Q$: ``אם יורד גשם, אז הכביש רטוב''.
     \item אם יורד גשם והכביש יבש -- הטענה שקר (הבטחה שנשברה)
     \item אם לא יורד גשם -- הטענה אמת (לא הבטחנו כלום על מקרה זה)
 \end{itemize}
-\end{exbox}
 
-\subsection{שקילות (אם ורק אם)}
-\begin{defbox}[title=שקילות]
-$P \iff Q$ (``$P$ אם ורק אם $Q$'') הוא פסוק שאמיתי כאשר ל-$P$ ול-$Q$ יש \textbf{אותו ערך אמת}.
+\subsubsection{שקילות (אם ורק אם)}
+\textbf{הגדרה:} $P \iff Q$ (``$P$ אם ורק אם $Q$'') הוא פסוק שאמיתי כאשר ל-$P$ ול-$Q$ יש \textbf{אותו ערך אמת}.
 
 \textbf{סימון:} $P \iff Q$ או $P \Leftrightarrow Q$ או $P \equiv Q$
 
 \textbf{שקול ל:} $(P \then Q) \land (Q \then P)$
-\end{defbox}
 
 \begin{center}
 \textbf{טבלת אמת לשקילות:}
 
-\begin{tabular}{|c|c|c|}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
 \hline
-$P$ & $Q$ & $P \iff Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \iff Q$} \\
 \hline
-$T$ & $T$ & $T$ \\
-$T$ & $F$ & $F$ \\
-$F$ & $T$ & $F$ \\
-$F$ & $F$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
 
 %====================================
-\section{טבלאות אמת}
+\subsection{טבלאות אמת}
 %====================================
 
-\begin{defbox}[title=טבלת אמת]
-\textbf{טבלת אמת} היא טבלה המציגה את ערך האמת של פסוק מורכב עבור כל השילובים האפשריים של ערכי האמת של הפסוקים המרכיבים אותו.
-\end{defbox}
+\textbf{הגדרה:} \textbf{טבלת אמת} היא טבלה המציגה את ערך האמת של פסוק מורכב עבור כל השילובים האפשריים של ערכי האמת של הפסוקים המרכיבים אותו.
 
-\begin{notebox}[title=בניית טבלת אמת]
-אם יש $n$ פסוקים אטומיים, יש $2^n$ שורות בטבלת האמת (כל השילובים האפשריים של $T$ ו-$F$).
-\end{notebox}
+\textbf{בניית טבלת אמת:} אם יש $n$ פסוקים אטומיים, יש $2^n$ שורות בטבלת האמת (כל השילובים האפשריים של $T$ ו-$F$).
 
-\begin{exbox}[title=דוגמה: טבלת אמת ל-$(P \land Q) \then R$]
+\textbf{דוגמה: טבלת אמת ל-$(P \land Q) \then R$}
+
 יש 3 משתנים, לכן $2^3 = 8$ שורות:
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|C|C|C|C|C|}
 \hline
-$P$ & $Q$ & $R$ & $P \land Q$ & $(P \land Q) \then R$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$R$} & \color{white}\textbf{$P \land Q$} & \color{white}\textbf{$(P \land Q) \then R$} \\
 \hline
-$T$ & $T$ & $T$ & $T$ & $T$ \\
-$T$ & $T$ & $F$ & $T$ & $F$ \\
-$T$ & $F$ & $T$ & $F$ & $T$ \\
-$T$ & $F$ & $F$ & $F$ & $T$ \\
-$F$ & $T$ & $T$ & $F$ & $T$ \\
-$F$ & $T$ & $F$ & $F$ & $T$ \\
-$F$ & $F$ & $T$ & $F$ & $T$ \\
-$F$ & $F$ & $F$ & $F$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
-\end{exbox}
 
 %====================================
-\section{סיווג פסוקים}
+\subsection{סיווג פסוקים}
 %====================================
 
-\begin{defbox}[title=טאוטולוגיה]
-\textbf{טאוטולוגיה} היא פסוק ש\textbf{תמיד אמת}, לכל השמה של ערכי אמת למשתנים.
+\textbf{טאוטולוגיה:} פסוק ש\textbf{תמיד אמת}, לכל השמה של ערכי אמת למשתנים.
 
 דוגמה: $P \lor \neg P$ (חוק השלישי הנמנע)
-\end{defbox}
 
-\begin{defbox}[title=סתירה]
-\textbf{סתירה} (או קונטרדיקציה) היא פסוק ש\textbf{תמיד שקר}, לכל השמה.
+\textbf{סתירה:} (או קונטרדיקציה) פסוק ש\textbf{תמיד שקר}, לכל השמה.
 
 דוגמה: $P \land \neg P$
-\end{defbox}
 
-\begin{defbox}[title=פסוק ספיק]
-\textbf{פסוק ספיק} (או מתקיים, contingent) הוא פסוק שאינו טאוטולוגיה ואינו סתירה -- יש השמות שבהן הוא אמת ויש השמות שבהן הוא שקר.
+\textbf{פסוק ספיק:} (או מתקיים, contingent) פסוק שאינו טאוטולוגיה ואינו סתירה -- יש השמות שבהן הוא אמת ויש השמות שבהן הוא שקר.
 
 דוגמה: $P \then Q$
-\end{defbox}
 
-\begin{exbox}[title=דוגמה: הוכחה שפסוק הוא טאוטולוגיה]
+\textbf{דוגמה: הוכחה שפסוק הוא טאוטולוגיה}
+
 נוכיח ש-$P \lor \neg P$ הוא טאוטולוגיה:
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|C|C|C|}
 \hline
-$P$ & $\neg P$ & $P \lor \neg P$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \lor \neg P$} \\
 \hline
-$T$ & $F$ & $T$ \\
-$F$ & $T$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
 
 בכל השורות התוצאה $T$, לכן זוהי טאוטולוגיה.
-\end{exbox}
 
 %====================================
-\section{שקילות לוגית}
+\subsection{שקילות לוגית}
 %====================================
 
-\begin{defbox}[title=שקילות לוגית]
-שני פסוקים $P$ ו-$Q$ הם \textbf{שקולים לוגית} (ונסמן $P \equiv Q$) אם יש להם \textbf{אותם ערכי אמת} בכל טבלת האמת.
+\textbf{הגדרה:} שני פסוקים $P$ ו-$Q$ הם \textbf{שקולים לוגית} (ונסמן $P \equiv Q$) אם יש להם \textbf{אותם ערכי אמת} בכל טבלת האמת.
 
 \textbf{שקול לכך:} $P \iff Q$ היא טאוטולוגיה.
-\end{defbox}
 
-\subsection{שקילויות חשובות}
+\subsubsection{שקילויות חשובות}
 
-\begin{thmbox}[title=חוקי דה-מורגן]
+\textbf{חוקי דה-מורגן:}
 \begin{align}
 \neg(P \land Q) &\equiv \neg P \lor \neg Q \\
 \neg(P \lor Q) &\equiv \neg P \land \neg Q
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=חוקי הכפלה והפיצול]
+\textbf{חוקי הכפלה והפיצול:}
 \begin{align}
 P \land (Q \lor R) &\equiv (P \land Q) \lor (P \land R) \quad \text{(חוק הכפלה)} \\
 P \lor (Q \land R) &\equiv (P \lor Q) \land (P \lor R) \quad \text{(חוק הפיצול)}
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=שקילויות נוספות]
+\textbf{שקילויות נוספות:}
 \begin{align}
 P \then Q &\equiv \neg P \lor Q \\
 P \then Q &\equiv \neg Q \then \neg P \quad \text{(קונטרפוזיציה)} \\
 P \iff Q &\equiv (P \then Q) \land (Q \then P) \\
 \neg(\neg P) &\equiv P \quad \text{(שלילה כפולה)}
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=חוקי החילוף (קומוטטיביות)]
+\textbf{חוקי החילוף (קומוטטיביות):}
 \begin{align}
 P \land Q &\equiv Q \land P \\
 P \lor Q &\equiv Q \lor P
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=חוקי הקיבוץ (אסוציאטיביות)]
+\textbf{חוקי הקיבוץ (אסוציאטיביות):}
 \begin{align}
 (P \land Q) \land R &\equiv P \land (Q \land R) \\
 (P \lor Q) \lor R &\equiv P \lor (Q \lor R)
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=חוקי הזהות]
+\textbf{חוקי הזהות:}
 \begin{align}
 P \land T &\equiv P \\
 P \lor F &\equiv P \\
 P \land F &\equiv F \\
 P \lor T &\equiv T
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=חוקי האידמפוטנטיות]
+\textbf{חוקי האידמפוטנטיות:}
 \begin{align}
 P \land P &\equiv P \\
 P \lor P &\equiv P
 \end{align}
-\end{thmbox}
 
-\begin{thmbox}[title=חוקי הבליעה]
+\textbf{חוקי הבליעה:}
 \begin{align}
 P \land (P \lor Q) &\equiv P \\
 P \lor (P \land Q) &\equiv P
 \end{align}
-\end{thmbox}
 
 %====================================
-\section{דוגמאות ותרגילים}
+\subsection{דוגמאות ותרגילים}
 %====================================
 
-\begin{exbox}[title=דוגמה 1: הוכחת שקילות באמצעות טבלת אמת]
+\textbf{דוגמה 1: הוכחת שקילות באמצעות טבלת אמת}
+
 נוכיח ש-$P \then Q \equiv \neg P \lor Q$:
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|C|C|C|C|C|}
 \hline
-$P$ & $Q$ & $\neg P$ & $P \then Q$ & $\neg P \lor Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \then Q$} & \color{white}\textbf{$\neg P \lor Q$} \\
 \hline
-$T$ & $T$ & $F$ & $T$ & $T$ \\
-$T$ & $F$ & $F$ & $F$ & $F$ \\
-$F$ & $T$ & $T$ & $T$ & $T$ \\
-$F$ & $F$ & $T$ & $T$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
 
 העמודות $P \then Q$ ו-$\neg P \lor Q$ זהות, לכן הפסוקים שקולים.
-\end{exbox}
 
-\begin{exbox}[title=דוגמה 2: הוכחת שקילות באמצעות חוקים]
+\textbf{דוגמה 2: הוכחת שקילות באמצעות חוקים}
+
 נוכיח ש-$\neg(P \then Q) \equiv P \land \neg Q$:
 
 \begin{align*}
@@ -428,30 +423,31 @@ $F$ & $F$ & $T$ & $T$ & $T$ \\
 &\equiv \neg(\neg P) \land \neg Q && \text{(דה-מורגן)} \\
 &\equiv P \land \neg Q && \text{(שלילה כפולה)}
 \end{align*}
-\end{exbox}
 
-\begin{exbox}[title=דוגמה 3: קונטרפוזיציה]
+\textbf{דוגמה 3: קונטרפוזיציה}
+
 הטענה ``אם יורד גשם אז הכביש רטוב'' שקולה ל:
 
 ``אם הכביש לא רטוב אז לא יורד גשם''
 
 זוהי \textbf{קונטרפוזיציה}: $P \then Q \equiv \neg Q \then \neg P$
-\end{exbox}
 
 %====================================
-\section{סיכום: טבלת הקשרים הלוגיים}
+\subsection{סיכום: טבלת הקשרים הלוגיים}
 %====================================
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|C|C|C|C|C|C|C|C|}
 \hline
-$P$ & $Q$ & $\neg P$ & $P \land Q$ & $P \lor Q$ & $P \oplus Q$ & $P \then Q$ & $P \iff Q$ \\
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \land Q$} & \color{white}\textbf{$P \lor Q$} & \color{white}\textbf{$P \oplus Q$} & \color{white}\textbf{$P \then Q$} & \color{white}\textbf{$P \iff Q$} \\
 \hline
-$T$ & $T$ & $F$ & $T$ & $T$ & $F$ & $T$ & $T$ \\
-$T$ & $F$ & $F$ & $F$ & $T$ & $T$ & $F$ & $F$ \\
-$F$ & $T$ & $T$ & $F$ & $T$ & $T$ & $T$ & $F$ \\
-$F$ & $F$ & $T$ & $F$ & $F$ & $F$ & $T$ & $T$ \\
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
 \hline
 \end{tabular}
 \end{center}
-

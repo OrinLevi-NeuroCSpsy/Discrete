@@ -17,6 +17,7 @@
   Path = /Users/orinlevi/Library/Fonts/,
   Extension = .otf,
 ]
+\newfontfamily\figurelatinfont{Times New Roman}
 
 % ===============================
 % Mathematics
@@ -41,6 +42,22 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{array}
+
+% סגנון לטבלאות אמת יפות
+\newcommand{\truthmark}[1]{\textbf{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}m{1.2cm}}
+
+% צבעים לטבלאות - ורוד פסטלי
+\definecolor{tableheader}{RGB}{219,112,147}
+\definecolor{tablerow1}{RGB}{255,228,235}
+\definecolor{tablerow2}{RGB}{255,245,248}
+\definecolor{tableborder}{RGB}{199,92,127}
+
+% הגדרות מסגרת לטבלאות
+\setlength{\arrayrulewidth}{1.5pt}
+\arrayrulecolor{tableborder}
 
 % ===============================
 % Graphics (TikZ + pgfplots)
@@ -51,10 +68,88 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
-\usepackage[most]{tcolorbox}
-
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, decorations.pathreplacing}
+
+% ===============================
+% Colored Boxes (mdframed - works with Hebrew)
+% ===============================
+\usepackage[framemethod=tikz]{mdframed}
+
+% הגדרה - כחול
+\newmdenv[
+  linecolor=blue!75!black,
+  backgroundcolor=blue!5,
+  linewidth=2pt,
+  roundcorner=5pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt,
+  skipabove=12pt,
+  skipbelow=12pt,
+  nobreak=true
+]{defbox}
+
+% משפט - ירוק
+\newmdenv[
+  linecolor=green!75!black,
+  backgroundcolor=green!5,
+  linewidth=2pt,
+  roundcorner=5pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt,
+  skipabove=12pt,
+  skipbelow=12pt,
+  nobreak=true
+]{thmbox}
+
+% דוגמה - כתום
+\newmdenv[
+  linecolor=orange!75!black,
+  backgroundcolor=orange!5,
+  linewidth=2pt,
+  roundcorner=5pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt,
+  skipabove=12pt,
+  skipbelow=12pt,
+  nobreak=true
+]{exbox}
+
+% הערה - צהוב
+\newmdenv[
+  linecolor=yellow!75!black,
+  backgroundcolor=yellow!10,
+  linewidth=2pt,
+  roundcorner=5pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt,
+  skipabove=12pt,
+  skipbelow=12pt,
+  nobreak=true
+]{notebox}
+
+% הוכחה - אפור
+\newmdenv[
+  linecolor=gray!75!black,
+  backgroundcolor=gray!5,
+  linewidth=2pt,
+  roundcorner=5pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt,
+  skipabove=12pt,
+  skipbelow=12pt,
+  nobreak=true
+]{proofbox}
 
 % ===============================
 % Theorem Environments
@@ -77,84 +172,41 @@
 % ===============================
 % Custom Commands - Set Theory
 % ===============================
-\newcommand{\N}{\mathbb{N}}          % Natural numbers
-\newcommand{\Z}{\mathbb{Z}}          % Integers
-\newcommand{\Q}{\mathbb{Q}}          % Rationals
-\newcommand{\R}{\mathbb{R}}          % Reals
-\newcommand{\C}{\mathbb{C}}          % Complex
-\newcommand{\powerset}{\mathcal{P}}  % Power set
-\newcommand{\almark}{\aleph}         % Aleph
-\newcommand{\card}[1]{\left|#1\right|}  % Cardinality
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\almark}{\aleph}
+\newcommand{\card}[1]{\left|#1\right|}
 
 % Set operations
 \newcommand{\union}{\cup}
 \newcommand{\intersect}{\cap}
-\newcommand{\setminus}{\smallsetminus}
-\newcommand{\symdiff}{\triangle}     % Symmetric difference
+\renewcommand{\setminus}{\smallsetminus}
+\newcommand{\symdiff}{\triangle}
 
 % Relations and functions
-\newcommand{\dom}{\text{Dom}}        % Domain
-\newcommand{\range}{\text{Range}}    % Range
-\newcommand{\im}{\text{Im}}          % Image
-\newcommand{\id}{\text{Id}}          % Identity
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\range}{\text{Range}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\id}{\text{Id}}
 
 % Logic
-\newcommand{\then}{\rightarrow}      % Implication
-\newcommand{\iff}{\leftrightarrow}   % If and only if
-\newcommand{\xmark}{\ding{55}}       % X mark
-\newcommand{\cmark}{\ding{51}}       % Check mark
+\newcommand{\then}{\rightarrow}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\cmark}{\ding{51}}
 
 % ===============================
-% Colored Boxes
-% ===============================
-\newtcolorbox{defbox}[1][]{
-  colback=blue!5,
-  colframe=blue!75!black,
-  fonttitle=\bfseries,
-  title=הגדרה,
-  #1
-}
-
-\newtcolorbox{thmbox}[1][]{
-  colback=green!5,
-  colframe=green!75!black,
-  fonttitle=\bfseries,
-  title=משפט,
-  #1
-}
-
-\newtcolorbox{exbox}[1][]{
-  colback=orange!5,
-  colframe=orange!75!black,
-  fonttitle=\bfseries,
-  title=דוגמה,
-  #1
-}
-
-\newtcolorbox{notebox}[1][]{
-  colback=yellow!5,
-  colframe=yellow!75!black,
-  fonttitle=\bfseries,
-  title=הערה,
-  #1
-}
-
-\newtcolorbox{proofbox}[1][]{
-  colback=gray!5,
-  colframe=gray!75!black,
-  fonttitle=\bfseries,
-  title=הוכחה,
-  #1
-}
-
-% ===============================
-% Links (last)
+% Hyperref (must be last)
 % ===============================
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=green,
-    filecolor=magenta,
-    urlcolor=cyan
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=green,
+  filecolor=magenta,
+  urlcolor=cyan
 }

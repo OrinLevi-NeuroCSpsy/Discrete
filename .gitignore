@@ -1,27 +1,66 @@
+.DS_Store
+
 # LaTeX auxiliary files
 *.aux
 *.log
 *.out
 *.toc
-*.lof
-*.lot
-*.fls
-*.fdb_latexmk
 *.synctex.gz
 *.synctex(busy)
-
-# Bibliography
+*.fdb_latexmk
+*.fls
 *.bbl
 *.blg
+*.xdv
+*.lof
+*.lot
+*.run.xml
+*.bcf
+*.sta
 
-# Index
+# Index / glossary / acronym
 *.idx
 *.ilg
 *.ind
+*.glo
+*.glg
+*.gls
+*.glsdefs
+*.acn
+*.acr
+*.alg
+*.ist
 
-# Build output (uncomment if you don't want to track PDF)
-# *.pdf
+# Beamer
+*.nav
+*.snm
+*.vrb
 
-# OS
-.DS_Store
-Thumbs.db
+# latexindent
+__latexindent_temp.*
+
+# MkDocs build
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor backup files
+*.bak
+*~
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# TeXShop
+.texshop/
+
+# PDF files (generated, not source)
+main.pdf
