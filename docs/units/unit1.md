@@ -173,80 +173,60 @@
 ### שקילויות חשובות
 
 #### חוקי דה-מורגן
-\[
-\neg(P \land Q) \equiv \neg P \lor \neg Q
-\]
-\[
-\neg(P \lor Q) \equiv \neg P \land \neg Q
-\]
+
+$$\neg(P \land Q) \equiv \neg P \lor \neg Q$$
+
+$$\neg(P \lor Q) \equiv \neg P \land \neg Q$$
 
 #### חוקי הכפלה והפיצול
-\[
-P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R) \quad \text{(חוק הכפלה)}
-\]
-\[
-P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R) \quad \text{(חוק הפיצול)}
-\]
+
+$$P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R)$$
+
+$$P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R)$$
 
 #### שקילויות נוספות
-\[
-P \rightarrow Q \equiv \neg P \lor Q
-\]
-\[
-P \rightarrow Q \equiv \neg Q \rightarrow \neg P \quad \text{(קונטרפוזיציה)}
-\]
-\[
-P \leftrightarrow Q \equiv (P \rightarrow Q) \land (Q \rightarrow P)
-\]
-\[
-\neg(\neg P) \equiv P \quad \text{(שלילה כפולה)}
-\]
+
+$$P \rightarrow Q \equiv \neg P \lor Q$$
+
+$$P \rightarrow Q \equiv \neg Q \rightarrow \neg P \quad \text{(קונטרפוזיציה)}$$
+
+$$P \leftrightarrow Q \equiv (P \rightarrow Q) \land (Q \rightarrow P)$$
+
+$$\neg(\neg P) \equiv P \quad \text{(שלילה כפולה)}$$
 
 #### חוקי החילוף (קומוטטיביות)
-\[
-P \land Q \equiv Q \land P
-\]
-\[
-P \lor Q \equiv Q \lor P
-\]
+
+$$P \land Q \equiv Q \land P$$
+
+$$P \lor Q \equiv Q \lor P$$
 
 #### חוקי הקיבוץ (אסוציאטיביות)
-\[
-(P \land Q) \land R \equiv P \land (Q \land R)
-\]
-\[
-(P \lor Q) \lor R \equiv P \lor (Q \lor R)
-\]
+
+$$(P \land Q) \land R \equiv P \land (Q \land R)$$
+
+$$(P \lor Q) \lor R \equiv P \lor (Q \lor R)$$
 
 #### חוקי הזהות
-\[
-P \land T \equiv P
-\]
-\[
-P \lor F \equiv P
-\]
-\[
-P \land F \equiv F
-\]
-\[
-P \lor T \equiv T
-\]
+
+$$P \land T \equiv P$$
+
+$$P \lor F \equiv P$$
+
+$$P \land F \equiv F$$
+
+$$P \lor T \equiv T$$
 
 #### חוקי האידמפוטנטיות
-\[
-P \land P \equiv P
-\]
-\[
-P \lor P \equiv P
-\]
+
+$$P \land P \equiv P$$
+
+$$P \lor P \equiv P$$
 
 #### חוקי הבליעה
-\[
-P \land (P \lor Q) \equiv P
-\]
-\[
-P \lor (P \land Q) \equiv P
-\]
+
+$$P \land (P \lor Q) \equiv P$$
+
+$$P \lor (P \land Q) \equiv P$$
 
 ---
 
