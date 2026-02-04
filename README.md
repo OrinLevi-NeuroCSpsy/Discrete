@@ -4,7 +4,7 @@
 
 ## צפייה באתר
 
-האתר זמין בכתובת: https://orinlevi.github.io/Discrete1/
+האתר זמין בכתובת: https://orinlevi-neurocspsy.github.io/Discrete1/
 
 ## תוכן
 
