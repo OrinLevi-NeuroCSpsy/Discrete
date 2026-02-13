@@ -78,6 +78,8 @@ nav:
   - שאלות ממבחנים:
     - סקירה כללית: exams/index.md
     - קבוצות: exams/sets.md
+    - יחסים: exams/relations.md
     - פונקציות: exams/functions.md
     - יחסי שקילות: exams/equivalence.md
     - עוצמות: exams/cardinality.md
+    - אינדוקציה: exams/induction.md
