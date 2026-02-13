@@ -86,3 +86,4 @@ nav:
   - תרגילים:
     - סקירה כללית: exercises/index.md
     - אינדוקציה: exercises/induction_ex.md
+    - קבוצות: exercises/sets_ex.md
