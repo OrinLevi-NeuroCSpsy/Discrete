@@ -83,3 +83,6 @@ nav:
     - יחסי שקילות: exams/equivalence.md
     - עוצמות: exams/cardinality.md
     - אינדוקציה: exams/induction.md
+  - תרגילים:
+    - סקירה כללית: exercises/index.md
+    - אינדוקציה: exercises/induction_ex.md
