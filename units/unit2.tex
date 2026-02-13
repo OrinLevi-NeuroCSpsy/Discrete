@@ -1,399 +1,464 @@
-% יחידה 2 - קבוצות
+% יחידה 2 - לוגיקה ופסוקים
 %====================================
-\section{יחידה 2: קבוצות}
+\section{יחידה 2: לוגיקה ופסוקים}
 
-\subsection{מושגי יסוד}
+\subsection{מבוא לקורס}
 %====================================
 
-\subsubsection{מהי קבוצה?}
+\subsubsection{מטרת הקורס}
+מטרת הקורס היא להכשיר כלים מתמטיים של מדעי המחשב:
+\begin{itemize}
+    \item שפה מתמטית מדויקת
+    \item הוכחות מתמטיות
+    \item מושגים בסיסיים (קבוצות, יחסים, פונקציות וכו')
+\end{itemize}
 
+\subsubsection{נושאי הקורס}
+\begin{enumerate}
+    \item קבוצות, יחסים והעתקות (כולל אינדוקציה)
+    \item מושג המספר ואלגברה בסיסית
+    \item שיטות מנייה והסתברות
+    \item קומבינטוריקה ואלגוריתמים
+\end{enumerate}
+
+%====================================
+\subsection{היגדים ולוגיקה}
+%====================================
+
+\subsubsection{מוטיבציה}
+רוצים להגדיר שפה פורמלית לתיאור טענות מתמטיות. לשם כך נשתמש ב\textbf{לוגיקה} -- תורה העוסקת במבנה הפורמלי של טענות וב\textbf{ערכי אמת} שלהן.
+
+\subsubsection{פסוק (היגד)}
 \begin{defbox}
-\textbf{הגדרה: קבוצה}
+\textbf{הגדרה: פסוק}
 
-\textbf{קבוצה} (Set) היא אוסף של עצמים, המהווה עצם בעצמו. לעצמים שמרכיבים קבוצה קוראים \textbf{איברי} הקבוצה, ועל כל אחד מהם אומרים שהוא \textbf{שייך} לקבוצה.
+\textbf{פסוק} (או \textbf{היגד}, באנגלית: Proposition) הוא קביעה שניתן להכריע אם היא \textbf{אמת} ($T$ -- True) או \textbf{שקר} ($F$ -- False).
 \end{defbox}
 
-\textbf{סימון:} אם $t$ הוא איבר של קבוצה $A$, נכתוב $t \in A$. אם $t$ אינו איבר של $A$, נכתוב $t \notin A$.
-
 \begin{notebox}
-\textbf{נקודות חשובות:}
+\textbf{תכונות של פסוק:}
 \begin{itemize}
-    \item \textbf{אין הגבלה} על מה שיכול לשמש כאיבר בקבוצה -- כל עצם יכול להיות איבר.
-    \item קבוצות אינן חייבות להיות \textbf{הומוגניות} -- ניתן לערבב סוגי עצמים שונים.
-    \item קבוצות יכולות להיות \textbf{סופיות} או \textbf{אינסופיות}.
-    \item קבוצות עצמן נחשבות לעצמים, ולכן \textbf{קבוצה יכולה להיות איבר של קבוצה אחרת}.
+    \item לפסוק יש ערך אמת \textbf{יחיד} -- אמת או שקר, אך לא שניהם.
+    \item פסוק מוגדר \textbf{חד-משמעית} -- אין מצב ביניים.
 \end{itemize}
 \end{notebox}
 
-\subsubsection{עקרון האקסטנציונליות}
-
-\begin{thmbox}
-\textbf{עקרון האקסטנציונליות}
-
-שתי קבוצות הן \textbf{שוות} אם ורק אם יש להן \textbf{בדיוק אותם איברים}.
-
-בסימון פורמלי:
-\[A = B \Leftrightarrow \forall x.(x \in A \leftrightarrow x \in B)\]
-\end{thmbox}
-
-\textbf{משמעות:} קבוצה נקבעת אך ורק על-ידי איבריה -- לא על-ידי סדר הצגתם, לא על-ידי האופן שבו תוארה, ולא על-ידי כל מאפיין אחר.
-
+\subsubsection{דוגמאות לפסוקים}
 \begin{exbox}
-\textbf{דוגמאות:}
+\textbf{פסוקים:}
 \begin{itemize}
-    \item $\{1, 2, 3\} = \{3, 1, 2\} = \{1, 1, 2, 3\}$ -- סדר ההצגה וכפילויות לא משנים.
-    \item קבוצת המספרים הזוגיים בין 1 ל-5 שווה לקבוצה $\{2, 4\}$.
+    \item ``$2 > 1$'' -- פסוק (אמת)
+    \item ``יורד גשם'' -- פסוק (ערכו תלוי במציאות, אך יש לו ערך אמת מוגדר)
+    \item ``$5$ הוא מספר ראשוני'' -- פסוק (אמת)
+    \item ``$4$ הוא מספר אי-זוגי'' -- פסוק (שקר)
+\end{itemize}
+
+\textbf{לא פסוקים:}
+\begin{itemize}
+    \item ``$x > 5$'' -- \textbf{לא פסוק!} (תלוי בערך של $x$, זה \textbf{נוסחה פתוחה})
+    \item ``האם יורד גשם?'' -- לא פסוק (שאלה)
+    \item ``סגור את הדלת'' -- לא פסוק (ציווי)
 \end{itemize}
 \end{exbox}
 
-%====================================
-\subsection{הכלה (תת-קבוצה)}
-%====================================
+\textbf{הערה חשובה:} כשכותבים ``$x$ הוא מספר גדול מ-5'', זהו \textbf{משפט פתוח} (או נוסחה פתוחה) -- ערך האמת שלו תלוי ב-$x$. רק כשנקבע ערך ספציפי ל-$x$, הופך המשפט לפסוק.
 
-\subsubsection{הגדרה}
+\subsubsection{פרדוקסים}
+\textbf{הגדרה:} \textbf{פרדוקס} הוא משפט שלא ניתן לייחס לו ערך אמת -- אם נניח שהוא אמת, נגיע לסתירה, ואם נניח שהוא שקר, גם נגיע לסתירה.
 
-\begin{defbox}
-\textbf{הגדרה: הכלה}
+\textbf{דוגמה -- פרדוקס ברי (Berry Paradox):}
+``המספר השלם הקטן ביותר שלא ניתן להגדיר בפחות מ-20 מילים.''
 
-נאמר ש-$A$ היא \textbf{תת-קבוצה} של $B$ (או ש-$A$ \textbf{חלקית} ל-$B$, או ש-$B$ \textbf{מכילה} את $A$) אם כל איבר של $A$ הוא גם איבר של $B$.
-
-\textbf{סימון:} $A \subseteq B$
-
-בסימון פורמלי:
-\[A \subseteq B \Leftrightarrow \forall x.(x \in A \rightarrow x \in B)\]
-\end{defbox}
-
-\begin{defbox}
-\textbf{הגדרה: הכלה ממש}
-
-נאמר ש-$A$ היא \textbf{תת-קבוצה ממש} של $B$ (או ש-$A$ \textbf{חלקית ממש} ל-$B$) אם $A \subseteq B$ וגם $A \neq B$.
-
-\textbf{סימון:} $A \subsetneq B$ או $A \subset B$
-\end{defbox}
-
-\subsubsection{משפטים חשובים}
-
-\begin{thmbox}
-\textbf{משפט: קשר בין שוויון להכלה}
-\[A = B \Leftrightarrow (A \subseteq B \land B \subseteq A)\]
-
-זוהי הדרך הנפוצה ביותר להוכיח שוויון בין שתי קבוצות: מראים \textbf{הכלה דו-כיוונית}.
-\end{thmbox}
-
-\begin{thmbox}
-\textbf{משפט: טרנזיטיביות ההכלה}
-
-לכל שלוש קבוצות $A, B, C$:
-\[A \subseteq B \land B \subseteq C \Rightarrow A \subseteq C\]
-\end{thmbox}
-
-\textbf{הוכחה:} יהי $x \in A$. כיוון ש-$A \subseteq B$ נובע ש-$x \in B$. מהעובדה ש-$B \subseteq C$ נובע ש-$x \in C$. $\blacksquare$
-
-\begin{warnbox}
-\textbf{אזהרה: הבדל בין $\in$ ל-$\subseteq$}
+הסבר הפרדוקס:
 \begin{itemize}
-    \item \textbf{שייכות} ($\in$): יחס בין \textbf{איבר} לבין \textbf{קבוצה}.
-    \item \textbf{הכלה} ($\subseteq$): יחס בין \textbf{קבוצה} לבין \textbf{קבוצה}.
+    \item המשפט עצמו מכיל פחות מ-20 מילים
+    \item לכן, המשפט מגדיר מספר בפחות מ-20 מילים
+    \item אבל המספר הוגדר כמספר שלא ניתן להגדיר בפחות מ-20 מילים -- סתירה!
 \end{itemize}
 
-לדוגמה: קבוצת המספרים הזוגיים \textbf{חלקית} לקבוצת הטבעיים, אך היא \textbf{לא שייכת} לה (כי היא עצמה אינה מספר טבעי).
-\end{warnbox}
+\textbf{דוגמה -- פרדוקס השקרן:}
+``המשפט הזה הוא שקר.''
+\begin{itemize}
+    \item אם המשפט אמת $\Rightarrow$ הוא אומר על עצמו שהוא שקר $\Rightarrow$ סתירה
+    \item אם המשפט שקר $\Rightarrow$ הוא לא שקר $\Rightarrow$ הוא אמת $\Rightarrow$ סתירה
+\end{itemize}
+
+\textbf{הערה:} פרדוקסים אינם פסוקים! הם ממחישים את הצורך בהגדרות מדויקות ובזהירות בבניית טענות לוגיות.
 
 %====================================
-\subsection{הקבוצה הריקה}
+\subsection{קשרים לוגיים (קונקטורים)}
 %====================================
 
-\begin{defbox}
-\textbf{הגדרה: הקבוצה הריקה}
+קשרים לוגיים (או קונקטורים) הם פעולות שמאפשרות לבנות פסוקים מורכבים מפסוקים פשוטים יותר.
 
-\textbf{הקבוצה הריקה} (נסמנת $\emptyset$ או $\{\}$) היא הקבוצה שאין בה איברים כלל.
+\subsubsection{שלילה (NOT)}
+\textbf{הגדרה:} אם $P$ הוא פסוק, אז $\neg P$ (``לא $P$'') הוא פסוק ששולל את $P$.
 
-בסימון פורמלי:
-\[\forall x. x \notin \emptyset\]
-\end{defbox}
+\textbf{סימון:} $\neg P$ או $\lnot P$ או $\overline{P}$
 
-\begin{thmbox}
-\textbf{משפט: הקבוצה הריקה חלקית לכל קבוצה}
+\begin{center}
+\textbf{טבלת אמת לשלילה:}
 
-לכל קבוצה $A$ מתקיים $\emptyset \subseteq A$.
-\end{thmbox}
+\vspace{0.5em}
+\begin{tabular}{|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$\neg P$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
 
-\textbf{הוכחה:} צריך להראות ש-$\forall x.(x \in \emptyset \rightarrow x \in A)$. מכיוון שאין איברים ב-$\emptyset$, האגף השמאלי של הגרירה תמיד שקר, ולכן הגרירה כולה תמיד אמת (``מהשקר נובע הכל''). $\blacksquare$
+\subsubsection{וגם (AND) -- קוניונקציה}
+\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \land Q$ (``$P$ וגם $Q$'') הוא פסוק שאמיתי \textbf{רק אם} שני הפסוקים אמיתיים.
 
-%====================================
-\subsection{אקסיומות להגדרת קבוצות}
-%====================================
+\textbf{סימון:} $P \land Q$ או $P \cdot Q$ או $P \& Q$
 
-\subsubsection{עקרון הקומפרהנסיה המוגבל}
+\begin{center}
+\textbf{טבלת אמת ל-AND:}
 
-\begin{thmbox}
-\textbf{עקרון הקומפרהנסיה המוגבל}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \land Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
+\hline
+\end{tabular}
+\end{center}
 
-אם $A$ היא קבוצה ו-$P$ הוא תנאי (פרדיקט), אז הביטוי
-\[\{x \in A \mid P(x)\}\]
-מגדיר קבוצה. זוהי קבוצת כל האיברים מ-$A$ שמקיימים את התנאי $P$.
-\end{thmbox}
+\subsubsection{או (OR) -- דיסיונקציה}
+\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \lor Q$ (``$P$ או $Q$'') הוא פסוק שאמיתי אם \textbf{לפחות אחד} מהפסוקים אמיתי.
 
-\begin{exbox}
-\textbf{דוגמה:}
+\textbf{סימון:} $P \lor Q$ או $P + Q$
 
-קבוצת המספרים הזוגיים:
-\[\mathbb{N}_{\text{even}} = \{n \in \mathbb{N} \mid \exists k \in \mathbb{N}. n = 2k\}\]
-\end{exbox}
+\textbf{שימו לב:} זהו ``או'' \textbf{לא מוציא} (inclusive OR) -- גם אם שניהם אמיתיים, התוצאה אמת.
 
-\subsubsection{אקסיומת ההחלפה}
+\begin{center}
+\textbf{טבלת אמת ל-OR:}
 
-\begin{thmbox}
-\textbf{אקסיומת ההחלפה}
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \lor Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
+\hline
+\end{tabular}
+\end{center}
 
-אם $F$ היא פונקציה ו-$A$ היא קבוצה, אז הביטוי
-\[\{F(x) \mid x \in A\}\]
-מגדיר קבוצה. זוהי קבוצת כל התוצאות של הפעלת $F$ על איברי $A$.
-\end{thmbox}
+\subsubsection{או מוציא (XOR)}
+\textbf{הגדרה:} $P \oplus Q$ (``$P$ או $Q$ אך לא שניהם'') הוא פסוק שאמיתי אם \textbf{בדיוק אחד} מהפסוקים אמיתי.
 
-\begin{exbox}
-\textbf{דוגמה:}
+\textbf{סימון:} $P \oplus Q$ או $P \veebar Q$
 
-קבוצת המספרים הזוגיים (דרך נוספת):
-\[\mathbb{N}_{\text{even}} = \{2n \mid n \in \mathbb{N}\}\]
-\end{exbox}
+\begin{center}
+\textbf{טבלת אמת ל-XOR:}
+
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \oplus Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{גרירה (אימפליקציה)}
+\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \then Q$ (``$P$ גורר $Q$'' או ``אם $P$ אז $Q$'') הוא פסוק.
+
+\textbf{סימון:} $P \then Q$ או $P \Rightarrow Q$ או $P \supset Q$
+
+\textbf{פירוש:} ``אם $P$ אמת, אז $Q$ חייב להיות אמת''
+
+\begin{center}
+\textbf{טבלת אמת לגרירה:}
+
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \then Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
 
 \begin{notebox}
-\textbf{הערה:} שני הסימונים שקולים:
-\[\{F(x) \mid x \in A\} = \{y \in B \mid \exists x \in A. F(x) = y\}\]
-כאשר $B$ היא קבוצה המכילה את כל הערכים האפשריים של $F$.
+\textbf{הערה חשובה על גרירה:}
+\begin{itemize}
+    \item הגרירה $P \then Q$ היא \textbf{שקר רק} כאשר $P$ אמת ו-$Q$ שקר.
+    \item כאשר $P$ שקר, הגרירה \textbf{תמיד אמת}, ללא קשר לערך של $Q$!
+    \item זה נקרא ``מהשקר נובע הכל'' (ex falso quodlibet).
+    \item דוגמה: ``אם 2+2=5, אז אני נשיא ארה"ב'' -- זהו פסוק אמיתי!
+\end{itemize}
 \end{notebox}
 
+\textbf{דוגמה:}
+נניח $P$: ``יורד גשם'', $Q$: ``הכביש רטוב''.
+
+$P \then Q$: ``אם יורד גשם, אז הכביש רטוב''.
+
+\begin{itemize}
+    \item אם יורד גשם והכביש רטוב -- הטענה אמת
+    \item אם יורד גשם והכביש יבש -- הטענה שקר (הבטחה שנשברה)
+    \item אם לא יורד גשם -- הטענה אמת (לא הבטחנו כלום על מקרה זה)
+\end{itemize}
+
+\subsubsection{שקילות (אם ורק אם)}
+\textbf{הגדרה:} $P \iff Q$ (``$P$ אם ורק אם $Q$'') הוא פסוק שאמיתי כאשר ל-$P$ ול-$Q$ יש \textbf{אותו ערך אמת}.
+
+\textbf{סימון:} $P \iff Q$ או $P \Leftrightarrow Q$ או $P \equiv Q$
+
+\textbf{שקול ל:} $(P \then Q) \land (Q \then P)$
+
+\begin{center}
+\textbf{טבלת אמת לשקילות:}
+
+\vspace{0.5em}
+\begin{tabular}{|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \iff Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
+
 %====================================
-\subsection{פעולות על קבוצות}
+\subsection{טבלאות אמת}
 %====================================
 
-\subsubsection{פעולות בסיסיות}
+\textbf{הגדרה:} \textbf{טבלת אמת} היא טבלה המציגה את ערך האמת של פסוק מורכב עבור כל השילובים האפשריים של ערכי האמת של הפסוקים המרכיבים אותו.
 
-\begin{defbox}
-\textbf{הגדרות: פעולות על קבוצות}
+\textbf{בניית טבלת אמת:} אם יש $n$ פסוקים אטומיים, יש $2^n$ שורות בטבלת האמת (כל השילובים האפשריים של $T$ ו-$F$).
 
-יהיו $A, B$ קבוצות.
+\textbf{דוגמה: טבלת אמת ל-$(P \land Q) \then R$}
 
-\textbf{איחוד (Union):}
-\[A \cup B = \{x \mid x \in A \lor x \in B\}\]
+יש 3 משתנים, לכן $2^3 = 8$ שורות:
 
-\textbf{חיתוך (Intersection):}
-\[A \cap B = \{x \mid x \in A \land x \in B\}\]
+\begin{center}
+\begin{tabular}{|C|C|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$R$} & \color{white}\textbf{$P \land Q$} & \color{white}\textbf{$(P \land Q) \then R$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
 
-\textbf{הפרש (Difference):}
-\[A \setminus B = \{x \mid x \in A \land x \notin B\}\]
+%====================================
+\subsection{סיווג פסוקים}
+%====================================
 
-\textbf{משלים (Complement):} ביחס לקבוצת ``עולם'' $E$:
-\[\overline{A} = E \setminus A = \{x \in E \mid x \notin A\}\]
+\textbf{טאוטולוגיה:} פסוק ש\textbf{תמיד אמת}, לכל השמה של ערכי אמת למשתנים.
 
-\textbf{הפרש סימטרי (Symmetric Difference):}
-\[A \triangle B = (A \setminus B) \cup (B \setminus A)\]
-\end{defbox}
+דוגמה: $P \lor \neg P$ (חוק השלישי הנמנע)
 
-\subsubsection{תכונות הפעולות}
+\textbf{סתירה:} (או קונטרדיקציה) פסוק ש\textbf{תמיד שקר}, לכל השמה.
 
-\begin{thmbox}
-\textbf{תכונות יסודיות של פעולות על קבוצות}
+דוגמה: $P \land \neg P$
 
-\textbf{קומוטטיביות:}
-\[A \cap B = B \cap A \qquad A \cup B = B \cup A\]
+\textbf{פסוק ספיק:} (או מתקיים, contingent) פסוק שאינו טאוטולוגיה ואינו סתירה -- יש השמות שבהן הוא אמת ויש השמות שבהן הוא שקר.
 
-\textbf{אסוציאטיביות:}
-\[(A \cap B) \cap C = A \cap (B \cap C) \qquad (A \cup B) \cup C = A \cup (B \cup C)\]
+דוגמה: $P \then Q$
 
-\textbf{דיסטריביוטיביות:}
-\[A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\]
-\[A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\]
+\begin{exbox}
+\textbf{דוגמה: הוכחה שפסוק הוא טאוטולוגיה}
+
+נוכיח ש-$P \lor \neg P$ הוא טאוטולוגיה:
+
+\begin{center}
+\begin{tabular}{|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \lor \neg P$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
+
+בכל השורות התוצאה $T$, לכן זוהי טאוטולוגיה.
+\end{exbox}
+
+%====================================
+\subsection{שקילות לוגית}
+%====================================
+
+\textbf{הגדרה:} שני פסוקים $P$ ו-$Q$ הם \textbf{שקולים לוגית} (ונסמן $P \equiv Q$) אם יש להם \textbf{אותם ערכי אמת} בכל טבלת האמת.
+
+\textbf{שקול לכך:} $P \iff Q$ היא טאוטולוגיה.
+
+\subsubsection{שקילויות חשובות}
 
 \textbf{חוקי דה-מורגן:}
-\[\overline{A \cup B} = \overline{A} \cap \overline{B} \qquad \overline{A \cap B} = \overline{A} \cup \overline{B}\]
+\begin{align}
+\neg(P \land Q) &\equiv \neg P \lor \neg Q \\
+\neg(P \lor Q) &\equiv \neg P \land \neg Q
+\end{align}
 
-\textbf{משלים-הפרש:}
-\[A \setminus B = A \cap \overline{B}\]
-\end{thmbox}
+\textbf{חוקי הכפלה והפיצול:}
+\begin{align}
+P \land (Q \lor R) &\equiv (P \land Q) \lor (P \land R) \quad \text{(חוק הכפלה)} \\
+P \lor (Q \land R) &\equiv (P \lor Q) \land (P \lor R) \quad \text{(חוק הפיצול)}
+\end{align}
+
+\textbf{שקילויות נוספות:}
+\begin{align}
+P \then Q &\equiv \neg P \lor Q \\
+P \then Q &\equiv \neg Q \then \neg P \quad \text{(קונטרפוזיציה)} \\
+P \iff Q &\equiv (P \then Q) \land (Q \then P) \\
+\neg(\neg P) &\equiv P \quad \text{(שלילה כפולה)}
+\end{align}
+
+\textbf{חוקי החילוף (קומוטטיביות):}
+\begin{align}
+P \land Q &\equiv Q \land P \\
+P \lor Q &\equiv Q \lor P
+\end{align}
+
+\textbf{חוקי הקיבוץ (אסוציאטיביות):}
+\begin{align}
+(P \land Q) \land R &\equiv P \land (Q \land R) \\
+(P \lor Q) \lor R &\equiv P \lor (Q \lor R)
+\end{align}
+
+\textbf{חוקי הזהות:}
+\begin{align}
+P \land T &\equiv P \\
+P \lor F &\equiv P \\
+P \land F &\equiv F \\
+P \lor T &\equiv T
+\end{align}
+
+\textbf{חוקי האידמפוטנטיות:}
+\begin{align}
+P \land P &\equiv P \\
+P \lor P &\equiv P
+\end{align}
+
+\textbf{חוקי הבליעה:}
+\begin{align}
+P \land (P \lor Q) &\equiv P \\
+P \lor (P \land Q) &\equiv P
+\end{align}
+
+%====================================
+\subsection{דוגמאות ותרגילים}
+%====================================
 
 \begin{exbox}
-\textbf{דוגמה: הוכחת זהות בין קבוצות}
+\textbf{דוגמה 1: הוכחת שקילות באמצעות טבלת אמת}
 
-נוכיח: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+נוכיח ש-$P \then Q \equiv \neg P \lor Q$:
 
-\textbf{שיטה 1: שימוש בזהויות}
+\begin{center}
+\begin{tabular}{|C|C|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \then Q$} & \color{white}\textbf{$\neg P \lor Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
+
+העמודות $P \then Q$ ו-$\neg P \lor Q$ זהות, לכן הפסוקים שקולים.
+\end{exbox}
+
+\begin{exbox}
+\textbf{דוגמה 2: הוכחת שקילות באמצעות חוקים}
+
+נוכיח ש-$\neg(P \then Q) \equiv P \land \neg Q$:
+
 \begin{align*}
-A \setminus (B \cap C) &= A \cap \overline{B \cap C} && \text{(משלים-הפרש)} \\
-&= A \cap (\overline{B} \cup \overline{C}) && \text{(דה-מורגן)} \\
-&= (A \cap \overline{B}) \cup (A \cap \overline{C}) && \text{(דיסטריביוטיביות)} \\
-&= (A \setminus B) \cup (A \setminus C) && \text{(משלים-הפרש)}
+\neg(P \then Q) &\equiv \neg(\neg P \lor Q) && \text{(שקילות גרירה)} \\
+&\equiv \neg(\neg P) \land \neg Q && \text{(דה-מורגן)} \\
+&\equiv P \land \neg Q && \text{(שלילה כפולה)}
 \end{align*}
-
-\textbf{שיטה 2: הכלה דו-כיוונית}
-
-($\subseteq$) יהי $x \in A \setminus (B \cap C)$. אז $x \in A$ ו-$x \notin B \cap C$, כלומר $x \notin B$ או $x \notin C$.
-\begin{itemize}
-    \item אם $x \notin B$ אז $x \in A \setminus B$.
-    \item אם $x \notin C$ אז $x \in A \setminus C$.
-\end{itemize}
-בכל מקרה $x \in (A \setminus B) \cup (A \setminus C)$.
-
-($\supseteq$) יהי $x \in (A \setminus B) \cup (A \setminus C)$.
-\begin{itemize}
-    \item אם $x \in A \setminus B$ אז $x \in A$ ו-$x \notin B$, ולכן $x \notin B \cap C$.
-    \item אם $x \in A \setminus C$ אז $x \in A$ ו-$x \notin C$, ולכן $x \notin B \cap C$.
-\end{itemize}
-בכל מקרה $x \in A \setminus (B \cap C)$. $\blacksquare$
-\end{exbox}
-
-%====================================
-\subsection{קבוצת החזקה}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרה: קבוצת החזקה}
-
-בהינתן קבוצה $A$, \textbf{קבוצת החזקה} שלה, $\mathcal{P}(A)$, מוגדרת כקבוצת כל תתי-הקבוצות של $A$:
-\[\mathcal{P}(A) = \{B \mid B \subseteq A\}\]
-\end{defbox}
-
-\begin{notebox}
-\textbf{תכונה חשובה:}
-
-לכל קבוצה $B$ מתקיים:
-\[B \in \mathcal{P}(A) \Leftrightarrow B \subseteq A\]
-\end{notebox}
-
-\begin{exbox}
-\textbf{דוגמאות:}
-\begin{itemize}
-    \item $\mathcal{P}(\emptyset) = \{\emptyset\}$
-    \item $\mathcal{P}(\{1\}) = \{\emptyset, \{1\}\}$
-    \item $\mathcal{P}(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$
-    \item $\mathcal{P}(\mathcal{P}(\{1\})) = \{\emptyset, \{\emptyset\}, \{\{1\}\}, \{\emptyset, \{1\}\}\}$
-\end{itemize}
-\end{exbox}
-
-\begin{thmbox}
-\textbf{משפט:}
-\[A \subseteq B \Leftrightarrow \mathcal{P}(A) \subseteq \mathcal{P}(B)\]
-\end{thmbox}
-
-\textbf{הוכחה:}
-
-($\Rightarrow$) נניח $A \subseteq B$. תהא $X \in \mathcal{P}(A)$. אז $X \subseteq A$. מטרנזיטיביות ההכלה, $X \subseteq B$, ולכן $X \in \mathcal{P}(B)$.
-
-($\Leftarrow$) נניח $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. יהי $x \in A$. אז $\{x\} \subseteq A$, ולכן $\{x\} \in \mathcal{P}(A)$. מההנחה, $\{x\} \in \mathcal{P}(B)$, ולכן $\{x\} \subseteq B$, ומכאן $x \in B$. $\blacksquare$
-
-%====================================
-\subsection{איחוד וחיתוך מוכללים}
-%====================================
-
-\subsubsection{הגדרה באמצעות קבוצה של קבוצות}
-
-\begin{defbox}
-\textbf{הגדרה: איחוד וחיתוך מוכללים}
-
-תהי $\mathcal{F}$ קבוצה של קבוצות.
-
-\textbf{איחוד מוכלל:}
-\[\bigcup \mathcal{F} = \{x \mid \exists A \in \mathcal{F}. x \in A\}\]
-
-\textbf{חיתוך מוכלל} (מוגדר רק אם $\mathcal{F} \neq \emptyset$):
-\[\bigcap \mathcal{F} = \{x \mid \forall A \in \mathcal{F}. x \in A\}\]
-\end{defbox}
-
-\subsubsection{הגדרה באמצעות קבוצת אינדקסים}
-
-\begin{defbox}
-\textbf{הגדרה: סימון אינדקסים}
-
-תהי $I$ קבוצת אינדקסים, ולכל $i \in I$ תהי $A_i$ קבוצה.
-
-\textbf{איחוד:}
-\[\bigcup_{i \in I} A_i = \{x \mid \exists i \in I. x \in A_i\}\]
-
-\textbf{חיתוך} (כאשר $I \neq \emptyset$):
-\[\bigcap_{i \in I} A_i = \{x \mid \forall i \in I. x \in A_i\}\]
-\end{defbox}
-
-\begin{exbox}
-\textbf{דוגמאות:}
-
-עבור $\mathcal{X} = \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}\}$:
-\[\bigcup \mathcal{X} = \{\emptyset, \{\emptyset\}\} \qquad \bigcap \mathcal{X} = \emptyset\]
-
-עבור קטעים:
-\[\bigcup_{x \in \mathbb{R}^+} (0, x) = \mathbb{R}^+ = (0, \infty) \qquad \bigcap_{x \in \mathbb{R}^+} (0, x) = \emptyset\]
 \end{exbox}
 
 \begin{exbox}
-\textbf{דוגמה מפורטת:}
+\textbf{דוגמה 3: קונטרפוזיציה}
 
-נוכיח: $\displaystyle\bigcup_{k \geq 2} \left[\frac{1}{k}, 1 - \frac{1}{k}\right] = (0, 1)$
+הטענה ``אם יורד גשם אז הכביש רטוב'' שקולה ל:
 
-($\subseteq$) יהי $x$ באיחוד. אז קיים $k \geq 2$ כך ש-$\frac{1}{k} \leq x \leq 1 - \frac{1}{k}$. מכיוון ש-$k \geq 2$, מתקיים $0 < \frac{1}{k} \leq x \leq 1 - \frac{1}{k} < 1$, ולכן $x \in (0, 1)$.
+``אם הכביש לא רטוב אז לא יורד גשם''
 
-($\supseteq$) יהי $x \in (0, 1)$. נבחר $k = \max\left\{\left\lceil\frac{1}{x}\right\rceil, \left\lceil\frac{1}{1-x}\right\rceil, 2\right\}$. אז $k \geq 2$, וגם $k \geq \frac{1}{x}$ (כלומר $x \geq \frac{1}{k}$) וגם $k \geq \frac{1}{1-x}$ (כלומר $x \leq 1 - \frac{1}{k}$). $\blacksquare$
+זוהי \textbf{קונטרפוזיציה}: $P \then Q \equiv \neg Q \then \neg P$
 \end{exbox}
 
 %====================================
-\subsection{מלכודות נפוצות}
+\subsection{סיכום: טבלת הקשרים הלוגיים}
 %====================================
 
-\begin{warnbox}
-\textbf{מלכודות נפוצות:}
+\begin{center}
+\begin{tabular}{|C|C|C|C|C|C|C|C|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \land Q$} & \color{white}\textbf{$P \lor Q$} & \color{white}\textbf{$P \oplus Q$} & \color{white}\textbf{$P \then Q$} & \color{white}\textbf{$P \iff Q$} \\
+\hline
+\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{F} \\
+\hline
+\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\hline
+\end{tabular}
+\end{center}
 
-\textbf{1. בלבול בין $\in$ ל-$\subseteq$:}
-\begin{itemize}
-    \item $1 \in \{1, 2\}$ \checkmark
-    \item $\{1\} \subseteq \{1, 2\}$ \checkmark
-    \item $\{1\} \in \{1, 2\}$ \ding{55} (אלא אם $\{1\}$ הוא עצמו איבר)
-\end{itemize}
-
-\textbf{2. בלבול בין $\emptyset$ ל-$\{\emptyset\}$:}
-\begin{itemize}
-    \item $\emptyset$ היא הקבוצה הריקה (0 איברים)
-    \item $\{\emptyset\}$ היא קבוצה עם איבר אחד (הקבוצה הריקה)
-\end{itemize}
-
-\textbf{3. $\in$ אינה טרנזיטיבית:}
-\begin{itemize}
-    \item אם $A \in B$ ו-$B \in C$, לא בהכרח $A \in C$.
-    \item דוגמה נגדית: $A = \{2\}$, $B = \{\{2\}, 2\}$, $C = \{\{\{2\}, 2\}\}$.
-\end{itemize}
-\end{warnbox}
-
-%====================================
-\subsection{תרגילים לדוגמה}
-%====================================
-
-\begin{exbox}
-\textbf{תרגיל 1:} אילו מהטענות הבאות נכונות?
-
-\begin{enumerate}
-    \item $\emptyset \in \emptyset$ -- \textbf{לא נכון} (אין איברים ב-$\emptyset$)
-    \item $\emptyset \subseteq \emptyset$ -- \textbf{נכון} (הריקה חלקית לכל קבוצה)
-    \item $\emptyset \in \{\emptyset\}$ -- \textbf{נכון} (הריקה היא איבר)
-    \item $\emptyset \subseteq \{\emptyset\}$ -- \textbf{נכון} (הריקה חלקית לכל קבוצה)
-    \item $\{2, 3\} \subseteq \{1, 2, \{2, 3\}, 4\}$ -- \textbf{לא נכון} ($3$ לא איבר בקבוצה הימנית)
-    \item $\{2, 3\} \in \{1, 2, \{2, 3\}, 4\}$ -- \textbf{נכון} ($\{2,3\}$ הוא איבר)
-\end{enumerate}
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 2:} מצאו תנאי הכרחי ומספיק לכך ש-$\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(A \cup B)$.
-
-\textbf{תשובה:} $A \subseteq B$ או $B \subseteq A$.
-
-\textbf{הוכחת המספיקות:} נניח $A \subseteq B$. אז $A \cup B = B$, ו-$\mathcal{P}(A) \subseteq \mathcal{P}(B)$. לכן $\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(B) = \mathcal{P}(A \cup B)$.
-
-\textbf{הוכחת ההכרחיות:} נניח ששתי הקבוצות לא מוכלות זו בזו. אז קיימים $a \in A \setminus B$ ו-$b \in B \setminus A$. הקבוצה $\{a, b\}$ שייכת ל-$\mathcal{P}(A \cup B)$ אך לא ל-$\mathcal{P}(A)$ ולא ל-$\mathcal{P}(B)$, ולכן לא לאיחוד שלהן.
-\end{exbox}
-
-%====================================
-\subsection{מקורות}
-%====================================
-
-\begin{itemize}
-    \item \texttt{discrete1-the\_course\_book.txt} -- פרק ב.1 (מושגי יסוד), פרק ב.2 (הגדרת קבוצות וסימונן), פרק ב.3 (פעולות על קבוצות)
-    \item \texttt{discrete1-recitations\_1-13.txt} -- תרגולים 2 ו-3
-    \item \texttt{discrete\_mathematics1-extended\_formula\_sheet.txt}
-\end{itemize}

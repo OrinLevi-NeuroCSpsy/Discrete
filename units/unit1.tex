@@ -1,453 +1,281 @@
-% יחידה 1 - לוגיקה ופסוקים
+% יחידה 1 - אינדוקציה מתמטית
 %====================================
-\section{יחידה 1: לוגיקה ופסוקים}
+\section{יחידה 1: אינדוקציה מתמטית}
 
-\subsection{מבוא לקורס}
-%====================================
-
-\subsubsection{מטרת הקורס}
-מטרת הקורס היא להכשיר כלים מתמטיים של מדעי המחשב:
-\begin{itemize}
-    \item שפה מתמטית מדויקת
-    \item הוכחות מתמטיות
-    \item מושגים בסיסיים (קבוצות, יחסים, פונקציות וכו')
-\end{itemize}
-
-\subsubsection{נושאי הקורס}
-\begin{enumerate}
-    \item קבוצות, יחסים והעתקות (כולל אינדוקציה)
-    \item מושג המספר ואלגברה בסיסית
-    \item שיטות מנייה והסתברות
-    \item קומבינטוריקה ואלגוריתמים
-\end{enumerate}
-
-%====================================
-\subsection{היגדים ולוגיקה}
+\subsection{מבוא}
 %====================================
 
-\subsubsection{מוטיבציה}
-רוצים להגדיר שפה פורמלית לתיאור טענות מתמטיות. לשם כך נשתמש ב\textbf{לוגיקה} -- תורה העוסקת במבנה הפורמלי של טענות וב\textbf{ערכי אמת} שלהן.
-
-\subsubsection{פסוק (היגד)}
 \begin{defbox}
-\textbf{הגדרה: פסוק}
+\textbf{מהי אינדוקציה?}
 
-\textbf{פסוק} (או \textbf{היגד}, באנגלית: Proposition) הוא קביעה שניתן להכריע אם היא \textbf{אמת} ($T$ -- True) או \textbf{שקר} ($F$ -- False).
+\textbf{אינדוקציה מתמטית} היא שיטה (שימושית מאוד) להוכחת טענות מהצורה:
+
+\begin{quote}
+לכל מספר טבעי $n$ מתקיים $P(n)$
+\end{quote}
+
+כאשר $\N = \{0, 1, 2, \ldots\}$ היא קבוצת המספרים הטבעיים, ו-$P(n)$ היא טענה כלשהי בנוגע למספר הטבעי $n$.
 \end{defbox}
 
-\begin{notebox}
-\textbf{תכונות של פסוק:}
-\begin{itemize}
-    \item לפסוק יש ערך אמת \textbf{יחיד} -- אמת או שקר, אך לא שניהם.
-    \item פסוק מוגדר \textbf{חד-משמעית} -- אין מצב ביניים.
-\end{itemize}
-\end{notebox}
-
-\subsubsection{דוגמאות לפסוקים}
 \begin{exbox}
-\textbf{פסוקים:}
+\textbf{דוגמאות לטענות שמוכיחים באינדוקציה:}
 \begin{itemize}
-    \item ``$2 > 1$'' -- פסוק (אמת)
-    \item ``יורד גשם'' -- פסוק (ערכו תלוי במציאות, אך יש לו ערך אמת מוגדר)
-    \item ``$5$ הוא מספר ראשוני'' -- פסוק (אמת)
-    \item ``$4$ הוא מספר אי-זוגי'' -- פסוק (שקר)
-\end{itemize}
-
-\textbf{לא פסוקים:}
-\begin{itemize}
-    \item ``$x > 5$'' -- \textbf{לא פסוק!} (תלוי בערך של $x$, זה \textbf{נוסחה פתוחה})
-    \item ``האם יורד גשם?'' -- לא פסוק (שאלה)
-    \item ``סגור את הדלת'' -- לא פסוק (ציווי)
+    \item לכל $n$ טבעי מתקיים: $0 + 1 + \ldots + n = \frac{n(n+1)}{2}$
+    \item לכל $n$ טבעי מתקיים: $n^3 - n$ מתחלק ב-$6$
 \end{itemize}
 \end{exbox}
 
-\textbf{הערה חשובה:} כשכותבים ``$x$ הוא מספר גדול מ-5'', זהו \textbf{משפט פתוח} (או נוסחה פתוחה) -- ערך האמת שלו תלוי ב-$x$. רק כשנקבע ערך ספציפי ל-$x$, הופך המשפט לפסוק.
-
-\subsubsection{פרדוקסים}
-\textbf{הגדרה:} \textbf{פרדוקס} הוא משפט שלא ניתן לייחס לו ערך אמת -- אם נניח שהוא אמת, נגיע לסתירה, ואם נניח שהוא שקר, גם נגיע לסתירה.
-
-\textbf{דוגמה -- פרדוקס ברי (Berry Paradox):}
-``המספר השלם הקטן ביותר שלא ניתן להגדיר בפחות מ-20 מילים.''
-
-הסבר הפרדוקס:
-\begin{itemize}
-    \item המשפט עצמו מכיל פחות מ-20 מילים
-    \item לכן, המשפט מגדיר מספר בפחות מ-20 מילים
-    \item אבל המספר הוגדר כמספר שלא ניתן להגדיר בפחות מ-20 מילים -- סתירה!
-\end{itemize}
-
-\textbf{דוגמה -- פרדוקס השקרן:}
-``המשפט הזה הוא שקר.''
-\begin{itemize}
-    \item אם המשפט אמת $\Rightarrow$ הוא אומר על עצמו שהוא שקר $\Rightarrow$ סתירה
-    \item אם המשפט שקר $\Rightarrow$ הוא לא שקר $\Rightarrow$ הוא אמת $\Rightarrow$ סתירה
-\end{itemize}
-
-\textbf{הערה:} פרדוקסים אינם פסוקים! הם ממחישים את הצורך בהגדרות מדויקות ובזהירות בבניית טענות לוגיות.
-
 %====================================
-\subsection{קשרים לוגיים (קונקטורים)}
+\subsection{עקרון האינדוקציה}
 %====================================
 
-קשרים לוגיים (או קונקטורים) הם פעולות שמאפשרות לבנות פסוקים מורכבים מפסוקים פשוטים יותר.
+\subsubsection{אינדוקציה רגילה (פשוטה)}
 
-\subsubsection{שלילה (NOT)}
-\textbf{הגדרה:} אם $P$ הוא פסוק, אז $\neg P$ (``לא $P$'') הוא פסוק ששולל את $P$.
+\begin{thmbox}
+\textbf{עקרון האינדוקציה המתמטית}
 
-\textbf{סימון:} $\neg P$ או $\lnot P$ או $\overline{P}$
+כדי להוכיח שטענה $P(n)$ מתקיימת לכל מספר טבעי $n \geq 0$, מספיק להוכיח:
 
-\begin{center}
-\textbf{טבלת אמת לשלילה:}
+\begin{enumerate}
+    \item \textbf{בסיס האינדוקציה:} $P(0)$ נכון
+    \item \textbf{צעד האינדוקציה:} לכל $n \geq 1$ טבעי, אם $P(n-1)$ נכון אז $P(n)$ נכון
+\end{enumerate}
 
-\vspace{0.5em}
-\begin{tabular}{|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$\neg P$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} \\
-\hline
-\end{tabular}
-\end{center}
+ההנחה $P(n-1)$ נקראת \textbf{הנחת האינדוקציה}.
+\end{thmbox}
 
-\subsubsection{וגם (AND) -- קוניונקציה}
-\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \land Q$ (``$P$ וגם $Q$'') הוא פסוק שאמיתי \textbf{רק אם} שני הפסוקים אמיתיים.
+\begin{notebox}
+\textbf{ניסוח שקול:}
 
-\textbf{סימון:} $P \land Q$ או $P \cdot Q$ או $P \& Q$
+בצעד האינדוקציה אפשר גם להוכיח:
+\begin{quote}
+אם $P(n)$ אז $P(n+1)$, עבור $n \geq 0$
+\end{quote}
+\end{notebox}
 
-\begin{center}
-\textbf{טבלת אמת ל-AND:}
+\subsubsection{מדוע האינדוקציה עובדת?}
 
-\vspace{0.5em}
-\begin{tabular}{|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \land Q$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
-\hline
-\end{tabular}
-\end{center}
+\begin{defbox}
+\textbf{אינטואיציה -- אפקט הדומינו}
 
-\subsubsection{או (OR) -- דיסיונקציה}
-\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \lor Q$ (``$P$ או $Q$'') הוא פסוק שאמיתי אם \textbf{לפחות אחד} מהפסוקים אמיתי.
+אפשר לדמות את עקרון האינדוקציה לאפקט דומינו:
 
-\textbf{סימון:} $P \lor Q$ או $P + Q$
+\begin{enumerate}
+    \item \textbf{בסיס:} הקלף הראשון נופל (מוכיחים $P(0)$)
+    \item \textbf{צעד:} כל קלף שנופל מפיל את הבא אחריו (אם $P(n)$ אז $P(n+1)$)
+\end{enumerate}
 
-\textbf{שימו לב:} זהו ``או'' \textbf{לא מוציא} (inclusive OR) -- גם אם שניהם אמיתיים, התוצאה אמת.
-
-\begin{center}
-\textbf{טבלת אמת ל-OR:}
-
-\vspace{0.5em}
-\begin{tabular}{|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \lor Q$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsubsection{או מוציא (XOR)}
-\textbf{הגדרה:} $P \oplus Q$ (``$P$ או $Q$ אך לא שניהם'') הוא פסוק שאמיתי אם \textbf{בדיוק אחד} מהפסוקים אמיתי.
-
-\textbf{סימון:} $P \oplus Q$ או $P \veebar Q$
-
-\begin{center}
-\textbf{טבלת אמת ל-XOR:}
-
-\vspace{0.5em}
-\begin{tabular}{|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \oplus Q$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsubsection{גרירה (אימפליקציה)}
-\textbf{הגדרה:} אם $P$ ו-$Q$ הם פסוקים, אז $P \then Q$ (``$P$ גורר $Q$'' או ``אם $P$ אז $Q$'') הוא פסוק.
-
-\textbf{סימון:} $P \then Q$ או $P \Rightarrow Q$ או $P \supset Q$
-
-\textbf{פירוש:} ``אם $P$ אמת, אז $Q$ חייב להיות אמת''
-
-\begin{center}
-\textbf{טבלת אמת לגרירה:}
-
-\vspace{0.5em}
-\begin{tabular}{|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \then Q$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} \\
-\hline
-\end{tabular}
-\end{center}
-
-\textbf{הערה חשובה על גרירה:}
-\begin{itemize}
-    \item הגרירה $P \then Q$ היא \textbf{שקר רק} כאשר $P$ אמת ו-$Q$ שקר.
-    \item כאשר $P$ שקר, הגרירה \textbf{תמיד אמת}, ללא קשר לערך של $Q$!
-    \item זה נקרא ``מהשקר נובע הכל'' (ex falso quodlibet).
-    \item דוגמה: ``אם 2+2=5, אז אני נשיא ארה"ב'' -- זהו פסוק אמיתי!
-\end{itemize}
-
-\textbf{דוגמה:}
-נניח $P$: ``יורד גשם'', $Q$: ``הכביש רטוב''.
-
-$P \then Q$: ``אם יורד גשם, אז הכביש רטוב''.
-
-\begin{itemize}
-    \item אם יורד גשם והכביש רטוב -- הטענה אמת
-    \item אם יורד גשם והכביש יבש -- הטענה שקר (הבטחה שנשברה)
-    \item אם לא יורד גשם -- הטענה אמת (לא הבטחנו כלום על מקרה זה)
-\end{itemize}
-
-\subsubsection{שקילות (אם ורק אם)}
-\textbf{הגדרה:} $P \iff Q$ (``$P$ אם ורק אם $Q$'') הוא פסוק שאמיתי כאשר ל-$P$ ול-$Q$ יש \textbf{אותו ערך אמת}.
-
-\textbf{סימון:} $P \iff Q$ או $P \Leftrightarrow Q$ או $P \equiv Q$
-
-\textbf{שקול ל:} $(P \then Q) \land (Q \then P)$
-
-\begin{center}
-\textbf{טבלת אמת לשקילות:}
-
-\vspace{0.5em}
-\begin{tabular}{|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$P \iff Q$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} \\
-\hline
-\end{tabular}
-\end{center}
+מסקנה: כל הקלפים יפלו (הטענה נכונה לכל $n$)
+\end{defbox}
 
 %====================================
-\subsection{טבלאות אמת}
+\subsection{דוגמאות בסיסיות}
 %====================================
 
-\textbf{הגדרה:} \textbf{טבלת אמת} היא טבלה המציגה את ערך האמת של פסוק מורכב עבור כל השילובים האפשריים של ערכי האמת של הפסוקים המרכיבים אותו.
+\subsubsection{דוגמה 1: סכום סדרה חשבונית}
 
-\textbf{בניית טבלת אמת:} אם יש $n$ פסוקים אטומיים, יש $2^n$ שורות בטבלת האמת (כל השילובים האפשריים של $T$ ו-$F$).
+\begin{exbox}
+\textbf{הוכחה:} $0 + 1 + \ldots + n = \frac{n(n+1)}{2}$
 
-\textbf{דוגמה: טבלת אמת ל-$(P \land Q) \then R$}
+\textbf{בסיס:} עבור $n = 0$:
+\[0 = \frac{0 \cdot (0+1)}{2} = 0 \quad \checkmark\]
 
-יש 3 משתנים, לכן $2^3 = 8$ שורות:
+\textbf{צעד:} יהי $n \geq 1$ טבעי. נניח שהטענה נכונה עבור $n-1$ (הנחת האינדוקציה):
+\[0 + 1 + \ldots + (n-1) = \frac{(n-1)n}{2}\]
 
-\begin{center}
-\begin{tabular}{|C|C|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$R$} & \color{white}\textbf{$P \land Q$} & \color{white}\textbf{$(P \land Q) \then R$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} \\
-\hline
-\end{tabular}
-\end{center}
-
-%====================================
-\subsection{סיווג פסוקים}
-%====================================
-
-\textbf{טאוטולוגיה:} פסוק ש\textbf{תמיד אמת}, לכל השמה של ערכי אמת למשתנים.
-
-דוגמה: $P \lor \neg P$ (חוק השלישי הנמנע)
-
-\textbf{סתירה:} (או קונטרדיקציה) פסוק ש\textbf{תמיד שקר}, לכל השמה.
-
-דוגמה: $P \land \neg P$
-
-\textbf{פסוק ספיק:} (או מתקיים, contingent) פסוק שאינו טאוטולוגיה ואינו סתירה -- יש השמות שבהן הוא אמת ויש השמות שבהן הוא שקר.
-
-דוגמה: $P \then Q$
-
-\textbf{דוגמה: הוכחה שפסוק הוא טאוטולוגיה}
-
-נוכיח ש-$P \lor \neg P$ הוא טאוטולוגיה:
-
-\begin{center}
-\begin{tabular}{|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \lor \neg P$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{F} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{T} & \truthmark{T} \\
-\hline
-\end{tabular}
-\end{center}
-
-בכל השורות התוצאה $T$, לכן זוהי טאוטולוגיה.
-
-%====================================
-\subsection{שקילות לוגית}
-%====================================
-
-\textbf{הגדרה:} שני פסוקים $P$ ו-$Q$ הם \textbf{שקולים לוגית} (ונסמן $P \equiv Q$) אם יש להם \textbf{אותם ערכי אמת} בכל טבלת האמת.
-
-\textbf{שקול לכך:} $P \iff Q$ היא טאוטולוגיה.
-
-\subsubsection{שקילויות חשובות}
-
-\textbf{חוקי דה-מורגן:}
-\begin{align}
-\neg(P \land Q) &\equiv \neg P \lor \neg Q \\
-\neg(P \lor Q) &\equiv \neg P \land \neg Q
-\end{align}
-
-\textbf{חוקי הכפלה והפיצול:}
-\begin{align}
-P \land (Q \lor R) &\equiv (P \land Q) \lor (P \land R) \quad \text{(חוק הכפלה)} \\
-P \lor (Q \land R) &\equiv (P \lor Q) \land (P \lor R) \quad \text{(חוק הפיצול)}
-\end{align}
-
-\textbf{שקילויות נוספות:}
-\begin{align}
-P \then Q &\equiv \neg P \lor Q \\
-P \then Q &\equiv \neg Q \then \neg P \quad \text{(קונטרפוזיציה)} \\
-P \iff Q &\equiv (P \then Q) \land (Q \then P) \\
-\neg(\neg P) &\equiv P \quad \text{(שלילה כפולה)}
-\end{align}
-
-\textbf{חוקי החילוף (קומוטטיביות):}
-\begin{align}
-P \land Q &\equiv Q \land P \\
-P \lor Q &\equiv Q \lor P
-\end{align}
-
-\textbf{חוקי הקיבוץ (אסוציאטיביות):}
-\begin{align}
-(P \land Q) \land R &\equiv P \land (Q \land R) \\
-(P \lor Q) \lor R &\equiv P \lor (Q \lor R)
-\end{align}
-
-\textbf{חוקי הזהות:}
-\begin{align}
-P \land T &\equiv P \\
-P \lor F &\equiv P \\
-P \land F &\equiv F \\
-P \lor T &\equiv T
-\end{align}
-
-\textbf{חוקי האידמפוטנטיות:}
-\begin{align}
-P \land P &\equiv P \\
-P \lor P &\equiv P
-\end{align}
-
-\textbf{חוקי הבליעה:}
-\begin{align}
-P \land (P \lor Q) &\equiv P \\
-P \lor (P \land Q) &\equiv P
-\end{align}
-
-%====================================
-\subsection{דוגמאות ותרגילים}
-%====================================
-
-\textbf{דוגמה 1: הוכחת שקילות באמצעות טבלת אמת}
-
-נוכיח ש-$P \then Q \equiv \neg P \lor Q$:
-
-\begin{center}
-\begin{tabular}{|C|C|C|C|C|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \then Q$} & \color{white}\textbf{$\neg P \lor Q$} \\
-\hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} \\
-\hline
-\end{tabular}
-\end{center}
-
-העמודות $P \then Q$ ו-$\neg P \lor Q$ זהות, לכן הפסוקים שקולים.
-
-\textbf{דוגמה 2: הוכחת שקילות באמצעות חוקים}
-
-נוכיח ש-$\neg(P \then Q) \equiv P \land \neg Q$:
-
+נוכיח עבור $n$:
 \begin{align*}
-\neg(P \then Q) &\equiv \neg(\neg P \lor Q) && \text{(שקילות גרירה)} \\
-&\equiv \neg(\neg P) \land \neg Q && \text{(דה-מורגן)} \\
-&\equiv P \land \neg Q && \text{(שלילה כפולה)}
+0 + 1 + \ldots + n &= (0 + 1 + \ldots + (n-1)) + n \\
+&\stackrel{*}{=} \frac{(n-1)n}{2} + n \\
+&= \frac{n^2 - n + 2n}{2} \\
+&= \frac{n^2 + n}{2} = \frac{n(n+1)}{2}
 \end{align*}
 
-\textbf{דוגמה 3: קונטרפוזיציה}
+כש-$(*)$ היא הנחת האינדוקציה.
+\end{exbox}
 
-הטענה ``אם יורד גשם אז הכביש רטוב'' שקולה ל:
+\subsubsection{דוגמה 2: אי-שוויון אקספוננציאלי}
 
-``אם הכביש לא רטוב אז לא יורד גשם''
+\begin{exbox}
+\textbf{הוכחה:} לכל $n \geq 5$ מתקיים $2^n > n^2$
 
-זוהי \textbf{קונטרפוזיציה}: $P \then Q \equiv \neg Q \then \neg P$
+\textbf{בסיס:} עבור $n = 5$:
+\[2^5 = 32 > 25 = 5^2 \quad \checkmark\]
+
+\textbf{צעד:} יהי $n \geq 5$ טבעי. נניח $2^n > n^2$ (הנחת האינדוקציה). נוכיח עבור $n+1$:
+\[2^{n+1} = 2 \cdot 2^n \stackrel{*}{>} 2n^2\]
+
+צריך להראות: $2n^2 > (n+1)^2$, כלומר $2n^2 - (n+1)^2 > 0$.
+\[2n^2 - (n+1)^2 = 2n^2 - n^2 - 2n - 1 = n^2 - 2n - 1 = (n-1)^2 - 2\]
+
+עבור $n \geq 5$: $(n-1)^2 - 2 \geq 4^2 - 2 = 14 > 0$ \checkmark
+\end{exbox}
 
 %====================================
-\subsection{סיכום: טבלת הקשרים הלוגיים}
+\subsection{אינדוקציה עם בסיס שונה מ-0}
+%====================================
+
+\begin{notebox}
+\textbf{התאמת הבסיס}
+
+אם הטענה היא: ``לכל מספר טבעי $n \geq k$ מתקיים $P(n)$'', אז:
+
+\begin{itemize}
+    \item \textbf{בסיס:} מוכיחים $P(k)$
+    \item \textbf{צעד:} לכל $n \geq k+1$ מוכיחים: $P(n-1) \Rightarrow P(n)$
+\end{itemize}
+\end{notebox}
+
+%====================================
+\subsection{אינדוקציה מלאה (שלמה)}
+%====================================
+
+\subsubsection{למה צריך אינדוקציה מלאה?}
+
+\begin{exbox}
+\textbf{הבעיה: כל $n \geq 2$ ניתן לכתיבה כמכפלה של ראשוניים}
+
+\textbf{ניסיון כושל באינדוקציה רגילה:}
+\begin{itemize}
+    \item בסיס: $n=2$ הוא ראשוני \checkmark
+    \item צעד: נניח $n-1 = p_1 \cdot p_2 \cdot \ldots \cdot p_k$
+    \item אז $n = p_1 \cdot p_2 \cdot \ldots \cdot p_k + 1$... \textbf{נתקענו!}
+\end{itemize}
+
+הבעיה: אין קשר בין פירוק של $n-1$ לפירוק של $n$.
+\end{exbox}
+
+\subsubsection{עקרון האינדוקציה המלאה}
+
+\begin{thmbox}
+\textbf{עקרון האינדוקציה המלאה (השלמה)}
+
+כדי להוכיח שטענה $P(n)$ מתקיימת לכל מספר טבעי $n \geq k$:
+
+\begin{enumerate}
+    \item \textbf{בסיס:} $P(k)$ נכון
+    \item \textbf{צעד:} לכל $n \geq k+1$: אם $P(k), P(k+1), \ldots, P(n-1)$ כולם נכונים, אז $P(n)$ נכון
+\end{enumerate}
+
+במילים אחרות: כדי להוכיח $P(n)$ מותר להניח את $P(m)$ \textbf{לכל} $k \leq m < n$.
+\end{thmbox}
+
+\begin{notebox}
+\textbf{הערה:}
+עקרון האינדוקציה המלאה שקול לעקרון האינדוקציה הרגיל (ניתן להוכיח אחד מהשני). אך לפעמים נוח יותר להשתמש בגרסה המלאה.
+\end{notebox}
+
+\subsubsection{הוכחת משפט הראשוניים}
+
+\begin{proofbox}
+\textbf{הוכחה: כל $n \geq 2$ ניתן לכתיבה כמכפלה של ראשוניים}
+
+\textbf{בסיס:} עבור $n = 2$: זו מכפלה של הראשוני $p = 2$ \checkmark
+
+\textbf{צעד (אינדוקציה מלאה):} יהי $n \geq 3$ טבעי. נניח שהטענה נכונה לכל $m$ כך ש-$2 \leq m < n$.
+
+\textbf{מקרה 1:} אם $n$ ראשוני -- סיימנו.
+
+\textbf{מקרה 2:} אם $n$ פריק, קיימים $m_1, m_2$ טבעיים בטווח $2 \leq m_1, m_2 < n$ כך ש-$n = m_1 \cdot m_2$.
+
+מהנחת האינדוקציה (המלאה!):
+\begin{itemize}
+    \item $m_1 = p_1 \cdot \ldots \cdot p_{k_1}$
+    \item $m_2 = q_1 \cdot \ldots \cdot q_{k_2}$
+\end{itemize}
+
+לכן: $n = m_1 \cdot m_2 = p_1 \cdot \ldots \cdot p_{k_1} \cdot q_1 \cdot \ldots \cdot q_{k_2}$ \checkmark
+\end{proofbox}
+
+%====================================
+\subsection{שגיאות נפוצות}
+%====================================
+
+\subsubsection{שגיאה 1: בסיס לא נכון}
+
+\begin{notebox}
+\textbf{דוגמה: ``כל הסוסים בעולם באותו צבע''}
+
+\textbf{טענה שגויה:} לכל $n \geq 1$, כל קבוצה של $n$ סוסים -- כולם באותו צבע.
+
+\textbf{ניסיון הוכחה:}
+\begin{itemize}
+    \item \textbf{בסיס:} $n=1$ -- ברור שסוס אחד הוא באותו צבע כמו עצמו \checkmark
+    \item \textbf{צעד:} נניח הטענה נכונה ל-$n$, נוכיח ל-$n+1$.
+    \begin{itemize}
+        \item ניקח סוסים $a_1, \ldots, a_{n+1}$
+        \item הקבוצה $\{a_1, \ldots, a_n\}$ -- כולם באותו צבע (הנחת האינדוקציה)
+        \item הקבוצה $\{a_2, \ldots, a_{n+1}\}$ -- כולם באותו צבע (הנחת האינדוקציה)
+        \item הסוס $a_2$ משותף לשתיהן, לכן כולם באותו צבע!
+    \end{itemize}
+\end{itemize}
+
+\textbf{היכן השגיאה?}
+הצעד נכשל במעבר מ-$n=1$ ל-$n=2$! עבור שני סוסים $a_1, a_2$:
+\begin{itemize}
+    \item הקבוצה $\{a_1\}$ -- סוס אחד
+    \item הקבוצה $\{a_2\}$ -- סוס אחד
+\end{itemize}
+\textbf{אין חפיפה} בין הקבוצות! אין סוס משותף שמחבר בין הצבעים.
+\end{notebox}
+
+\subsubsection{שגיאה 2: שכחת הבסיס}
+
+\begin{notebox}
+\textbf{תמיד לוודא את הבסיס!}
+\begin{itemize}
+    \item הבסיס הוא חלק הכרחי מההוכחה
+    \item בלי בסיס, צעד האינדוקציה לבד לא מוכיח כלום
+    \item יש לבדוק שהבסיס אכן מתקיים
+\end{itemize}
+\end{notebox}
+
+\subsubsection{שגיאה 3: הנחת מה שצריך להוכיח}
+
+\begin{notebox}
+\textbf{אל תניחו את $P(n)$!}
+
+בצעד האינדוקציה:
+\begin{itemize}
+    \item \cmark \textbf{נכון:} מניחים $P(n-1)$ ומוכיחים $P(n)$
+    \item \xmark \textbf{שגוי:} מניחים $P(n)$ (זה מה שצריך להוכיח!)
+\end{itemize}
+\end{notebox}
+
+%====================================
+\subsection{סיכום שיטות האינדוקציה}
 %====================================
 
 \begin{center}
-\begin{tabular}{|C|C|C|C|C|C|C|C|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-\rowcolor{tableheader}\color{white}\textbf{$P$} & \color{white}\textbf{$Q$} & \color{white}\textbf{$\neg P$} & \color{white}\textbf{$P \land Q$} & \color{white}\textbf{$P \lor Q$} & \color{white}\textbf{$P \oplus Q$} & \color{white}\textbf{$P \then Q$} & \color{white}\textbf{$P \iff Q$} \\
+\rowcolor{tableheader}\color{white}\textbf{סוג} & \color{white}\textbf{בסיס} & \color{white}\textbf{צעד} & \color{white}\textbf{מתי להשתמש} \\
 \hline
-\rowcolor{tablerow1} \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\rowcolor{tablerow1} \textbf{רגילה} & $P(0)$ & $P(n-1) \Rightarrow P(n)$ & קשר ישיר בין $n$ ל-$n-1$ \\
 \hline
-\rowcolor{tablerow2} \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow1} \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{F} & \truthmark{T} & \truthmark{T} & \truthmark{T} & \truthmark{F} \\
-\hline
-\rowcolor{tablerow2} \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{F} & \truthmark{F} & \truthmark{F} & \truthmark{T} & \truthmark{T} \\
+\rowcolor{tablerow2} \textbf{מלאה} & $P(k)$ & $\forall m < n: P(m) \Rightarrow P(n)$ & צריך ערכים קטנים יותר \\
 \hline
 \end{tabular}
 \end{center}
+
+%====================================
+\subsection{תרגילים לתרגול}
+%====================================
+
+\begin{exbox}
+\textbf{תרגיל 1:}
+הוכיחו באינדוקציה: לכל $n \geq 1$ מתקיים $1 + 2 + 4 + \ldots + 2^{n-1} = 2^n - 1$
+\end{exbox}
+
+\begin{exbox}
+\textbf{תרגיל 2:}
+הוכיחו באינדוקציה: לכל $n \geq 1$ מתקיים $1^2 + 2^2 + \ldots + n^2 = \frac{n(n+1)(2n+1)}{6}$
+\end{exbox}
+
+\begin{exbox}
+\textbf{תרגיל 3:}
+הוכיחו באינדוקציה שלמה: כל מספר טבעי $n \geq 12$ ניתן לייצוג כסכום של כפולות של 4 ו-5.
+
+\textbf{רמז:} $12 = 4 \cdot 3$, $13 = 4 + 4 + 5$, $14 = 4 + 5 + 5$, $15 = 5 \cdot 3$
+\end{exbox}
+

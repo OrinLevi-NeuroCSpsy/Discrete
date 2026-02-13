@@ -1,0 +1,389 @@
+% יחידה 5 - פונקציות
+%====================================
+\section{יחידה 5: פונקציות}
+
+\subsection{מושגי יסוד}
+%====================================
+
+\subsubsection{מהי פונקציה?}
+
+\begin{defbox}
+\textbf{הגדרה: פונקציה}
+
+\textbf{פונקציה} $f$ מקבוצה $A$ לקבוצה $B$, מסומנת $f: A \to B$, היא יחס $f \subseteq A \times B$ המקיים:
+\begin{enumerate}
+    \item \textbf{מלאות}: לכל $a \in A$ קיים $b \in B$ כך ש-$\langle a, b \rangle \in f$
+    \item \textbf{חד-ערכיות}: אם $\langle a, b_1 \rangle \in f$ וגם $\langle a, b_2 \rangle \in f$, אז $b_1 = b_2$
+\end{enumerate}
+
+בקיצור: לכל איבר ב-$A$ מתאימה בדיוק תמונה אחת ב-$B$.
+\[\forall a \in A. \exists! b \in B. \langle a, b \rangle \in f\]
+\end{defbox}
+
+\begin{notebox}
+\textbf{סימונים:}
+\begin{itemize}
+    \item $f(a) = b$ או $f: a \mapsto b$ -- הפונקציה $f$ מעתיקה את $a$ ל-$b$
+    \item $A \to B$ -- קבוצת כל הפונקציות מ-$A$ ל-$B$
+\end{itemize}
+\end{notebox}
+
+\subsubsection{תחום, טווח ותמונה}
+
+\begin{defbox}
+\textbf{הגדרות: תחום, טווח ותמונה}
+
+עבור פונקציה $f: A \to B$:
+\begin{itemize}
+    \item \textbf{התחום} (Domain): $\Dom(f) = A$
+    \item \textbf{הטווח} (Codomain): $B$ -- הקבוצה אליה הפונקציה מעתיקה
+    \item \textbf{התמונה} (Image/Range): $\Img(f) = \{f(x) \mid x \in A\} = \{y \in B \mid \exists x \in A. f(x) = y\}$
+\end{itemize}
+\end{defbox}
+
+\begin{notebox}
+\textbf{הבחנה חשובה:}
+\begin{itemize}
+    \item \textbf{הטווח} $B$ הוא הקבוצה אליה הפונקציה \textbf{יכולה} להעתיק
+    \item \textbf{התמונה} $\Img(f)$ היא קבוצת הערכים שהפונקציה \textbf{באמת} מקבלת
+\end{itemize}
+תמיד מתקיים: $\Img(f) \subseteq B$
+\end{notebox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+עבור $f: \R \to \R$ המוגדרת $f(x) = x^2$:
+\begin{itemize}
+    \item $\Dom(f) = \R$
+    \item הטווח הוא $\R$
+    \item $\Img(f) = [0, \infty) = \{y \in \R \mid y \geq 0\}$
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{סימון למבדא}
+%====================================
+
+\begin{defbox}
+\textbf{סימון למבדא}
+
+\textbf{סימון למבדא} (Lambda notation) מאפשר להגדיר פונקציה בצורה קומפקטית:
+\[\lambda x \in A. t(x)\]
+מתאר את הפונקציה מ-$A$ שמתאימה לכל $x$ את הערך $t(x)$.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $\lambda x \in \R. x^2$ -- הפונקציה שמעלה כל מספר ממשי בריבוע
+    \item $\lambda n \in \N. 2n + 1$ -- הפונקציה שמתאימה לכל מספר טבעי את המספר האי-זוגי המתאים
+    \item $\lambda x \in \R. \lambda y \in \R. x + y$ -- פונקציה של שני משתנים
+\end{itemize}
+\end{exbox}
+
+\subsubsection{כללי תחשיב למבדא}
+
+\begin{defbox}
+\textbf{כלל $\alpha$ (החלפת משתנה)}
+
+ניתן להחליף את שם המשתנה הקשור:
+\[\lambda x \in A. t = \lambda y \in A. t[y/x]\]
+בתנאי ש-$y$ לא מופיע חופשי ב-$t$.
+\end{defbox}
+
+\begin{defbox}
+\textbf{כלל $\beta$ (הצבה)}
+
+אם $s$ חופשי להצבה במקום $x$ ב-$t$:
+\[(\lambda x \in A. t)(s) = t[s/x]\]
+זהו כלל ``החישוב'' -- הצבת ארגומנט בפונקציה.
+\end{defbox}
+
+\begin{defbox}
+\textbf{כלל $\eta$ (אקסטנציונליות)}
+\[\lambda x \in \Dom(f). f(x) = f\]
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמה לשימוש בכללים:}
+\[(\lambda x \in \R. x^2)(3) = 3^2 = 9\]
+\[(\lambda x \in \R. x + 1) \circ (\lambda x \in \R. x^2) = \lambda x \in \R. x^2 + 1\]
+\end{exbox}
+
+%====================================
+\subsection{תמונה ומקור של קבוצות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: תמונה של קבוצה}
+
+תהי $f: A \to B$ ו-$X \subseteq A$. \textbf{התמונה של $X$ תחת $f$} היא:
+\[f[X] = \{f(x) \mid x \in X\} = \{y \in B \mid \exists x \in X. f(x) = y\}\]
+\end{defbox}
+
+\begin{defbox}
+\textbf{הגדרה: מקור של קבוצה}
+
+תהי $f: A \to B$ ו-$Y \subseteq B$. \textbf{המקור של $Y$ לפי $f$} הוא:
+\[f^{-1}[Y] = \{x \in A \mid f(x) \in Y\}\]
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+עבור $f(x) = x^2$ על $\R$:
+\begin{itemize}
+    \item $f[(-\infty, 3)] = [0, 9]$
+    \item $f[\{-2, -1, 0, 1, 2\}] = \{0, 1, 4\}$
+    \item $f^{-1}[\{9\}] = \{-3, 3\}$
+    \item $f^{-1}[[0, 1]] = [-1, 1]$
+    \item $f^{-1}[\{-1\}] = \emptyset$ (אין מספר ממשי שריבועו שלילי)
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{הרכבת פונקציות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: הרכבת פונקציות}
+
+תהיינה $f: A \to B$ ו-$g: B \to C$. \textbf{ההרכבה} $g \circ f$ היא פונקציה מ-$A$ ל-$C$ המוגדרת:
+\[(g \circ f)(x) = g(f(x))\]
+
+או בסימון למבדא:
+\[g \circ f = \lambda x \in A. g(f(x))\]
+\end{defbox}
+
+\begin{notebox}
+\textbf{סדר ההרכבה}
+
+ב-$g \circ f$:
+\begin{itemize}
+    \item \textbf{קודם} מפעילים את $f$
+    \item \textbf{אחר כך} מפעילים את $g$
+\end{itemize}
+זה הפוך מסדר הכתיבה!
+\end{notebox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+$f(x) = x^2$, $g(x) = x + 1$ על $\R$:
+\begin{itemize}
+    \item $(g \circ f)(x) = g(f(x)) = g(x^2) = x^2 + 1$
+    \item $(f \circ g)(x) = f(g(x)) = f(x+1) = (x+1)^2$
+\end{itemize}
+שימו לב: $g \circ f \neq f \circ g$
+\end{exbox}
+
+\begin{thmbox}
+\textbf{משפט: תכונות הרכבת פונקציות}
+\begin{enumerate}
+    \item \textbf{אסוציאטיביות}: $(h \circ g) \circ f = h \circ (g \circ f)$
+    \item \textbf{פונקציית הזהות}: $f \circ i_A = f = i_B \circ f$ עבור $f: A \to B$, כאשר $i_A = \lambda x \in A. x$
+    \item \textbf{אי-קומוטטיביות}: בדרך כלל $f \circ g \neq g \circ f$
+\end{enumerate}
+\end{thmbox}
+
+%====================================
+\subsection{סוגי פונקציות מיוחדים}
+%====================================
+
+\subsubsection{פונקציה חד-חד-ערכית (חח"ע)}
+
+\begin{defbox}
+\textbf{הגדרה: פונקציה חח"ע}
+
+פונקציה $f: A \to B$ נקראת \textbf{חד-חד-ערכית} (injective, one-to-one) אם:
+\[\forall x_1, x_2 \in A. f(x_1) = f(x_2) \Rightarrow x_1 = x_2\]
+
+או באופן שקול:
+\[\forall x_1, x_2 \in A. x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)\]
+
+כלומר, לאיברים שונים יש תמונות שונות.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $f(x) = 2x + 3$ על $\R$ -- \textbf{חח"ע} (פונקציה לינארית)
+    \item $f(x) = x^2$ על $\R$ -- \textbf{לא חח"ע} (כי $f(2) = f(-2) = 4$)
+    \item $f(x) = x^2$ על $\R^+$ (המספרים החיוביים) -- \textbf{חח"ע}
+\end{itemize}
+\end{exbox}
+
+\subsubsection{פונקציה על (סורייקטיבית)}
+
+\begin{defbox}
+\textbf{הגדרה: פונקציה על}
+
+פונקציה $f: A \to B$ נקראת \textbf{על} (surjective, onto) אם:
+\[\forall y \in B. \exists x \in A. f(x) = y\]
+
+או באופן שקול: $\Img(f) = B$
+
+כלומר, כל איבר בטווח מתקבל.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $f(x) = 2x + 3$ מ-$\R$ ל-$\R$ -- \textbf{על}
+    \item $f(x) = x^2$ מ-$\R$ ל-$\R$ -- \textbf{לא על} (מספרים שליליים לא מתקבלים)
+    \item $f(x) = x^2$ מ-$\R$ ל-$[0, \infty)$ -- \textbf{על}
+\end{itemize}
+\end{exbox}
+
+\subsubsection{פונקציית שקילות (ביאקציה)}
+
+\begin{defbox}
+\textbf{הגדרה: פונקציית שקילות}
+
+פונקציה $f: A \to B$ נקראת \textbf{פונקציית שקילות} או \textbf{ביאקציה} (bijection) אם היא גם \textbf{חח"ע} וגם \textbf{על}.
+
+במקרה זה, לכל $y \in B$ יש בדיוק מקור אחד ב-$A$.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $f(x) = 2x + 3$ מ-$\R$ ל-$\R$ -- \textbf{ביאקציה}
+    \item $f(x) = e^x$ מ-$\R$ ל-$(0, \infty)$ -- \textbf{ביאקציה}
+    \item $i_A: A \to A$ -- \textbf{ביאקציה} (פונקציית הזהות)
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{פונקציה הפוכה}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: פונקציה הפוכה}
+
+תהי $f: A \to B$ ביאקציה. \textbf{הפונקציה ההפוכה} $f^{-1}: B \to A$ מוגדרת:
+\[f^{-1}(y) = x \iff f(x) = y\]
+\end{defbox}
+
+\begin{notebox}
+\textbf{שימו לב:}
+פונקציה הפוכה $f^{-1}$ קיימת \textbf{אם ורק אם} $f$ היא ביאקציה.
+\begin{itemize}
+    \item אם $f$ לא חח"ע: יש $y$ עם כמה מקורות -- מי יהיה $f^{-1}(y)$?
+    \item אם $f$ לא על: יש $y$ בלי מקור -- מה יהיה $f^{-1}(y)$?
+\end{itemize}
+\end{notebox}
+
+\begin{thmbox}
+\textbf{משפט: תכונות הפונקציה ההפוכה}
+
+אם $f: A \to B$ ביאקציה, אז:
+\begin{enumerate}
+    \item $f^{-1} \circ f = i_A$
+    \item $f \circ f^{-1} = i_B$
+    \item $(f^{-1})^{-1} = f$
+    \item $f^{-1}$ גם היא ביאקציה
+\end{enumerate}
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{משפט: היפוך הרכבה}
+
+אם $f: A \to B$ ו-$g: B \to C$ ביאקציות, אז $g \circ f$ ביאקציה ו:
+\[(g \circ f)^{-1} = f^{-1} \circ g^{-1}\]
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+$f(x) = 2x + 3$ על $\R$:
+\begin{itemize}
+    \item $f$ ביאקציה
+    \item $f^{-1}(y) = \frac{y - 3}{2}$
+    \item בדיקה: $(f^{-1} \circ f)(x) = f^{-1}(2x + 3) = \frac{(2x+3) - 3}{2} = x$ \checkmark
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{צמצום והרחבה של פונקציות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: צמצום פונקציה}
+
+תהי $f: A \to B$ ו-$X \subseteq A$. \textbf{הצמצום של $f$ ל-$X$} הוא הפונקציה:
+\[f|_X = \lambda x \in X. f(x)\]
+זו אותה פונקציה, רק עם תחום מצומצם.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+$f(x) = x^2$ על $\R$:
+\begin{itemize}
+    \item $f|_{\R^+}$ היא $\lambda x \in \R^+. x^2$
+    \item $f$ לא חח"ע, אבל $f|_{\R^+}$ כן חח"ע!
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{טבלת סיכום}
+%====================================
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{תכונה} & \color{white}\textbf{הגדרה} & \color{white}\textbf{דוגמה (כן)} & \color{white}\textbf{דוגמה (לא)} \\
+\hline
+\rowcolor{tablerow1} חח"ע & $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$ & $f(x) = 2x$ & $f(x) = x^2$ על $\R$ \\
+\hline
+\rowcolor{tablerow2} על & $\Img(f) = B$ & $f(x) = x^3$ על $\R$ & $f(x) = e^x$ על $\R$ \\
+\hline
+\rowcolor{tablerow1} ביאקציה & חח"ע + על & $f(x) = 2x + 1$ & $f(x) = x^2$ על $\R$ \\
+\hline
+\end{tabular}
+\end{center}
+
+%====================================
+\subsection{טעויות נפוצות}
+%====================================
+
+\begin{notebox}
+\textbf{טעות 1: בלבול בין טווח לתמונה}
+\begin{itemize}
+    \item \textbf{הטווח} $B$ נקבע בהגדרת הפונקציה
+    \item \textbf{התמונה} $\Img(f)$ היא קבוצת הערכים שבאמת מתקבלים
+\end{itemize}
+
+דוגמה: $f: \R \to \R$, $f(x) = x^2$
+\begin{itemize}
+    \item הטווח הוא $\R$
+    \item התמונה היא $[0, \infty)$ בלבד
+\end{itemize}
+\end{notebox}
+
+\begin{notebox}
+\textbf{טעות 2: סדר ההרכבה}
+
+ב-$g \circ f$ קודם מפעילים את $f$!
+
+$(g \circ f)(x) = g(f(x))$ -- קודם $f$, אחר כך $g$
+\end{notebox}
+
+\begin{notebox}
+\textbf{טעות 3: פונקציה הפוכה לא תמיד קיימת}
+
+$f^{-1}$ קיימת \textbf{רק אם} $f$ ביאקציה.
+
+לא כל פונקציה הפיכה!
+\end{notebox}
+
+\begin{notebox}
+\textbf{טעות 4: בלבול בין $f^{-1}$ לבין $f^{-1}[Y]$}
+\begin{itemize}
+    \item $f^{-1}$ -- הפונקציה ההפוכה (קיימת רק לביאקציות)
+    \item $f^{-1}[Y]$ -- מקור הקבוצה $Y$ (קיים תמיד)
+\end{itemize}
+\end{notebox}
+

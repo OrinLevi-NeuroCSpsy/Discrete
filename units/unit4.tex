@@ -1,0 +1,177 @@
+% יחידה 4 - יחסים
+%====================================
+\section{יחידה 4: יחסים}
+
+\subsection{זוגות סדורים ומכפלה קרטזית}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: זוג סדור}
+
+\textbf{זוג סדור} $\langle a, b \rangle$ הוא אובייקט מתמטי שבו יש משמעות לסדר.
+
+\textbf{תכונה:} $\langle a, b \rangle = \langle c, d \rangle$ אם ורק אם $a = c$ ו-$b = d$.
+\end{defbox}
+
+\begin{notebox}
+\textbf{הבדל מקבוצה:}
+\begin{itemize}
+    \item בקבוצה $\{a, b\} = \{b, a\}$ -- אין משמעות לסדר
+    \item בזוג סדור $\langle a, b \rangle \neq \langle b, a \rangle$ (אלא אם $a = b$)
+\end{itemize}
+\end{notebox}
+
+\begin{defbox}
+\textbf{הגדרה: מכפלה קרטזית}
+
+\textbf{מכפלה קרטזית} של קבוצות $A$ ו-$B$:
+\[
+A \times B = \{\langle a, b \rangle \mid a \in A \land b \in B\}
+\]
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+אם $A = \{1, 2\}$ ו-$B = \{x, y\}$:
+\[
+A \times B = \{\langle 1, x \rangle, \langle 1, y \rangle, \langle 2, x \rangle, \langle 2, y \rangle\}
+\]
+
+\textbf{שימו לב:} $|A \times B| = |A| \cdot |B| = 2 \cdot 2 = 4$
+\end{exbox}
+
+%====================================
+\subsection{יחסים בינאריים}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: יחס בינארי}
+
+\textbf{יחס בינארי} מ-$A$ ל-$B$ הוא תת-קבוצה $R \subseteq A \times B$.
+
+אם $\langle a, b \rangle \in R$, נסמן גם $aRb$ ונאמר ``$a$ ביחס $R$ ל-$b$''.
+
+\textbf{יחס על קבוצה:} יחס מ-$A$ ל-$A$, כלומר $R \subseteq A \times A$.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות ליחסים:}
+
+\begin{enumerate}
+    \item יחס ``קטן מ-'' על $\N$: $R_< = \{\langle n, m \rangle \mid n < m\}$
+    \item יחס ``מחלק'' על $\N$: $R_| = \{\langle n, m \rangle \mid n | m\}$
+    \item יחס הזהות: $I_A = \{\langle a, a \rangle \mid a \in A\}$
+\end{enumerate}
+\end{exbox}
+
+%====================================
+\subsection{תכונות של יחסים}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: תכונות יחסים}
+
+יהי $R$ יחס על קבוצה $A$:
+
+\begin{enumerate}
+    \item \textbf{רפלקסיבי:} $\forall a \in A. \langle a, a \rangle \in R$
+    \item \textbf{סימטרי:} $\forall a, b \in A. aRb \then bRa$
+    \item \textbf{אנטי-סימטרי:} $\forall a, b \in A. (aRb \land bRa) \then a = b$
+    \item \textbf{טרנזיטיבי:} $\forall a, b, c \in A. (aRb \land bRc) \then aRc$
+\end{enumerate}
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{יחס} & \color{white}\textbf{רפלקסיבי} & \color{white}\textbf{סימטרי} & \color{white}\textbf{א-סימטרי} & \color{white}\textbf{טרנזיטיבי} \\
+\hline
+\rowcolor{tablerow1} $=$ על $\N$ & \cmark & \cmark & \cmark & \cmark \\
+\hline
+\rowcolor{tablerow2} $<$ על $\N$ & \xmark & \xmark & \cmark & \cmark \\
+\hline
+\rowcolor{tablerow1} $\leq$ על $\N$ & \cmark & \xmark & \cmark & \cmark \\
+\hline
+\rowcolor{tablerow2} $|$ (מחלק) על $\N^+$ & \cmark & \xmark & \cmark & \cmark \\
+\hline
+\end{tabular}
+\end{center}
+\end{exbox}
+
+%====================================
+\subsection{הרכבת יחסים}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: הרכבת יחסים}
+
+יהיו $R \subseteq A \times B$ ו-$S \subseteq B \times C$ יחסים.
+
+\textbf{ההרכבה} $S \circ R$ מוגדרת:
+\[
+S \circ R = \{\langle a, c \rangle \mid \exists b \in B. (aRb \land bSc)\}
+\]
+\end{defbox}
+
+\begin{notebox}
+\textbf{שימו לב לסדר!}
+
+ב-$S \circ R$: קודם מפעילים את $R$, אח"כ את $S$.
+
+זה דומה להרכבת פונקציות: $(g \circ f)(x) = g(f(x))$.
+\end{notebox}
+
+\begin{defbox}
+\textbf{הגדרה: חזקות של יחס}
+
+יהי $R$ יחס על $A$:
+\begin{align*}
+R^{(0)} &= I_A \\
+R^{(n+1)} &= R^{(n)} \circ R
+\end{align*}
+\end{defbox}
+
+%====================================
+\subsection{יחס הופכי}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: יחס הופכי}
+
+\textbf{היחס ההופכי} של $R \subseteq A \times B$:
+\[
+R^{-1} = \{\langle b, a \rangle \mid \langle a, b \rangle \in R\}
+\]
+\end{defbox}
+
+\begin{thmbox}
+\textbf{משפט: תכונות היחס ההופכי}
+
+\begin{enumerate}
+    \item $(R^{-1})^{-1} = R$
+    \item $(S \circ R)^{-1} = R^{-1} \circ S^{-1}$
+    \item $R$ סימטרי אמ"מ $R = R^{-1}$
+\end{enumerate}
+\end{thmbox}
+
+%====================================
+\subsection{סיכום: סוגי יחסים}
+%====================================
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{סוג יחס} & \color{white}\textbf{תנאים} \\
+\hline
+\rowcolor{tablerow1} \textbf{יחס שקילות} & רפלקסיבי + סימטרי + טרנזיטיבי \\
+\hline
+\rowcolor{tablerow2} \textbf{יחס סדר חלקי} & רפלקסיבי + אנטי-סימטרי + טרנזיטיבי \\
+\hline
+\rowcolor{tablerow1} \textbf{יחס סדר מלא} & יחס סדר חלקי + קשר \\
+\hline
+\end{tabular}
+\end{center}

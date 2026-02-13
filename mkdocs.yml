@@ -68,13 +68,14 @@ extra_javascript:
 nav:
   - בית: index.md
   - יחידות:
-    - יחידה 1 - אינדוקציה: units/unit1.md
-    - יחידה 2 - לוגיקה ופסוקים: units/unit2.md
+    - יחידה 1 - אינדוקציה מתמטית: units/unit1.md
+    - יחידה 2 - לוגיקה והוכחה מתמטית: units/unit2.md
     - יחידה 3 - קבוצות: units/unit3.md
     - יחידה 4 - יחסים: units/unit4.md
     - יחידה 5 - פונקציות: units/unit5.md
-    - יחידה 6 - יחסי שקילות וסדר: units/unit6.md
-    - יחידה 7 - עוצמות וספירה: units/unit7.md
+    - יחידה 6 - יחסי שקילות וחלוקות: units/unit6.md
+    - יחידה 7 - יחסי סדר: units/unit7.md
+    - יחידה 8 - עוצמות: units/unit8.md
   - שאלות ממבחנים:
     - סקירה כללית: exams/index.md
     - קבוצות: exams/sets.md

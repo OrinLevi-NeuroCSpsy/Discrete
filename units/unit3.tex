@@ -1,0 +1,394 @@
+% יחידה 3 - קבוצות
+%====================================
+\section{יחידה 3: קבוצות}
+
+\subsection{מושגי יסוד}
+%====================================
+
+\subsubsection{מהי קבוצה?}
+
+\begin{defbox}
+\textbf{הגדרה: קבוצה}
+
+\textbf{קבוצה} (Set) היא אוסף של עצמים, המהווה עצם בעצמו. לעצמים שמרכיבים קבוצה קוראים \textbf{איברי} הקבוצה, ועל כל אחד מהם אומרים שהוא \textbf{שייך} לקבוצה.
+\end{defbox}
+
+\textbf{סימון:} אם $t$ הוא איבר של קבוצה $A$, נכתוב $t \in A$. אם $t$ אינו איבר של $A$, נכתוב $t \notin A$.
+
+\begin{notebox}
+\textbf{נקודות חשובות:}
+\begin{itemize}
+    \item \textbf{אין הגבלה} על מה שיכול לשמש כאיבר בקבוצה -- כל עצם יכול להיות איבר.
+    \item קבוצות אינן חייבות להיות \textbf{הומוגניות} -- ניתן לערבב סוגי עצמים שונים.
+    \item קבוצות יכולות להיות \textbf{סופיות} או \textbf{אינסופיות}.
+    \item קבוצות עצמן נחשבות לעצמים, ולכן \textbf{קבוצה יכולה להיות איבר של קבוצה אחרת}.
+\end{itemize}
+\end{notebox}
+
+\subsubsection{עקרון האקסטנציונליות}
+
+\begin{thmbox}
+\textbf{עקרון האקסטנציונליות}
+
+שתי קבוצות הן \textbf{שוות} אם ורק אם יש להן \textbf{בדיוק אותם איברים}.
+
+בסימון פורמלי:
+\[A = B \Leftrightarrow \forall x.(x \in A \leftrightarrow x \in B)\]
+\end{thmbox}
+
+\textbf{משמעות:} קבוצה נקבעת אך ורק על-ידי איבריה -- לא על-ידי סדר הצגתם, לא על-ידי האופן שבו תוארה, ולא על-ידי כל מאפיין אחר.
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $\{1, 2, 3\} = \{3, 1, 2\} = \{1, 1, 2, 3\}$ -- סדר ההצגה וכפילויות לא משנים.
+    \item קבוצת המספרים הזוגיים בין 1 ל-5 שווה לקבוצה $\{2, 4\}$.
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{הכלה (תת-קבוצה)}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: הכלה}
+
+נאמר ש-$A$ היא \textbf{תת-קבוצה} של $B$ (או ש-$A$ \textbf{חלקית} ל-$B$, או ש-$B$ \textbf{מכילה} את $A$) אם כל איבר של $A$ הוא גם איבר של $B$.
+
+\textbf{סימון:} $A \subseteq B$
+
+בסימון פורמלי:
+\[A \subseteq B \Leftrightarrow \forall x.(x \in A \rightarrow x \in B)\]
+\end{defbox}
+
+\begin{defbox}
+\textbf{הגדרה: הכלה ממש}
+
+נאמר ש-$A$ היא \textbf{תת-קבוצה ממש} של $B$ (או ש-$A$ \textbf{חלקית ממש} ל-$B$) אם $A \subseteq B$ וגם $A \neq B$.
+
+\textbf{סימון:} $A \subsetneq B$ או $A \subset B$
+\end{defbox}
+
+\begin{thmbox}
+\textbf{משפט: קשר בין שוויון להכלה}
+\[A = B \Leftrightarrow (A \subseteq B \land B \subseteq A)\]
+
+זוהי הדרך הנפוצה ביותר להוכיח שוויון בין שתי קבוצות: מראים \textbf{הכלה דו-כיוונית}.
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{משפט: טרנזיטיביות ההכלה}
+
+לכל שלוש קבוצות $A, B, C$:
+\[A \subseteq B \land B \subseteq C \Rightarrow A \subseteq C\]
+\end{thmbox}
+
+\begin{proofbox}
+\textbf{הוכחה:}
+יהי $x \in A$. כיוון ש-$A \subseteq B$ נובע ש-$x \in B$. מהעובדה ש-$B \subseteq C$ נובע ש-$x \in C$. $\blacksquare$
+\end{proofbox}
+
+\begin{notebox}
+\textbf{אזהרה: הבדל בין $\in$ ל-$\subseteq$}
+\begin{itemize}
+    \item \textbf{שייכות} ($\in$): יחס בין \textbf{איבר} לבין \textbf{קבוצה}.
+    \item \textbf{הכלה} ($\subseteq$): יחס בין \textbf{קבוצה} לבין \textbf{קבוצה}.
+\end{itemize}
+
+לדוגמה: קבוצת המספרים הזוגיים \textbf{חלקית} לקבוצת הטבעיים, אך היא \textbf{לא שייכת} לה (כי היא עצמה אינה מספר טבעי).
+\end{notebox}
+
+%====================================
+\subsection{הקבוצה הריקה}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: הקבוצה הריקה}
+
+\textbf{הקבוצה הריקה} (נסמנת $\emptyset$ או $\{\}$) היא הקבוצה שאין בה איברים כלל.
+
+בסימון פורמלי:
+\[\forall x. x \notin \emptyset\]
+\end{defbox}
+
+\begin{thmbox}
+\textbf{משפט: הקבוצה הריקה חלקית לכל קבוצה}
+
+לכל קבוצה $A$ מתקיים $\emptyset \subseteq A$.
+\end{thmbox}
+
+\begin{proofbox}
+\textbf{הוכחה:}
+צריך להראות ש-$\forall x.(x \in \emptyset \rightarrow x \in A)$. מכיוון שאין איברים ב-$\emptyset$, האגף השמאלי של הגרירה תמיד שקר, ולכן הגרירה כולה תמיד אמת (``מהשקר נובע הכל''). $\blacksquare$
+\end{proofbox}
+
+%====================================
+\subsection{אקסיומות להגדרת קבוצות}
+%====================================
+
+\subsubsection{עקרון הקומפרהנסיה המוגבל}
+
+\begin{thmbox}
+\textbf{עקרון הקומפרהנסיה המוגבל}
+
+אם $A$ היא קבוצה ו-$P$ הוא תנאי (פרדיקט), אז הביטוי
+\[\{x \in A \mid P(x)\}\]
+מגדיר קבוצה. זוהי קבוצת כל האיברים מ-$A$ שמקיימים את התנאי $P$.
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+קבוצת המספרים הזוגיים:
+\[\mathbb{N}_{\text{even}} = \{n \in \mathbb{N} \mid \exists k \in \mathbb{N}. n = 2k\}\]
+\end{exbox}
+
+\subsubsection{אקסיומת ההחלפה}
+
+\begin{thmbox}
+\textbf{אקסיומת ההחלפה}
+
+אם $F$ היא פונקציה ו-$A$ היא קבוצה, אז הביטוי
+\[\{F(x) \mid x \in A\}\]
+מגדיר קבוצה. זוהי קבוצת כל התוצאות של הפעלת $F$ על איברי $A$.
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+קבוצת המספרים הזוגיים (דרך נוספת):
+\[\mathbb{N}_{\text{even}} = \{2n \mid n \in \mathbb{N}\}\]
+\end{exbox}
+
+\begin{notebox}
+\textbf{הערה:} שני הסימונים שקולים:
+\[\{F(x) \mid x \in A\} = \{y \in B \mid \exists x \in A. F(x) = y\}\]
+כאשר $B$ היא קבוצה המכילה את כל הערכים האפשריים של $F$.
+\end{notebox}
+
+%====================================
+\subsection{פעולות על קבוצות}
+%====================================
+
+\subsubsection{פעולות בסיסיות}
+
+\begin{defbox}
+\textbf{הגדרות: פעולות על קבוצות}
+
+יהיו $A, B$ קבוצות.
+
+\textbf{איחוד (Union):}
+\[A \cup B = \{x \mid x \in A \lor x \in B\}\]
+
+\textbf{חיתוך (Intersection):}
+\[A \cap B = \{x \mid x \in A \land x \in B\}\]
+
+\textbf{הפרש (Difference):}
+\[A \setminus B = \{x \mid x \in A \land x \notin B\}\]
+
+\textbf{משלים (Complement):} ביחס לקבוצת ``עולם'' $E$:
+\[\overline{A} = E \setminus A = \{x \in E \mid x \notin A\}\]
+
+\textbf{הפרש סימטרי (Symmetric Difference):}
+\[A \triangle B = (A \setminus B) \cup (B \setminus A)\]
+\end{defbox}
+
+\subsubsection{תכונות הפעולות}
+
+\begin{thmbox}
+\textbf{תכונות יסודיות של פעולות על קבוצות}
+
+\textbf{קומוטטיביות:}
+\[A \cap B = B \cap A \qquad A \cup B = B \cup A\]
+
+\textbf{אסוציאטיביות:}
+\[(A \cap B) \cap C = A \cap (B \cap C) \qquad (A \cup B) \cup C = A \cup (B \cup C)\]
+
+\textbf{דיסטריביוטיביות:}
+\[A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\]
+\[A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\]
+
+\textbf{חוקי דה-מורגן:}
+\[\overline{A \cup B} = \overline{A} \cap \overline{B} \qquad \overline{A \cap B} = \overline{A} \cup \overline{B}\]
+
+\textbf{משלים-הפרש:}
+\[A \setminus B = A \cap \overline{B}\]
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמה: הוכחת זהות בין קבוצות}
+
+נוכיח: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+
+\textbf{שיטה 1: שימוש בזהויות}
+\begin{align*}
+A \setminus (B \cap C) &= A \cap \overline{B \cap C} && \text{(משלים-הפרש)} \\
+&= A \cap (\overline{B} \cup \overline{C}) && \text{(דה-מורגן)} \\
+&= (A \cap \overline{B}) \cup (A \cap \overline{C}) && \text{(דיסטריביוטיביות)} \\
+&= (A \setminus B) \cup (A \setminus C) && \text{(משלים-הפרש)}
+\end{align*}
+
+\textbf{שיטה 2: הכלה דו-כיוונית}
+
+($\subseteq$) יהי $x \in A \setminus (B \cap C)$. אז $x \in A$ ו-$x \notin B \cap C$, כלומר $x \notin B$ או $x \notin C$.
+\begin{itemize}
+    \item אם $x \notin B$ אז $x \in A \setminus B$.
+    \item אם $x \notin C$ אז $x \in A \setminus C$.
+\end{itemize}
+בכל מקרה $x \in (A \setminus B) \cup (A \setminus C)$.
+
+($\supseteq$) יהי $x \in (A \setminus B) \cup (A \setminus C)$.
+\begin{itemize}
+    \item אם $x \in A \setminus B$ אז $x \in A$ ו-$x \notin B$, ולכן $x \notin B \cap C$.
+    \item אם $x \in A \setminus C$ אז $x \in A$ ו-$x \notin C$, ולכן $x \notin B \cap C$.
+\end{itemize}
+בכל מקרה $x \in A \setminus (B \cap C)$. $\blacksquare$
+\end{exbox}
+
+%====================================
+\subsection{קבוצת החזקה}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: קבוצת החזקה}
+
+בהינתן קבוצה $A$, \textbf{קבוצת החזקה} שלה, $\mathcal{P}(A)$, מוגדרת כקבוצת כל תתי-הקבוצות של $A$:
+\[\mathcal{P}(A) = \{B \mid B \subseteq A\}\]
+\end{defbox}
+
+\begin{notebox}
+\textbf{תכונה חשובה:}
+
+לכל קבוצה $B$ מתקיים:
+\[B \in \mathcal{P}(A) \Leftrightarrow B \subseteq A\]
+\end{notebox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $\mathcal{P}(\emptyset) = \{\emptyset\}$
+    \item $\mathcal{P}(\{1\}) = \{\emptyset, \{1\}\}$
+    \item $\mathcal{P}(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$
+    \item $\mathcal{P}(\mathcal{P}(\{1\})) = \{\emptyset, \{\emptyset\}, \{\{1\}\}, \{\emptyset, \{1\}\}\}$
+\end{itemize}
+\end{exbox}
+
+\begin{thmbox}
+\textbf{משפט:}
+\[A \subseteq B \Leftrightarrow \mathcal{P}(A) \subseteq \mathcal{P}(B)\]
+\end{thmbox}
+
+\begin{proofbox}
+\textbf{הוכחה:}
+
+($\Rightarrow$) נניח $A \subseteq B$. תהא $X \in \mathcal{P}(A)$. אז $X \subseteq A$. מטרנזיטיביות ההכלה, $X \subseteq B$, ולכן $X \in \mathcal{P}(B)$.
+
+($\Leftarrow$) נניח $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. יהי $x \in A$. אז $\{x\} \subseteq A$, ולכן $\{x\} \in \mathcal{P}(A)$. מההנחה, $\{x\} \in \mathcal{P}(B)$, ולכן $\{x\} \subseteq B$, ומכאן $x \in B$. $\blacksquare$
+\end{proofbox}
+
+%====================================
+\subsection{איחוד וחיתוך מוכללים}
+%====================================
+
+\subsubsection{הגדרה באמצעות קבוצה של קבוצות}
+
+\begin{defbox}
+\textbf{הגדרה: איחוד וחיתוך מוכללים}
+
+תהי $\mathcal{F}$ קבוצה של קבוצות.
+
+\textbf{איחוד מוכלל:}
+\[\bigcup \mathcal{F} = \{x \mid \exists A \in \mathcal{F}. x \in A\}\]
+
+\textbf{חיתוך מוכלל} (מוגדר רק אם $\mathcal{F} \neq \emptyset$):
+\[\bigcap \mathcal{F} = \{x \mid \forall A \in \mathcal{F}. x \in A\}\]
+\end{defbox}
+
+\subsubsection{הגדרה באמצעות קבוצת אינדקסים}
+
+\begin{defbox}
+\textbf{הגדרה: סימון אינדקסים}
+
+תהי $I$ קבוצת אינדקסים, ולכל $i \in I$ תהי $A_i$ קבוצה.
+
+\textbf{איחוד:}
+\[\bigcup_{i \in I} A_i = \{x \mid \exists i \in I. x \in A_i\}\]
+
+\textbf{חיתוך} (כאשר $I \neq \emptyset$):
+\[\bigcap_{i \in I} A_i = \{x \mid \forall i \in I. x \in A_i\}\]
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+
+עבור $\mathcal{X} = \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}\}$:
+\[\bigcup \mathcal{X} = \{\emptyset, \{\emptyset\}\} \qquad \bigcap \mathcal{X} = \emptyset\]
+
+עבור קטעים:
+\[\bigcup_{x \in \mathbb{R}^+} (0, x) = \mathbb{R}^+ = (0, \infty) \qquad \bigcap_{x \in \mathbb{R}^+} (0, x) = \emptyset\]
+\end{exbox}
+
+\begin{exbox}
+\textbf{דוגמה מפורטת:}
+
+נוכיח: $\displaystyle\bigcup_{k \geq 2} \left[\frac{1}{k}, 1 - \frac{1}{k}\right] = (0, 1)$
+
+($\subseteq$) יהי $x$ באיחוד. אז קיים $k \geq 2$ כך ש-$\frac{1}{k} \leq x \leq 1 - \frac{1}{k}$. מכיוון ש-$k \geq 2$, מתקיים $0 < \frac{1}{k} \leq x \leq 1 - \frac{1}{k} < 1$, ולכן $x \in (0, 1)$.
+
+($\supseteq$) יהי $x \in (0, 1)$. נבחר $k = \max\left\{\left\lceil\frac{1}{x}\right\rceil, \left\lceil\frac{1}{1-x}\right\rceil, 2\right\}$. אז $k \geq 2$, וגם $k \geq \frac{1}{x}$ (כלומר $x \geq \frac{1}{k}$) וגם $k \geq \frac{1}{1-x}$ (כלומר $x \leq 1 - \frac{1}{k}$). $\blacksquare$
+\end{exbox}
+
+%====================================
+\subsection{מלכודות נפוצות}
+%====================================
+
+\begin{notebox}
+\textbf{מלכודות נפוצות:}
+
+\textbf{1. בלבול בין $\in$ ל-$\subseteq$:}
+\begin{itemize}
+    \item $1 \in \{1, 2\}$ \checkmark
+    \item $\{1\} \subseteq \{1, 2\}$ \checkmark
+    \item $\{1\} \in \{1, 2\}$ \xmark{} (אלא אם $\{1\}$ הוא עצמו איבר)
+\end{itemize}
+
+\textbf{2. בלבול בין $\emptyset$ ל-$\{\emptyset\}$:}
+\begin{itemize}
+    \item $\emptyset$ היא הקבוצה הריקה (0 איברים)
+    \item $\{\emptyset\}$ היא קבוצה עם איבר אחד (הקבוצה הריקה)
+\end{itemize}
+
+\textbf{3. $\in$ אינה טרנזיטיבית:}
+\begin{itemize}
+    \item אם $A \in B$ ו-$B \in C$, לא בהכרח $A \in C$.
+    \item דוגמה נגדית: $A = \{2\}$, $B = \{\{2\}, 2\}$, $C = \{\{\{2\}, 2\}\}$.
+\end{itemize}
+\end{notebox}
+
+%====================================
+\subsection{תרגילים לדוגמה}
+%====================================
+
+\begin{exbox}
+\textbf{תרגיל 1:} אילו מהטענות הבאות נכונות?
+
+\begin{enumerate}
+    \item $\emptyset \in \emptyset$ -- \textbf{לא נכון} (אין איברים ב-$\emptyset$)
+    \item $\emptyset \subseteq \emptyset$ -- \textbf{נכון} (הריקה חלקית לכל קבוצה)
+    \item $\emptyset \in \{\emptyset\}$ -- \textbf{נכון} (הריקה היא איבר)
+    \item $\emptyset \subseteq \{\emptyset\}$ -- \textbf{נכון} (הריקה חלקית לכל קבוצה)
+    \item $\{2, 3\} \subseteq \{1, 2, \{2, 3\}, 4\}$ -- \textbf{לא נכון} ($3$ לא איבר בקבוצה הימנית)
+    \item $\{2, 3\} \in \{1, 2, \{2, 3\}, 4\}$ -- \textbf{נכון} ($\{2,3\}$ הוא איבר)
+\end{enumerate}
+\end{exbox}
+
+\begin{exbox}
+\textbf{תרגיל 2:} מצאו תנאי הכרחי ומספיק לכך ש-$\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(A \cup B)$.
+
+\textbf{תשובה:} $A \subseteq B$ או $B \subseteq A$.
+
+\textbf{הוכחת המספיקות:} נניח $A \subseteq B$. אז $A \cup B = B$, ו-$\mathcal{P}(A) \subseteq \mathcal{P}(B)$. לכן $\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(B) = \mathcal{P}(A \cup B)$.
+
+\textbf{הוכחת ההכרחיות:} נניח ששתי הקבוצות לא מוכלות זו בזו. אז קיימים $a \in A \setminus B$ ו-$b \in B \setminus A$. הקבוצה $\{a, b\}$ שייכת ל-$\mathcal{P}(A \cup B)$ אך לא ל-$\mathcal{P}(A)$ ולא ל-$\mathcal{P}(B)$, ולכן לא לאיחוד שלהן.
+\end{exbox}
+

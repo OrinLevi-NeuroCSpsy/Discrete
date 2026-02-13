@@ -1,0 +1,334 @@
+% יחידה 7 - יחסי סדר
+%====================================
+\section{יחידה 7: יחסי סדר}
+
+\subsection{יחס סדר חלקי}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: יחס סדר חלקי}
+
+יחס $R$ על קבוצה $A$ נקרא \textbf{יחס סדר חלקי} (partial order) אם הוא מקיים:
+
+\begin{enumerate}
+    \item \textbf{רפלקסיביות:} $\forall x \in A. \; xRx$
+    \item \textbf{אנטי-סימטריות:} $(xRy \land yRx) \Rightarrow x = y$
+    \item \textbf{טרנזיטיביות:} $(xRy \land yRz) \Rightarrow xRz$
+\end{enumerate}
+
+מסמנים לעתים $\leq$ או $\preceq$ ליחס סדר חלקי.
+\end{defbox}
+
+\begin{notebox}
+\textbf{סימון:} הזוג $(A, \leq)$ נקרא \textbf{קבוצה סדורה חלקית} (poset -- partially ordered set).
+\end{notebox}
+
+\begin{exbox}
+\textbf{דוגמאות ליחסי סדר חלקי:}
+
+\begin{itemize}
+    \item $\leq$ על $\R$ (או על $\N, \Z, \Q$)
+    \item $\subseteq$ על $\mathcal{P}(A)$ (יחס ההכלה על קבוצת החזקה)
+    \item יחס ההתחלקות $|$ על $\N^+$: $a \mid b \iff \exists k \in \N. \; b = ak$
+    \item יחס ``$f$ גדולה נקודתית מ-$g$'' על קבוצת הפונקציות
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{יחס סדר מלא}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: יחס סדר מלא}
+
+יחס סדר חלקי $R$ על $A$ נקרא \textbf{יחס סדר מלא} (total/linear order) אם בנוסף הוא \textbf{קשר} (connected):
+
+\[\forall x, y \in A. \; xRy \lor yRx\]
+
+כלומר, כל שני איברים ניתנים להשוואה.
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+
+\begin{itemize}
+    \item $\leq$ על $\R$ -- יחס סדר \textbf{מלא}
+    \item $\subseteq$ על $\mathcal{P}(A)$ -- יחס סדר \textbf{חלקי} (לא מלא):
+    \begin{itemize}
+        \item $\{1\} \not\subseteq \{2\}$ וגם $\{2\} \not\subseteq \{1\}$
+    \end{itemize}
+    \item $|$ (מחלק) על $\N^+$ -- \textbf{חלקי}: $2 \nmid 3$ וגם $3 \nmid 2$
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{יחס סדר חזק}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: יחס סדר חלקי חזק}
+
+\textbf{יחס סדר חלקי חזק} (strict partial order) הוא יחס שהוא:
+
+\begin{enumerate}
+    \item \textbf{אי-רפלקסיבי:} $\forall x. \; \neg(xRx)$
+    \item \textbf{טרנזיטיבי:} $(xRy \land yRz) \Rightarrow xRz$
+\end{enumerate}
+
+(אנטי-סימטריות חזקה נובעת מהטרנזיטיביות והאי-רפלקסיביות)
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $<$ על $\R$
+    \item $\subsetneq$ (הכלה ממש)
+\end{itemize}
+\end{exbox}
+
+\begin{thmbox}
+\textbf{קשר בין סדר חלקי לסדר חזק}
+
+אם $\leq$ יחס סדר חלקי על $A$, אז:
+\[< \; = \; \{(x, y) \in A^2 \mid x \leq y \land x \neq y\}\]
+הוא יחס סדר חלקי חזק.
+
+ולהפך: אם $<$ יחס סדר חלקי חזק, אז:
+\[\leq \; = \; < \cup I_A\]
+הוא יחס סדר חלקי (כאשר $I_A$ הוא יחס הזהות).
+\end{thmbox}
+
+%====================================
+\subsection{איברים מיוחדים}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרות: איברים מיוחדים בקבוצה סדורה}
+
+יהי $(A, \leq)$ קבוצה סדורה חלקית. עבור $a \in A$:
+
+\textbf{מינימלי ומקסימלי:}
+\begin{itemize}
+    \item \textbf{מינימלי:} אין איבר קטן ממנו ממש
+    \[\neg \exists x \in A. \; x < a\]
+    \item \textbf{מקסימלי:} אין איבר גדול ממנו ממש
+    \[\neg \exists x \in A. \; a < x\]
+\end{itemize}
+
+\textbf{מינימום ומקסימום:}
+\begin{itemize}
+    \item \textbf{מינימום} (הקטן ביותר): קטן או שווה לכל איבר
+    \[\forall x \in A. \; a \leq x\]
+    \item \textbf{מקסימום} (הגדול ביותר): גדול או שווה לכל איבר
+    \[\forall x \in A. \; x \leq a\]
+\end{itemize}
+\end{defbox}
+
+\begin{notebox}
+\textbf{הבדל חשוב: מינימלי vs מינימום}
+
+\begin{itemize}
+    \item \textbf{מינימום:} אם קיים, הוא \textbf{יחיד}
+    \item \textbf{מינימלי:} יכולים להיות \textbf{כמה}, או \textbf{אף אחד}
+    \item בסדר \textbf{מלא}: מינימלי = מינימום
+    \item בסדר \textbf{חלקי}: יכול להיות מינימלי בלי מינימום
+\end{itemize}
+\end{notebox}
+
+\begin{exbox}
+\textbf{דוגמה: הכלה על קבוצת חזקה}
+
+$(\mathcal{P}(\{1,2,3\}) \setminus \{\emptyset\}, \subseteq)$
+
+\begin{itemize}
+    \item \textbf{מינימליים:} $\{1\}, \{2\}, \{3\}$ (אין קטנים מהם)
+    \item \textbf{מינימום:} אין! (אף איבר לא מוכל בכולם)
+    \item \textbf{מקסימום:} $\{1,2,3\}$
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{חסמים}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרות: חסמים}
+
+יהי $(A, \leq)$ קבוצה סדורה ו-$B \subseteq A$:
+
+\textbf{חסמים עליונים ותחתונים:}
+\begin{itemize}
+    \item \textbf{חסם עליון} של $B$: איבר $a \in A$ כך ש-$\forall b \in B. \; b \leq a$
+    \item \textbf{חסם תחתון} של $B$: איבר $a \in A$ כך ש-$\forall b \in B. \; a \leq b$
+\end{itemize}
+
+\textbf{סופרמום ואינפימום:}
+\begin{itemize}
+    \item \textbf{סופרמום} (חסם עליון הדוק): החסם העליון \textbf{הקטן ביותר} -- $\sup(B)$
+    \item \textbf{אינפימום} (חסם תחתון הדוק): החסם התחתון \textbf{הגדול ביותר} -- $\inf(B)$
+\end{itemize}
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמה:} $B = (0, 1) \subseteq \R$ עם הסדר הרגיל:
+
+\begin{itemize}
+    \item \textbf{חסמים עליונים:} כל $x \geq 1$
+    \item \textbf{חסמים תחתונים:} כל $x \leq 0$
+    \item \textbf{סופרמום:} $\sup(B) = 1$ (לא שייך ל-$B$!)
+    \item \textbf{אינפימום:} $\inf(B) = 0$ (לא שייך ל-$B$!)
+    \item \textbf{מקסימום:} אין
+    \item \textbf{מינימום:} אין
+\end{itemize}
+\end{exbox}
+
+%====================================
+\subsection{קבוצות סדורות טובות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: קבוצה סדורה טובה}
+
+קבוצה סדורה $(A, \leq)$ נקראת \textbf{סדורה טובה} (well-ordered) אם:
+
+\begin{enumerate}
+    \item $\leq$ הוא יחס סדר \textbf{מלא}
+    \item לכל תת-קבוצה לא ריקה $B \subseteq A$ יש \textbf{מינימום}
+\end{enumerate}
+\end{defbox}
+
+\begin{thmbox}
+\textbf{משפט: סדר טוב על הטבעיים}
+
+$(\N, \leq)$ היא קבוצה סדורה טובה.
+
+זהו \textbf{עקרון הסדר הטוב} (Well-Ordering Principle).
+\end{thmbox}
+
+\begin{notebox}
+\textbf{שקילות לאינדוקציה:}
+
+עקרון הסדר הטוב שקול לעקרון האינדוקציה על $\N$.
+\end{notebox}
+
+%====================================
+\subsection{דיאגרמת האסה}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: דיאגרמת האסה}
+
+\textbf{דיאגרמת האסה} (Hasse diagram) היא ייצוג גרפי של יחס סדר חלקי:
+
+\begin{itemize}
+    \item כל איבר מיוצג כנקודה
+    \item אם $x < y$ ואין $z$ כך ש-$x < z < y$, מציירים קו מ-$x$ ל-$y$
+    \item איברים גדולים יותר מצוירים למעלה
+\end{itemize}
+\end{defbox}
+
+\begin{exbox}
+\textbf{דוגמה: מחלקי 12}
+
+דיאגרמת האסה של $(D_{12}, |)$ כאשר $D_{12} = \{1, 2, 3, 4, 6, 12\}$:
+
+\begin{verbatim}
+       12
+      /  \
+     4    6
+     |   / \
+     2  /   3
+      \/
+       1
+\end{verbatim}
+\end{exbox}
+
+%====================================
+\subsection{טבלת סיכום -- סוגי יחסי סדר}
+%====================================
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{סוג יחס} & \color{white}\textbf{תכונות} & \color{white}\textbf{דוגמאות} \\
+\hline
+\rowcolor{tablerow1} \textbf{סדר חלקי} & רפלקסיבי, אנטי-סימטרי, טרנזיטיבי & $\leq$, $\subseteq$, $|$ \\
+\hline
+\rowcolor{tablerow2} \textbf{סדר מלא} & סדר חלקי + קשר (טוטאלי) & $\leq$ על $\R$ \\
+\hline
+\rowcolor{tablerow1} \textbf{סדר חזק} & אי-רפלקסיבי, טרנזיטיבי & $<$, $\subsetneq$ \\
+\hline
+\rowcolor{tablerow2} \textbf{סדר טוב} & סדר מלא + לכל ת``ק יש מינימום & $\leq$ על $\N$ \\
+\hline
+\end{tabular}
+\end{center}
+
+%====================================
+\subsection{טבלת סיכום -- איברים מיוחדים}
+%====================================
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{מושג} & \color{white}\textbf{הגדרה} & \color{white}\textbf{יחידות?} & \color{white}\textbf{בסדר מלא} \\
+\hline
+\rowcolor{tablerow1} \textbf{מינימום} & $\forall x. \; a \leq x$ & כן (אם קיים) & = מינימלי \\
+\hline
+\rowcolor{tablerow2} \textbf{מינימלי} & $\neg \exists x. \; x < a$ & לא בהכרח & = מינימום \\
+\hline
+\rowcolor{tablerow1} \textbf{אינפימום} & חסם תחתון גדול ביותר & כן (אם קיים) & = מינימום אם שייך \\
+\hline
+\rowcolor{tablerow2} \textbf{חסם תחתון} & $\forall b \in B. \; a \leq b$ & לא בהכרח & -- \\
+\hline
+\end{tabular}
+\end{center}
+
+%====================================
+\subsection{שגיאות נפוצות}
+%====================================
+
+\begin{notebox}
+\textbf{שגיאה 1: בלבול בין מינימלי למינימום}
+
+\begin{itemize}
+    \item \textbf{מינימום:} קטן מ\textbf{כולם} -- יחיד אם קיים
+    \item \textbf{מינימלי:} אין קטן \textbf{ממנו} -- יכולים להיות כמה
+\end{itemize}
+\end{notebox}
+
+\begin{notebox}
+\textbf{שגיאה 2: הנחה שסדר חלקי הוא מלא}
+
+רוב יחסי הסדר הם חלקיים! לא כל שני איברים ניתנים להשוואה.
+\end{notebox}
+
+\begin{notebox}
+\textbf{שגיאה 3: בלבול בין סופרמום למקסימום}
+
+\begin{itemize}
+    \item \textbf{מקסימום:} שייך לקבוצה
+    \item \textbf{סופרמום:} לא בהכרח שייך לקבוצה
+\end{itemize}
+\end{notebox}
+
+%====================================
+\subsection{תרגילים לתרגול}
+%====================================
+
+\begin{exbox}
+\textbf{תרגיל 1:}
+ציירו את דיאגרמת האסה של $(\mathcal{P}(\{a, b, c\}), \subseteq)$.
+מצאו את כל האיברים המינימליים והמקסימליים.
+\end{exbox}
+
+\begin{exbox}
+\textbf{תרגיל 2:}
+תהי $A = \{2, 3, 4, 6, 8, 12, 24\}$ עם יחס ההתחלקות.
+מצאו את הסופרמום והאינפימום של $B = \{4, 6\}$ אם קיימים.
+\end{exbox}
+
+\begin{exbox}
+\textbf{תרגיל 3:}
+הוכיחו שאם $(A, \leq)$ קבוצה סדורה טובה ו-$B \subseteq A$ לא ריקה, אז לכל תת-קבוצה לא ריקה של $B$ יש מינימום.
+\end{exbox}
+
