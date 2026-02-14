@@ -9,17 +9,18 @@
 
 <div class="stats-row">
   <div class="stat-item">
-    <div class="stat-number">6</div>
+    <div class="stat-number">13</div>
     <div class="stat-label">יחידות</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">30+</div>
+    <div class="stat-number">55+</div>
     <div class="stat-label">עמודים</div>
   </div>
 </div>
 
 <div class="quick-links">
   <a href="assets/discrete1_summary.pdf" class="download-btn" download>📥 הורד PDF</a>
+  <a href="https://orinlevi.github.io/Discrete2/" class="download-btn">📚 בדידה 2 →</a>
 </div>
 
 ---
@@ -30,31 +31,44 @@
 
 <div class="card card-purple" markdown>
 
-### 🔣 לוגיקה
-- [יחידה 1: לוגיקה ופסוקים](units/unit1.md)
+### 🔢 אינדוקציה והצרנה
+- [יחידה 1: אינדוקציה מתמטית](units/unit1.md)
+- [יחידה 2: הצרנה, פעולות ויחסים](units/unit2.md)
 
 </div>
 
 <div class="card card-blue" markdown>
 
 ### 📦 קבוצות ויחסים
-- [יחידה 2: קבוצות](units/unit2.md)
-- [יחידה 3: יחסים](units/unit3.md)
+- [יחידה 3: קבוצת חזקה, פעולות מוכללות](units/unit3.md)
+- [יחידה 4: יחסים](units/unit4.md)
 
 </div>
 
 <div class="card card-mint" markdown>
 
-### 🔄 פונקציות ואינדוקציה
-- [יחידה 4: פונקציות](units/unit4.md)
-- [יחידה 5: אינדוקציה](units/unit5.md)
+### 🔄 פונקציות
+- [יחידה 5: פונקציות (מושגי יסוד)](units/unit5.md)
+- [יחידה 6: פונקציות חח"ע ועל](units/unit6.md)
+- [יחידה 7: הרכבת פונקציות ופונקציה הפוכה](units/unit7.md)
 
 </div>
 
 <div class="card card-lavender" markdown>
 
+### ⚖️ שקילות וסדר
+- [יחידה 8: יחסי שקילות, מחלקות](units/unit8.md)
+- [יחידה 9: חלוקה, אי תלות בנציג, יחסי סדר](units/unit9.md)
+
+</div>
+
+<div class="card card-orange" markdown>
+
 ### ♾️ עוצמות
-- [יחידה 6: עוצמות וספירה](units/unit6.md)
+- [יחידה 10: עוצמות](units/unit10.md)
+- [יחידה 11: לכסון](units/unit11.md)
+- [יחידה 12: משפט קש"ב, פעולות עוצמות](units/unit12.md)
+- [יחידה 13: חשבון עוצמות, איחוד בן מניה](units/unit13.md)
 
 </div>
 
@@ -66,9 +80,8 @@
 
 | נושא | תיאור |
 |------|-------|
-| **לוגיקה** | פסוקים, קשרים לוגיים, טבלאות אמת, שקילויות |
-| **קבוצות** | פעולות על קבוצות, קבוצת החזקה, אקסיומות |
+| **אינדוקציה** | הוכחות באינדוקציה, אינדוקציה חזקה |
+| **קבוצות** | פעולות על קבוצות, קבוצת החזקה, פעולות מוכללות |
 | **יחסים** | יחסי שקילות, יחסי סדר, מחלקות שקילות |
 | **פונקציות** | חח"ע, על, הפיכות, הרכבה |
-| **אינדוקציה** | הוכחות באינדוקציה, אינדוקציה חזקה |
-| **עוצמות** | קבוצות בנות מנייה, רצף, אלכסון קנטור |
+| **עוצמות** | קבוצות בנות מנייה, רצף, לכסון קנטור, קש"ב |
