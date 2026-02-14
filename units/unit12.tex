@@ -1,0 +1,153 @@
+% יחידה 12 - משפט קש"ב, פעולות עוצמות
+%====================================
+\section{יחידה 12: משפט קש"ב, פעולות עוצמות}
+
+\subsection{משפט קנטור-שרדר-ברנשטיין}
+%====================================
+
+\begin{thmbox}
+\textbf{משפט קנטור-שרדר-ברנשטיין (קש``ב)}
+
+אם $|A| \leq |B|$ וגם $|B| \leq |A|$, אז $|A| = |B|$.
+
+במילים: אם קיימת פונקציה חח``ע מ-$A$ ל-$B$ וגם מ-$B$ ל-$A$, אז קיים זיווג ביניהן.
+\end{thmbox}
+
+\begin{notebox}
+\textbf{טכניקת סנדוויץ'}
+
+נרצה להוכיח ש-$|X| = a$. נמצא קבוצות $Y, Z$ עבורן קל להוכיח ש-$|Y| = |Z| = a$, נוכיח שמתקיים $|Y| \leq |X| \leq |Z|$ ונקבל ש-$|X| = a$.
+\end{notebox}
+
+\begin{thmbox}
+\textbf{טענה: קשר בין חח``ע לעל}
+
+נניח $A \neq \emptyset, B$ קבוצות. אזי:
+
+קיימת פונקציה חח``ע $f \in A \to B$ \textbf{אם ורק אם} קיימת פונקציה $g \in B \to A$ על.
+\end{thmbox}
+
+\subsection{דוגמאות לשימוש בקש"ב}
+%====================================
+
+\begin{exbox}
+\textbf{הוכחה: $|[0,1)| = |[0,1]|$}
+
+\textbf{צריך להוכיח:} $|[0,1)| \leq |[0,1]|$ וגם $|[0,1]| \leq |[0,1)|$.
+
+$|[0,1)| \leq |[0,1]|$: הפונקציה $f_1 = \lambda x \in [0,1). x$ היא חח``ע מ-$[0,1)$ ל-$[0,1]$.
+
+$|[0,1]| \leq |[0,1)|$: הפונקציה $f_2 = \lambda x \in [0,1]. \frac{x}{2}$ היא חח``ע מ-$[0,1]$ ל-$[0,1)$.
+
+מקש``ב: $|[0,1)| = |[0,1]|$. $\square$
+\end{exbox}
+
+\begin{notebox}
+\textbf{הערה:}
+
+באופן דומה ניתן להראות שכל קטע הוא מעוצמה $\aleph$:
+\[|[a,b]| = |[a,b)| = |(a,b]| = |(a,b)| = \aleph\]
+\end{notebox}
+
+\subsection{פעולות על עוצמות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: פעולות על עוצמות}
+
+לכל שתי קבוצות $A, B$:
+
+\begin{enumerate}
+    \item \textbf{חיבור:} $|A| + |B| = |A \cup B|$ עבור $A$ ו-$B$ זרות.
+
+    עבור קבוצות לא זרות: $|A| + |B| = |(A \times \{0\}) \cup (B \times \{1\})|$
+
+    \item \textbf{כפל:} $|A| \cdot |B| = |A \times B|$
+
+    \item \textbf{חזקה:} $|A|^{|B|} = |B \to A|$
+\end{enumerate}
+\end{defbox}
+
+\begin{thmbox}
+\textbf{משפט: קבוצת החזקה}
+
+עבור קבוצה $A$:
+\[|\mathcal{P}(A)| = |A \to \{0,1\}| = 2^{|A|}\]
+
+בפרט:
+\[\aleph = |\mathcal{P}(\N)| = 2^{|\N|} = 2^{\aleph_0}\]
+\end{thmbox}
+
+\subsection{תכונות הפעולות}
+%====================================
+
+\begin{thmbox}
+\textbf{משפט: תכונות הפעולות על עוצמות}
+
+לכל שלוש עוצמות $a, b, c$ מתקיים:
+
+\textbf{1. שימור סדר:}
+\begin{itemize}
+    \item $a \leq b \Rightarrow a + c \leq b + c$
+    \item $a \leq b \Rightarrow a \cdot c \leq b \cdot c$
+    \item $a \leq b \Rightarrow a^c \leq b^c$
+\end{itemize}
+
+\textbf{2. קומוטטיביות:}
+\begin{itemize}
+    \item $a + b = b + a$
+    \item $a \cdot b = b \cdot a$
+\end{itemize}
+
+\textbf{3. אסוציאטיביות:}
+\begin{itemize}
+    \item $(a + b) + c = a + (b + c)$
+    \item $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
+\end{itemize}
+
+\textbf{4. דיסטריביוטיביות:}
+\begin{itemize}
+    \item $a \cdot (b + c) = a \cdot b + a \cdot c$
+\end{itemize}
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{חוקי 0 ו-1}
+
+\begin{itemize}
+    \item $a + 0 = a$
+    \item $a \cdot 0 = 0$
+    \item $a \cdot 1 = a$
+    \item $a^0 = 1$
+    \item $1^a = 1$
+    \item $0^a = \begin{cases} 1 & a = 0 \\ 0 & \text{אחרת} \end{cases}$
+\end{itemize}
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{חוקי חזקות}
+
+\begin{itemize}
+    \item $(a \cdot b)^c = a^c \cdot b^c$
+    \item $a^{b+c} = a^b \cdot a^c$
+    \item $(a^b)^c = a^{b \cdot c}$
+\end{itemize}
+\end{thmbox}
+
+\subsection{טענות חשובות}
+%====================================
+
+\begin{thmbox}
+\textbf{טענה: קבוצת מנה}
+
+אם $T$ יחס שקילות על $A$, אז $|A/T| \leq |A|$.
+
+\textbf{הוכחה:} הפונקציה $g = \lambda x \in A. [x]_T$ היא על מ-$A$ ל-$A/T$, ולכן $|A/T| \leq |A|$.
+\end{thmbox}
+
+\begin{notebox}
+\textbf{הערה חשובה}
+
+אם $A \subseteq B$ אז $|A| \leq |B|$, אבל כאשר $A \not\subseteq B$ לא בהכרח $|A| < |B|$.
+\end{notebox}
+

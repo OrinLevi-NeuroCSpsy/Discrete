@@ -1,388 +1,173 @@
-% יחידה 8 - עוצמות וספירה
+% יחידה 8 - יחסי שקילות, מחלקות
 %====================================
-\section{יחידה 8: עוצמות וספירה}
+\section{יחידה 8: יחסי שקילות, מחלקות}
 
-\subsection{מושגי יסוד}
+\subsection{יחסי שקילות}
 %====================================
-
-\subsubsection{שוויון עוצמות}
 
 \begin{defbox}
-\textbf{הגדרה: שוויון עוצמות}
+\textbf{הגדרה: יחס שקילות}
 
-שתי קבוצות $A$ ו-$B$ הן \textbf{שוות עוצמה} (equinumerous) אם קיים ביניהן \textbf{זיווג} (פונקציה חח``ע ועל).
-
-\textbf{סימון:} $|A| = |B|$ או $A \sim B$
-\end{defbox}
-
-\begin{thmbox}
-\textbf{טענה: יחס שקילות}
-
-היחס $\sim$ (שוויון עוצמות) מתנהג כיחס שקילות:
+יחס $E$ על קבוצה $A$ נקרא \textbf{יחס שקילות} (equivalence relation) אם הוא מקיים שלושה תנאים:
 
 \begin{enumerate}
-    \item \textbf{רפלקסיביות:} $|A| = |A|$ (פונקציית הזהות היא זיווג)
-    \item \textbf{סימטריות:} $|A| = |B| \Rightarrow |B| = |A|$ (הפונקציה ההפוכה היא זיווג)
-    \item \textbf{טרנזיטיביות:} $|A| = |B| \land |B| = |C| \Rightarrow |A| = |C|$ (הרכבת זיווגים)
+    \item \textbf{רפלקסיביות:} $\forall x \in A. \; xEx$
+    \item \textbf{סימטריות:} $\forall x, y \in A. \; xEy \Rightarrow yEx$
+    \item \textbf{טרנזיטיביות:} $\forall x, y, z \in A. \; (xEy \land yEz) \Rightarrow xEz$
 \end{enumerate}
-\end{thmbox}
-
-\subsubsection{סימונים מיוחדים}
-
-\begin{defbox}
-\textbf{הגדרה: $\aleph_0$ (אלף-אפס)}
-
-\[\aleph_0 = |\N|\]
-
-קבוצה $A$ נקראת \textbf{בת-מניה} (countable) אם $|A| = \aleph_0$.
 \end{defbox}
 
-\begin{defbox}
-\textbf{הגדרה: $\aleph$ (עוצמת הרצף)}
-
-\[\aleph = |\R|\]
-
-קבוצה בעוצמה $\aleph$ נקראת \textbf{בעוצמת הרצף} (continuum).
-\end{defbox}
-
-%====================================
-\subsection{קבוצות בנות-מניה}
-%====================================
-
-\subsubsection{תכונות בסיסיות}
-
-\begin{thmbox}
-\textbf{טענה: קבוצות בנות-מניה}
+\begin{exbox}
+\textbf{דוגמאות ליחסי שקילות:}
 
 \begin{enumerate}
-    \item $|\N^k| = |\N \times \N| = |\N| = \aleph_0$ לכל $k > 0$
-    \item $|\Q| = |\Z| = \aleph_0$
-    \item תת-קבוצה אינסופית של קבוצה בת-מניה היא בת-מניה
-    \item איחוד בן-מניה של קבוצות בנות-מניה הוא בן-מניה
+    \item \textbf{שוויון} $=$ על כל קבוצה
+
+    \item \textbf{דמיון משולשים} על קבוצת המשולשים
+
+    \item \textbf{חפיפת משולשים} על קבוצת המשולשים
+
+    \item \textbf{שקילות מודולו $n$:}
+    \[a \equiv b \pmod{n} \iff n \mid (a - b)\]
+
+    לדוגמה: $5 \equiv 11 \pmod{2}$ כי $2 \mid (11 - 5) = 6$
+
+    \item \textbf{יחס ``באותו צבע''} על קבוצת כדורים צבעוניים
+\end{enumerate}
+\end{exbox}
+
+\subsection{מחלקות שקילות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: מחלקת שקילות}
+
+יהי $E$ יחס שקילות על $A$. עבור $x \in A$, \textbf{מחלקת השקילות} של $x$ לפי $E$ היא:
+
+\[[x]_E = \{y \in A \mid xEy\}\]
+
+כלומר, קבוצת כל האיברים השקולים ל-$x$.
+\end{defbox}
+
+\begin{notebox}
+\textbf{סימונים נפוצים למחלקת שקילות:}
+\begin{itemize}
+    \item $[x]_E$ או $[x]$ (כשהיחס ברור מההקשר)
+    \item $\overline{x}$
+    \item $x/E$
+\end{itemize}
+\end{notebox}
+
+\begin{thmbox}
+\textbf{תכונות מחלקות שקילות}
+
+יהי $E$ יחס שקילות על $A$. לכל $x, y \in A$:
+
+\begin{enumerate}
+    \item \textbf{כל איבר שייך למחלקה שלו:} $x \in [x]_E$ (מרפלקסיביות)
+
+    \item \textbf{שקילות היא שייכות למחלקה:} $y \in [x]_E \iff xEy$
+
+    \item \textbf{סימטריות:} $y \in [x]_E \iff x \in [y]_E$
+
+    \item \textbf{מחלקות שוות או זרות:}
+    \[[x]_E \cap [y]_E \neq \emptyset \iff [x]_E = [y]_E \iff xEy\]
 \end{enumerate}
 \end{thmbox}
 
 \begin{exbox}
-\textbf{דוגמאות לקבוצות בנות-מניה:}
+\textbf{דוגמה: מחלקות מודולו 3}
+
+יחס השקילות מודולו 3 על $\Z$:
 
 \begin{itemize}
-    \item $\N$, $\Z$, $\Q$
-    \item $\N \times \N$
-    \item קבוצת כל המחרוזות הסופיות מעל א``ב סופי
-    \item קבוצת כל הפולינומים עם מקדמים רציונליים
+    \item $[0]_{\equiv_3} = \{\ldots, -6, -3, 0, 3, 6, 9, \ldots\} = 3\Z$
+    \item $[1]_{\equiv_3} = \{\ldots, -5, -2, 1, 4, 7, 10, \ldots\} = 3\Z + 1$
+    \item $[2]_{\equiv_3} = \{\ldots, -4, -1, 2, 5, 8, 11, \ldots\} = 3\Z + 2$
 \end{itemize}
+
+שלוש מחלקות זרות שמכסות את כל $\Z$.
 \end{exbox}
 
-\subsubsection{טכניקות להוכחת שוויון עוצמות}
+\subsection{קבוצת מנה}
+%====================================
 
-\begin{notebox}
-\textbf{שיטה: בניית זיווג}
+\begin{defbox}
+\textbf{הגדרה: קבוצת מנה}
 
-כדי להוכיח $|A| = |B|$, בונים פונקציה $f: A \to B$ ומוכיחים:
+יהי $E$ יחס שקילות על $A$. \textbf{קבוצת המנה} (quotient set) של $A$ לפי $E$ היא:
 
-\begin{enumerate}
-    \item $f$ מוגדרת היטב (לכל $a \in A$ יש ערך $f(a) \in B$)
-    \item $f$ חח``ע (אם $f(a_1) = f(a_2)$ אז $a_1 = a_2$)
-    \item $f$ על (לכל $b \in B$ קיים $a \in A$ כך ש-$f(a) = b$)
-\end{enumerate}
-\end{notebox}
+\[A/E = \{[x]_E \mid x \in A\}\]
+
+כלומר, קבוצת כל מחלקות השקילות.
+\end{defbox}
 
 \begin{exbox}
-\textbf{דוגמה: $|[0,1] \cup \N| = |[0,1]|$}
-
-נבנה זיווג $f: [0,1] \cup \N \to [0,1]$.
-
-\textbf{הרעיון:} ``נשכן'' את $\N$ בתוך תת-קבוצה בת-מניה של $[0,1]$.
-
-ניקח $A = \{\frac{1}{n} \mid n \in \N^+\} = \{1, \frac{1}{2}, \frac{1}{3}, \ldots\}$
-
-נגדיר:
-\[f(x) = \begin{cases}
-\frac{x}{2} & x \in A \\
-\frac{1}{2x-3} & x \in \N \setminus \{0,1\} \\
-x & \text{otherwise}
-\end{cases}\]
-\end{exbox}
-
-%====================================
-\subsection{עוצמת הרצף}
-%====================================
-
-\subsubsection{קבוצות בעוצמת הרצף}
-
-\begin{thmbox}
-\textbf{טענה: עוצמת קטעים}
-
-לכל $a < b$ ממשיים:
-\[|[a,b]| = |[a,b)| = |(a,b]| = |(a,b)| = \aleph\]
-\end{thmbox}
-
-\begin{thmbox}
-\textbf{טענה: קבוצות בעוצמת הרצף}
-
-\begin{itemize}
-    \item $|\R| = \aleph$
-    \item $|[0,1]| = \aleph$
-    \item $|\R^n| = \aleph$ לכל $n \geq 1$
-    \item $|\mathcal{P}(\N)| = \aleph$
-    \item $|\N \to \{0,1\}| = \aleph$
-\end{itemize}
-\end{thmbox}
-
-\subsubsection{הקשר בין $\aleph_0$ ל-$\aleph$}
-
-\begin{thmbox}
-\textbf{משפט קנטור}
-
-\[\aleph_0 < \aleph\]
-
-כלומר: $\R$ \textbf{אינה בת-מניה}.
-\end{thmbox}
-
-%====================================
-\subsection{הוכחת לכסון (Diagonalization)}
-%====================================
-
-\subsubsection{העיקרון}
-
-\begin{thmbox}
-\textbf{משפט קנטור (כללי)}
-
-לכל קבוצה $A$: $|A| < |\mathcal{P}(A)|$
-
-במילים: קבוצת החזקה תמיד גדולה יותר מהקבוצה המקורית.
-\end{thmbox}
-
-\begin{notebox}
-\textbf{טכניקת הלכסון}
-
-נניח בשלילה שקיים זיווג $F: \N \to A$ (כאשר $A \subseteq \N \to X$).
-
-נבנה $h \in A$ כך ש-$h$ \textbf{שונה מכל שורה} ב``מטריצה'' של $F$:
-
-\begin{itemize}
-    \item $h(0) \neq F(0)(0)$
-    \item $h(1) \neq F(1)(1)$
-    \item $h(n) \neq F(n)(n)$ לכל $n$
-\end{itemize}
-
-אז $h \in A$ אבל $h \notin \text{Im}(F)$ -- סתירה להנחה ש-$F$ על.
-\end{notebox}
-
-\subsubsection{דוגמאות}
-
-\begin{proofbox}
-\textbf{הוכחה: $|\N \to \{0,1\}| \neq \aleph_0$}
-
-נניח בשלילה שקיים זיווג $F: \N \to (\N \to \{0,1\})$.
-
-נגדיר:
-\[h = \lambda n \in \N. \; 1 - F(n)(n)\]
-
-\textbf{$h \in \N \to \{0,1\}$}: אם $F(n)(n) = 0$ אז $h(n) = 1$, ואם $F(n)(n) = 1$ אז $h(n) = 0$.
-
-\textbf{$h \notin \text{Im}(F)$}: מ-$F$ על, קיים $n$ כך ש-$F(n) = h$.
-
-אז: $F(n)(n) = h(n) = 1 - F(n)(n)$ -- סתירה!
-
-לכן $|\N \to \{0,1\}| \neq \aleph_0$.
-\end{proofbox}
-
-\begin{proofbox}
-\textbf{הוכחה: קבוצת הפונקציות החח``ע מ-$\N$ ל-$\N$ אינה בת-מניה}
-
-יהי $A = \{f \in \N \to \N \mid f \text{ חח``ע}\}$.
-
-נניח בשלילה שקיים זיווג $F: \N \to A$. נגדיר:
-\[g = \lambda n \in \N. \; \sum_{i=0}^{n} F(i)(i) + n + 1\]
-
-\textbf{$g$ חח``ע}: לכל $n_1 \neq n_2$, נניח $n_1 > n_2$:
-\[g(n_2) = \sum_{i=0}^{n_2} F(i)(i) + n_2 + 1 \leq \sum_{i=0}^{n_1} F(i)(i) + n_2 + 1 < g(n_1)\]
-
-\textbf{סתירה}: מ-$F$ על, קיים $n$ כך ש-$F(n) = g$, אבל:
-\[g(n) = \sum_{i=0}^{n} F(i)(i) + n + 1 \geq F(n)(n) + 1 > F(n)(n) = g(n)\]
-סתירה!
-\end{proofbox}
-
-%====================================
-\subsection{משפט קנטור-שרדר-ברנשטיין}
-%====================================
-
-\subsubsection{סדר על עוצמות}
-
-\begin{defbox}
-\textbf{הגדרה: $|A| \leq |B|$}
-
-$|A| \leq |B|$ אם קיימת פונקציה \textbf{חח``ע} $f: A \to B$.
-
-שקול: קיימת פונקציה \textbf{על} $g: B \to A$.
-\end{defbox}
-
-\begin{defbox}
-\textbf{הגדרה: $|A| < |B|$}
-
-$|A| < |B|$ אם $|A| \leq |B|$ וגם $|A| \neq |B|$.
-\end{defbox}
-
-\subsubsection{המשפט}
-
-\begin{thmbox}
-\textbf{משפט קנטור-שרדר-ברנשטיין (קש``ב)}
-
-אם $|A| \leq |B|$ וגם $|B| \leq |A|$, אז $|A| = |B|$.
-
-במילים: אם קיימת פונקציה חח``ע מ-$A$ ל-$B$ וגם מ-$B$ ל-$A$, אז קיים זיווג ביניהן.
-\end{thmbox}
-
-\begin{notebox}
-\textbf{שימוש:}
-
-כדי להוכיח $|A| = |B|$, מספיק למצוא:
-\begin{itemize}
-    \item פונקציה חח``ע $f: A \to B$
-    \item פונקציה חח``ע $g: B \to A$
-\end{itemize}
-
-זה לפעמים קל יותר מלמצוא זיווג ישירות!
-\end{notebox}
-
-%====================================
-\subsection{פעולות על עוצמות}
-%====================================
-
-\subsubsection{חיבור עוצמות}
-
-\begin{defbox}
-\textbf{הגדרה: חיבור עוצמות}
-
-\[|A| + |B| = |A \uplus B|\]
-
-כאשר $A \uplus B$ הוא \textbf{איחוד זר} (disjoint union):
-\[A \uplus B = (\{0\} \times A) \cup (\{1\} \times B)\]
-\end{defbox}
-
-\subsubsection{כפל עוצמות}
-
-\begin{defbox}
-\textbf{הגדרה: כפל עוצמות}
-
-\[|A| \cdot |B| = |A \times B|\]
-\end{defbox}
-
-\subsubsection{חזקת עוצמות}
-
-\begin{defbox}
-\textbf{הגדרה: חזקת עוצמות}
-
-\[|A|^{|B|} = |B \to A|\]
-
-כלומר: עוצמת קבוצת כל הפונקציות מ-$B$ ל-$A$.
-\end{defbox}
-
-\begin{thmbox}
-\textbf{טענה: קבוצת החזקה}
-
-\[|\mathcal{P}(A)| = |A \to \{0,1\}| = 2^{|A|}\]
-
-\textbf{הוכחה (רעיון):} לכל $X \subseteq A$ מתאימה פונקציה אופיינית $\chi_X: A \to \{0,1\}$:
-\[\chi_X(a) = \begin{cases} 1 & a \in X \\ 0 & a \notin X \end{cases}\]
-\end{thmbox}
-
-\subsubsection{תכונות}
-
-\begin{thmbox}
-\textbf{משפט: תכונות פעולות על עוצמות}
+\textbf{דוגמאות לקבוצות מנה:}
 
 \begin{enumerate}
-    \item $|A| + |B| = |B| + |A|$
-    \item $|A| \cdot |B| = |B| \cdot |A|$
-    \item $(|A| + |B|) + |C| = |A| + (|B| + |C|)$
-    \item $(|A| \cdot |B|) \cdot |C| = |A| \cdot (|B| \cdot |C|)$
-    \item $|A| \cdot (|B| + |C|) = |A| \cdot |B| + |A| \cdot |C|$
-    \item $|A|^{|B| + |C|} = |A|^{|B|} \cdot |A|^{|C|}$
-    \item $(|A| \cdot |B|)^{|C|} = |A|^{|C|} \cdot |B|^{|C|}$
-    \item $(|A|^{|B|})^{|C|} = |A|^{|B| \cdot |C|}$
+    \item $\Z/\equiv_2 = \{[0], [1]\}$ -- שתי מחלקות (זוגיים ואי-זוגיים)
+
+    \item $\Z/\equiv_3 = \{[0], [1], [2]\}$ -- שלוש מחלקות
+
+    \item $\R/\equiv$ כאשר $x \equiv y \iff |x| = |y|$:
+
+    קבוצת המנה היא למעשה $\R_{\geq 0}$
+\end{enumerate}
+\end{exbox}
+
+\subsection{הפונקציה הקנונית}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: הפונקציה הקנונית}
+
+יהי $E$ יחס שקילות על $A$. \textbf{הפונקציה הקנונית} (או פונקציית המנה) היא:
+\[\pi: A \to A/E, \quad \pi(x) = [x]_E\]
+\end{defbox}
+
+\begin{thmbox}
+\textbf{תכונות הפונקציה הקנונית:}
+
+\begin{enumerate}
+    \item $\pi$ היא \textbf{על} (surjective)
+    \item $\pi(x) = \pi(y) \iff xEy$
+    \item $\text{Im}(\pi) = A/E$
 \end{enumerate}
 \end{thmbox}
 
-%====================================
-\subsection{טבלת סיכום: עוצמות נפוצות}
+\subsection{טבלת סיכום}
 %====================================
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-\rowcolor{tableheader}\color{white}\textbf{קבוצה} & \color{white}\textbf{עוצמה} & \color{white}\textbf{הערות} \\
+\rowcolor{tableheader}\color{white}\textbf{מושג} & \color{white}\textbf{הגדרה} & \color{white}\textbf{דוגמה} \\
 \hline
-\rowcolor{tablerow1} $\emptyset$ & $0$ & הקבוצה הריקה \\
+\rowcolor{tablerow1} \textbf{יחס שקילות} & רפלקסיבי + סימטרי + טרנזיטיבי & $\equiv_n$, $=$ \\
 \hline
-\rowcolor{tablerow2} $\{a\}$ & $1$ & סינגלטון \\
+\rowcolor{tablerow2} \textbf{מחלקת שקילות} & $[x]_E = \{y \mid xEy\}$ & $[0]_{\equiv_3} = 3\Z$ \\
 \hline
-\rowcolor{tablerow1} $\{1, \ldots, n\}$ & $n$ & קבוצה סופית \\
-\hline
-\rowcolor{tablerow2} $\N$ & $\aleph_0$ & בת-מניה \\
-\hline
-\rowcolor{tablerow1} $\Z$ & $\aleph_0$ & בת-מניה \\
-\hline
-\rowcolor{tablerow2} $\Q$ & $\aleph_0$ & בת-מניה \\
-\hline
-\rowcolor{tablerow1} $\R$ & $\aleph = 2^{\aleph_0}$ & עוצמת הרצף \\
-\hline
-\rowcolor{tablerow2} $\mathcal{P}(\N)$ & $\aleph = 2^{\aleph_0}$ & עוצמת הרצף \\
-\hline
-\rowcolor{tablerow1} $\N \to \{0,1\}$ & $\aleph = 2^{\aleph_0}$ & עוצמת הרצף \\
+\rowcolor{tablerow1} \textbf{קבוצת מנה} & $A/E = \{[x]_E \mid x \in A\}$ & $\Z/\equiv_3$ \\
 \hline
 \end{tabular}
 \end{center}
 
-%====================================
 \subsection{שגיאות נפוצות}
 %====================================
 
 \begin{notebox}
-\textbf{שגיאה 1: לשכוח להוכיח $h \in A$}
-
-בהוכחת לכסון, לא מספיק להגדיר $h$ -- צריך להוכיח שהיא אכן איבר בקבוצה $A$!
-\end{notebox}
-
-\begin{notebox}
-\textbf{שגיאה 2: בלבול בין `על' ל`חח``ע'}
+\textbf{שגיאה 1: בלבול בין מחלקה לאיבר}
 
 \begin{itemize}
-    \item $|A| \leq |B|$ דורש חח``ע מ-$A$ ל-$B$
-    \item לחילופין: על מ-$B$ ל-$A$
+    \item $[a]$ היא \textbf{קבוצה} (מחלקת השקילות)
+    \item $a$ הוא \textbf{איבר} (נציג של המחלקה)
 \end{itemize}
 \end{notebox}
 
 \begin{notebox}
-\textbf{שגיאה 3: הנחה שתת-קבוצה קטנה יותר}
+\textbf{שגיאה 2: שכחת לבדוק את שלושת התנאים}
 
-תת-קבוצה אמיתית יכולה להיות \textbf{שווה בעוצמה} לקבוצה!
-
-דוגמה: $\N^+ \subset \N$ אבל $|\N^+| = |\N| = \aleph_0$
+יחס שקילות חייב לקיים את \textbf{שלושת} התנאים: רפלקסיביות, סימטריה, טרנזיטיביות.
 \end{notebox}
-
-%====================================
-\subsection{תרגילים לתרגול}
-%====================================
-
-\begin{exbox}
-\textbf{תרגיל 1:}
-הוכיחו שקבוצת כל הפולינומים עם מקדמים שלמים היא בת-מניה.
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 2:}
-הוכיחו באמצעות משפט קש``ב ש-$|(0,1)| = |[0,1]|$.
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 3:}
-הוכיחו בשיטת הלכסון שקבוצת כל הפונקציות $f: \N \to \N$ שהן עולות ממש אינה בת-מניה.
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 4:}
-חשבו: $\aleph_0 + \aleph_0$, $\aleph_0 \cdot \aleph_0$, $2^{\aleph_0}$.
-\end{exbox}
 

@@ -1,0 +1,177 @@
+% יחידה 10 - עוצמות
+%====================================
+\section{יחידה 10: עוצמות}
+
+\subsection{מושגי יסוד}
+%====================================
+
+\subsubsection{שוויון עוצמות}
+
+\begin{defbox}
+\textbf{הגדרה: שוויון עוצמות}
+
+שתי קבוצות $A$ ו-$B$ הן \textbf{שוות עוצמה} (equinumerous) אם קיים ביניהן \textbf{זיווג} (פונקציה חח``ע ועל).
+
+\textbf{סימון:} $|A| = |B|$ או $A \sim B$
+\end{defbox}
+
+\begin{thmbox}
+\textbf{טענה: יחס שקילות}
+
+היחס $\sim$ (שוויון עוצמות) מתנהג כיחס שקילות:
+
+\begin{enumerate}
+    \item \textbf{רפלקסיביות:} $|A| = |A|$ (פונקציית הזהות היא זיווג)
+    \item \textbf{סימטריות:} $|A| = |B| \Rightarrow |B| = |A|$ (הפונקציה ההפוכה היא זיווג)
+    \item \textbf{טרנזיטיביות:} $|A| = |B| \land |B| = |C| \Rightarrow |A| = |C|$ (הרכבת זיווגים)
+\end{enumerate}
+\end{thmbox}
+
+\subsubsection{סימונים מיוחדים}
+
+\begin{defbox}
+\textbf{הגדרה: $\aleph_0$ (אלף-אפס)}
+
+\[\aleph_0 = |\N|\]
+
+קבוצה $A$ נקראת \textbf{בת-מניה} (countable) אם $|A| = \aleph_0$.
+\end{defbox}
+
+\begin{defbox}
+\textbf{הגדרה: $\aleph$ (עוצמת הרצף)}
+
+\[\aleph = |\R|\]
+
+קבוצה בעוצמה $\aleph$ נקראת \textbf{בעוצמת הרצף} (continuum).
+\end{defbox}
+
+\subsection{קבוצות בנות-מניה}
+%====================================
+
+\begin{thmbox}
+\textbf{טענה: קבוצות בנות-מניה}
+
+\begin{enumerate}
+    \item $|\N^k| = |\N \times \N| = |\N| = \aleph_0$ לכל $k > 0$
+    \item $|\Q| = |\Z| = \aleph_0$
+    \item תת-קבוצה אינסופית של קבוצה בת-מניה היא בת-מניה
+    \item איחוד בן-מניה של קבוצות בנות-מניה הוא בן-מניה
+\end{enumerate}
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמאות לקבוצות בנות-מניה:}
+
+\begin{itemize}
+    \item $\N$, $\Z$, $\Q$
+    \item $\N \times \N$
+    \item קבוצת כל המחרוזות הסופיות מעל א``ב סופי
+    \item קבוצת כל הפולינומים עם מקדמים רציונליים
+\end{itemize}
+\end{exbox}
+
+\subsection{המלון של הילברט}
+%====================================
+
+\begin{exbox}
+\textbf{המלון של הילברט (Hilbert's Hotel)}
+
+\textbf{הרעיון:} מלון עם אינסוף חדרים, ממוספרים $0, 1, 2, 3, \ldots$
+
+\textbf{תרחיש 1:} המלון מלא, מגיע אורח אחד חדש.
+\begin{itemize}
+    \item פתרון: כל אורח עובר לחדר הבא ($n \to n+1$)
+    \item החדר 0 מתפנה לאורח החדש
+    \item זיווג: $f(n) = n+1$ הוא חח``ע מ-$\N$ ל-$\N \setminus \{0\}$
+\end{itemize}
+
+\textbf{תרחיש 2:} מגיעים אינסוף אורחים חדשים.
+\begin{itemize}
+    \item פתרון: כל אורח עובר לחדר הזוגי ($n \to 2n$)
+    \item החדרים האי-זוגיים מתפנים לאורחים החדשים
+    \item זיווג: $\N \cup \N \sim \N$
+\end{itemize}
+\end{exbox}
+
+\begin{thmbox}
+\textbf{מסקנה}
+
+\[\aleph_0 + 1 = \aleph_0 \quad \text{וגם} \quad \aleph_0 + \aleph_0 = \aleph_0\]
+
+קבוצה אינסופית יכולה להיות שווה בעוצמה לתת-קבוצה ממש שלה!
+\end{thmbox}
+
+\subsection{עוצמת הרצף}
+%====================================
+
+\begin{thmbox}
+\textbf{טענה: עוצמת קטעים}
+
+לכל $a < b$ ממשיים:
+\[|[a,b]| = |[a,b)| = |(a,b]| = |(a,b)| = \aleph\]
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{טענה: קבוצות בעוצמת הרצף}
+
+\begin{itemize}
+    \item $|\R| = \aleph$
+    \item $|[0,1]| = \aleph$
+    \item $|\R^n| = \aleph$ לכל $n \geq 1$
+    \item $|\mathcal{P}(\N)| = \aleph$
+    \item $|\N \to \{0,1\}| = \aleph$
+\end{itemize}
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{משפט קנטור}
+
+\[\aleph_0 < \aleph\]
+
+כלומר: $\R$ \textbf{אינה בת-מניה}.
+\end{thmbox}
+
+\subsection{סדר על עוצמות}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: $|A| \leq |B|$}
+
+$|A| \leq |B|$ אם קיימת פונקציה \textbf{חח``ע} $f: A \to B$.
+
+שקול: קיימת פונקציה \textbf{על} $g: B \to A$.
+\end{defbox}
+
+\begin{defbox}
+\textbf{הגדרה: $|A| < |B|$}
+
+$|A| < |B|$ אם $|A| \leq |B|$ וגם $|A| \neq |B|$.
+\end{defbox}
+
+\subsection{טבלת סיכום: עוצמות נפוצות}
+%====================================
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{קבוצה} & \color{white}\textbf{עוצמה} & \color{white}\textbf{הערות} \\
+\hline
+\rowcolor{tablerow1} $\emptyset$ & $0$ & הקבוצה הריקה \\
+\hline
+\rowcolor{tablerow2} $\{a\}$ & $1$ & סינגלטון \\
+\hline
+\rowcolor{tablerow1} $\{1, \ldots, n\}$ & $n$ & קבוצה סופית \\
+\hline
+\rowcolor{tablerow2} $\N$ & $\aleph_0$ & בת-מניה \\
+\hline
+\rowcolor{tablerow1} $\Z$ & $\aleph_0$ & בת-מניה \\
+\hline
+\rowcolor{tablerow2} $\Q$ & $\aleph_0$ & בת-מניה \\
+\hline
+\rowcolor{tablerow1} $\R$ & $\aleph = 2^{\aleph_0}$ & עוצמת הרצף \\
+\hline
+\rowcolor{tablerow2} $\mathcal{P}(\N)$ & $\aleph = 2^{\aleph_0}$ & עוצמת הרצף \\
+\hline
+\end{tabular}
+\end{center}
+

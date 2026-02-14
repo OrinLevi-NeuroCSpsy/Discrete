@@ -1,305 +1,119 @@
-% יחידה 6 - יחסי שקילות וחלוקות
+% יחידה 6 - פונקציות חח"ע ועל
 %====================================
-\section{יחידה 6: יחסי שקילות וחלוקות}
+\section{יחידה 6: פונקציות חח"ע ועל}
 
-\subsection{יחסי שקילות}
+\subsection{פונקציה חד-חד-ערכית (חח"ע)}
 %====================================
 
 \begin{defbox}
-\textbf{הגדרה: יחס שקילות}
+\textbf{הגדרה: פונקציה חח"ע}
 
-יחס $E$ על קבוצה $A$ נקרא \textbf{יחס שקילות} (equivalence relation) אם הוא מקיים שלושה תנאים:
+פונקציה $f: A \to B$ נקראת \textbf{חד-חד-ערכית} (injective, one-to-one) אם:
+\[\forall x_1, x_2 \in A. f(x_1) = f(x_2) \Rightarrow x_1 = x_2\]
 
-\begin{enumerate}
-    \item \textbf{רפלקסיביות:} $\forall x \in A. \; xEx$
-    \item \textbf{סימטריות:} $\forall x, y \in A. \; xEy \Rightarrow yEx$
-    \item \textbf{טרנזיטיביות:} $\forall x, y, z \in A. \; (xEy \land yEz) \Rightarrow xEz$
-\end{enumerate}
+או באופן שקול:
+\[\forall x_1, x_2 \in A. x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)\]
+
+כלומר, לאיברים שונים יש תמונות שונות.
 \end{defbox}
 
 \begin{exbox}
-\textbf{דוגמאות ליחסי שקילות:}
-
-\begin{enumerate}
-    \item \textbf{שוויון} $=$ על כל קבוצה
-
-    \item \textbf{דמיון משולשים} על קבוצת המשולשים
-
-    \item \textbf{חפיפת משולשים} על קבוצת המשולשים
-
-    \item \textbf{שקילות מודולו $n$:}
-    \[a \equiv b \pmod{n} \iff n \mid (a - b)\]
-
-    לדוגמה: $5 \equiv 11 \pmod{2}$ כי $2 \mid (11 - 5) = 6$
-
-    \item \textbf{יחס ``באותו צבע''} על קבוצת כדורים צבעוניים
-\end{enumerate}
-\end{exbox}
-
-%====================================
-\subsection{מחלקות שקילות}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרה: מחלקת שקילות}
-
-יהי $E$ יחס שקילות על $A$. עבור $x \in A$, \textbf{מחלקת השקילות} של $x$ לפי $E$ היא:
-
-\[[x]_E = \{y \in A \mid xEy\}\]
-
-כלומר, קבוצת כל האיברים השקולים ל-$x$.
-\end{defbox}
-
-\begin{notebox}
-\textbf{סימונים נפוצים למחלקת שקילות:}
+\textbf{דוגמאות:}
 \begin{itemize}
-    \item $[x]_E$ או $[x]$ (כשהיחס ברור מההקשר)
-    \item $\overline{x}$
-    \item $x/E$
+    \item $f(x) = 2x + 3$ על $\R$ -- \textbf{חח"ע} (פונקציה לינארית)
+    \item $f(x) = x^2$ על $\R$ -- \textbf{לא חח"ע} (כי $f(2) = f(-2) = 4$)
+    \item $f(x) = x^2$ על $\R^+$ (המספרים החיוביים) -- \textbf{חח"ע}
 \end{itemize}
-\end{notebox}
-
-\subsubsection{תכונות מחלקות שקילות}
-
-\begin{thmbox}
-\textbf{תכונות מחלקות שקילות}
-
-יהי $E$ יחס שקילות על $A$. לכל $x, y \in A$:
-
-\begin{enumerate}
-    \item \textbf{כל איבר שייך למחלקה שלו:} $x \in [x]_E$ (מרפלקסיביות)
-
-    \item \textbf{שקילות היא שייכות למחלקה:} $y \in [x]_E \iff xEy$
-
-    \item \textbf{סימטריות:} $y \in [x]_E \iff x \in [y]_E$
-
-    \item \textbf{מחלקות שוות או זרות:}
-    \[[x]_E \cap [y]_E \neq \emptyset \iff [x]_E = [y]_E \iff xEy\]
-\end{enumerate}
-\end{thmbox}
-
-\begin{exbox}
-\textbf{דוגמה: מחלקות מודולו 3}
-
-יחס השקילות מודולו 3 על $\Z$:
-
-\begin{itemize}
-    \item $[0]_{\equiv_3} = \{\ldots, -6, -3, 0, 3, 6, 9, \ldots\} = 3\Z$
-    \item $[1]_{\equiv_3} = \{\ldots, -5, -2, 1, 4, 7, 10, \ldots\} = 3\Z + 1$
-    \item $[2]_{\equiv_3} = \{\ldots, -4, -1, 2, 5, 8, 11, \ldots\} = 3\Z + 2$
-\end{itemize}
-
-שלוש מחלקות זרות שמכסות את כל $\Z$.
 \end{exbox}
 
-%====================================
-\subsection{קבוצת מנה}
+\subsection{פונקציה על (סורייקטיבית)}
 %====================================
 
 \begin{defbox}
-\textbf{הגדרה: קבוצת מנה}
+\textbf{הגדרה: פונקציה על}
 
-יהי $E$ יחס שקילות על $A$. \textbf{קבוצת המנה} (quotient set) של $A$ לפי $E$ היא:
+פונקציה $f: A \to B$ נקראת \textbf{על} (surjective, onto) אם:
+\[\forall y \in B. \exists x \in A. f(x) = y\]
 
-\[A/E = \{[x]_E \mid x \in A\}\]
+או באופן שקול: $\Img(f) = B$
 
-כלומר, קבוצת כל מחלקות השקילות.
+כלומר, כל איבר בטווח מתקבל.
 \end{defbox}
 
 \begin{exbox}
-\textbf{דוגמאות לקבוצות מנה:}
-
-\begin{enumerate}
-    \item $\Z/\equiv_2 = \{[0], [1]\}$ -- שתי מחלקות (זוגיים ואי-זוגיים)
-
-    \item $\Z/\equiv_3 = \{[0], [1], [2]\}$ -- שלוש מחלקות
-
-    \item $\R/\equiv$ כאשר $x \equiv y \iff |x| = |y|$:
-
-    קבוצת המנה היא למעשה $\R_{\geq 0}$
-\end{enumerate}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $f(x) = 2x + 3$ מ-$\R$ ל-$\R$ -- \textbf{על}
+    \item $f(x) = x^2$ מ-$\R$ ל-$\R$ -- \textbf{לא על} (מספרים שליליים לא מתקבלים)
+    \item $f(x) = x^2$ מ-$\R$ ל-$[0, \infty)$ -- \textbf{על}
+\end{itemize}
 \end{exbox}
 
-%====================================
-\subsection{פירוק (חלוקה)}
+\subsection{פונקציית שקילות (ביאקציה)}
 %====================================
 
 \begin{defbox}
-\textbf{הגדרה: פירוק של קבוצה}
+\textbf{הגדרה: פונקציית שקילות}
 
-\textbf{פירוק} (partition) של קבוצה $A$ הוא קבוצה $F$ של תתי-קבוצות של $A$ המקיימת:
+פונקציה $f: A \to B$ נקראת \textbf{פונקציית שקילות} או \textbf{ביאקציה} (bijection) אם היא גם \textbf{חח"ע} וגם \textbf{על}.
 
-\begin{enumerate}
-    \item \textbf{לא ריקות:} $\forall X \in F. \; X \neq \emptyset$
-    \item \textbf{כיסוי:} $\bigcup F = A$
-    \item \textbf{זרות הדדית:} $\forall X, Y \in F. \; X \neq Y \Rightarrow X \cap Y = \emptyset$
-\end{enumerate}
+במקרה זה, לכל $y \in B$ יש בדיוק מקור אחד ב-$A$.
 \end{defbox}
 
 \begin{exbox}
-\textbf{דוגמאות לפירוקים:}
-
-\begin{enumerate}
-    \item $\{\{1, 3, 5\}, \{2, 4, 7, 8\}, \{6\}\}$ הוא פירוק של $\{1, 2, 3, 4, 5, 6, 7, 8\}$
-
-    \item $\{\Z^-, \{0\}, \Z^+\}$ הוא פירוק של $\Z$
-\end{enumerate}
+\textbf{דוגמאות:}
+\begin{itemize}
+    \item $f(x) = 2x + 3$ מ-$\R$ ל-$\R$ -- \textbf{ביאקציה}
+    \item $f(x) = e^x$ מ-$\R$ ל-$(0, \infty)$ -- \textbf{ביאקציה}
+    \item $i_A: A \to A$ -- \textbf{ביאקציה} (פונקציית הזהות)
+\end{itemize}
 \end{exbox}
 
-\subsubsection{הקשר בין יחסי שקילות לפירוקים}
-
-\begin{thmbox}
-\textbf{משפט: קבוצת מנה היא פירוק}
-
-יהי $E$ יחס שקילות על $A$. אז $A/E$ הוא פירוק של $A$.
-\end{thmbox}
-
-\begin{proofbox}
-\textbf{הוכחה (רעיון):}
-
-\begin{enumerate}
-    \item \textbf{לא ריקות:} לכל $x \in A$, $x \in [x]_E$ (מרפלקסיביות), לכן $[x]_E \neq \emptyset$
-
-    \item \textbf{כיסוי:} לכל $x \in A$, $x \in [x]_E \in A/E$, לכן $\bigcup A/E = A$
-
-    \item \textbf{זרות:} מחלקות שונות זרות (הוכחנו קודם)
-\end{enumerate}
-\end{proofbox}
-
-\begin{thmbox}
-\textbf{משפט: ההתאמה בין יחסי שקילות לפירוקים}
-
-קיימת \textbf{התאמה חח``ע ועל} בין יחסי השקילות על $A$ לבין הפירוקים של $A$:
-
-\begin{itemize}
-    \item \textbf{מיחס לפירוק:} $E \mapsto A/E$
-    \item \textbf{מפירוק ליחס:} $F \mapsto E_F$ כאשר $xE_Fy \iff$ קיים $X \in F$ כך ש-$x, y \in X$
-\end{itemize}
-\end{thmbox}
-
-%====================================
-\subsection{אי-תלות בנציג}
+\subsection{טכניקות להוכחת חח"ע ועל}
 %====================================
 
 \begin{notebox}
-\textbf{בעיית הנציג}
-
-כשמגדירים פעולה או פונקציה על קבוצת המנה, לעתים ההגדרה תלויה בבחירת \textbf{נציג} מכל מחלקה.
-
-צריך להוכיח שהתוצאה \textbf{לא תלויה בבחירת הנציג}.
+\textbf{להוכחת חח"ע:}
+\begin{enumerate}
+    \item נניח $f(x_1) = f(x_2)$
+    \item נוכיח ש-$x_1 = x_2$
+\end{enumerate}
 \end{notebox}
-
-\begin{exbox}
-\textbf{דוגמה: חיבור על $\Z_n$}
-
-נגדיר חיבור על $\Z/\equiv_n$:
-\[[a] + [b] = [a + b]\]
-
-\textbf{צריך להוכיח:} אם $[a] = [a']$ ו-$[b] = [b']$, אז $[a + b] = [a' + b']$.
-
-\textbf{הוכחה:}
-\begin{itemize}
-    \item $[a] = [a']$ $\Rightarrow$ $n \mid (a - a')$
-    \item $[b] = [b']$ $\Rightarrow$ $n \mid (b - b')$
-    \item לכן $n \mid ((a + b) - (a' + b')) = (a - a') + (b - b')$
-    \item לכן $[a + b] = [a' + b']$ \checkmark
-\end{itemize}
-\end{exbox}
 
 \begin{notebox}
-\textbf{מבנה הוכחת אי-תלות בנציג:}
+\textbf{להפרכת חח"ע:}
 
+מספיק למצוא דוגמה נגדית: $x_1 \neq x_2$ כך ש-$f(x_1) = f(x_2)$.
+\end{notebox}
+
+\begin{notebox}
+\textbf{להוכחת על:}
 \begin{enumerate}
-    \item נניח $[a] = [a']$ ו-$[b] = [b']$
-    \item נתרגם להגדרת היחס: $aEa'$ ו-$bEb'$
-    \item נראה ש-$(a \star b) E (a' \star b')$
-    \item נסיק $[a \star b] = [a' \star b']$
+    \item יהי $y \in B$ כלשהו
+    \item נמצא $x \in A$ כך ש-$f(x) = y$
 \end{enumerate}
 \end{notebox}
 
-%====================================
-\subsection{הפונקציה הקנונית}
-%====================================
+\begin{notebox}
+\textbf{להפרכת על:}
 
-\begin{defbox}
-\textbf{הגדרה: הפונקציה הקנונית}
+מספיק למצוא $y \in B$ שאין לו מקור ב-$A$.
+\end{notebox}
 
-יהי $E$ יחס שקילות על $A$. \textbf{הפונקציה הקנונית} (או פונקציית המנה) היא:
-\[\pi: A \to A/E, \quad \pi(x) = [x]_E\]
-\end{defbox}
-
-\begin{thmbox}
-\textbf{תכונות הפונקציה הקנונית:}
-
-\begin{enumerate}
-    \item $\pi$ היא \textbf{על} (surjective)
-    \item $\pi(x) = \pi(y) \iff xEy$
-    \item $\text{Im}(\pi) = A/E$
-\end{enumerate}
-\end{thmbox}
-
-%====================================
 \subsection{טבלת סיכום}
 %====================================
 
 \begin{center}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-\rowcolor{tableheader}\color{white}\textbf{מושג} & \color{white}\textbf{הגדרה} & \color{white}\textbf{דוגמה} \\
+\rowcolor{tableheader}\color{white}\textbf{תכונה} & \color{white}\textbf{הגדרה} & \color{white}\textbf{דוגמה (כן)} & \color{white}\textbf{דוגמה (לא)} \\
 \hline
-\rowcolor{tablerow1} \textbf{יחס שקילות} & רפלקסיבי + סימטרי + טרנזיטיבי & $\equiv_n$, $=$ \\
+\rowcolor{tablerow1} חח"ע & $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$ & $f(x) = 2x$ & $f(x) = x^2$ על $\R$ \\
 \hline
-\rowcolor{tablerow2} \textbf{מחלקת שקילות} & $[x]_E = \{y \mid xEy\}$ & $[0]_{\equiv_3} = 3\Z$ \\
+\rowcolor{tablerow2} על & $\Img(f) = B$ & $f(x) = x^3$ על $\R$ & $f(x) = e^x$ על $\R$ \\
 \hline
-\rowcolor{tablerow1} \textbf{קבוצת מנה} & $A/E = \{[x]_E \mid x \in A\}$ & $\Z/\equiv_3$ \\
-\hline
-\rowcolor{tablerow2} \textbf{פירוק} & קבוצות זרות שמכסות את $A$ & $\{[0], [1], [2]\}$ \\
+\rowcolor{tablerow1} ביאקציה & חח"ע + על & $f(x) = 2x + 1$ & $f(x) = x^2$ על $\R$ \\
 \hline
 \end{tabular}
 \end{center}
-
-%====================================
-\subsection{שגיאות נפוצות}
-%====================================
-
-\begin{notebox}
-\textbf{שגיאה 1: בלבול בין מחלקה לאיבר}
-
-\begin{itemize}
-    \item $[a]$ היא \textbf{קבוצה} (מחלקת השקילות)
-    \item $a$ הוא \textbf{איבר} (נציג של המחלקה)
-\end{itemize}
-\end{notebox}
-
-\begin{notebox}
-\textbf{שגיאה 2: הנחה שכל נציג שקול}
-
-כאשר מוכיחים אי-תלות בנציג, צריך להוכיח עבור \textbf{כל} שני נציגים של אותה מחלקה, לא רק עבור נציגים ספציפיים.
-\end{notebox}
-
-\begin{notebox}
-\textbf{שגיאה 3: שכחת לבדוק את שלושת התנאים}
-
-יחס שקילות חייב לקיים את \textbf{שלושת} התנאים: רפלקסיביות, סימטריה, טרנזיטיביות.
-\end{notebox}
-
-%====================================
-\subsection{תרגילים לתרגול}
-%====================================
-
-\begin{exbox}
-\textbf{תרגיל 1:}
-הוכיחו שהיחס $R$ על $\Z$ המוגדר ע``י $xRy \iff x - y$ זוגי הוא יחס שקילות. מהן מחלקות השקילות?
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 2:}
-יהי $f: A \to B$ פונקציה. הגדירו על $A$ את היחס: $xEy \iff f(x) = f(y)$.
-הוכיחו ש-$E$ יחס שקילות ותארו את מחלקות השקילות.
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 3:}
-הוכיחו שהכפל על $\Z_n$ מוגדר היטב (אי-תלות בנציג).
-\end{exbox}
 

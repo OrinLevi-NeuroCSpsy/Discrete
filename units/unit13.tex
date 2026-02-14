@@ -1,0 +1,162 @@
+% יחידה 13 - חשבון עוצמות, איחוד בן מניה
+%====================================
+\section{יחידה 13: חשבון עוצמות, איחוד בן מניה}
+
+\subsection{חשבון עוצמות - המשך}
+%====================================
+
+\begin{thmbox}
+\textbf{טענה: חיבור עוצמות אינסופיות}
+
+לכל עוצמה אינסופית $a$:
+\[a + \aleph_0 = a\]
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{טענה: כפל עוצמות אינסופיות}
+
+לכל עוצמה אינסופית $a$:
+\[a \cdot \aleph_0 = a\]
+
+ובפרט:
+\[\aleph_0 \cdot \aleph_0 = \aleph_0\]
+\[\aleph \cdot \aleph = \aleph\]
+\end{thmbox}
+
+\subsection{חישובים חשובים}
+%====================================
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor{tableheader}\color{white}\textbf{ביטוי} & \color{white}\textbf{תוצאה} & \color{white}\textbf{הסבר} \\
+\hline
+\rowcolor{tablerow1} $\aleph_0 + \aleph_0$ & $\aleph_0$ & $\N \cup \N \sim \N$ \\
+\hline
+\rowcolor{tablerow2} $\aleph_0 \cdot \aleph_0$ & $\aleph_0$ & $\N \times \N \sim \N$ \\
+\hline
+\rowcolor{tablerow1} $2^{\aleph_0}$ & $\aleph$ & $\mathcal{P}(\N) \sim \R$ \\
+\hline
+\rowcolor{tablerow2} $\aleph + \aleph$ & $\aleph$ & $\R \cup \R \sim \R$ \\
+\hline
+\rowcolor{tablerow1} $\aleph \cdot \aleph$ & $\aleph$ & $\R \times \R \sim \R$ \\
+\hline
+\rowcolor{tablerow2} $\aleph^{\aleph_0}$ & $\aleph$ & $(\N \to \R) \sim \R$ \\
+\hline
+\rowcolor{tablerow1} $2^{\aleph}$ & $> \aleph$ & משפט קנטור \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{איחוד בן מניה}
+%====================================
+
+\begin{thmbox}
+\textbf{משפט: איחוד בן מניה}
+
+יהי $\{A_i \mid i \in I\}$ אוסף \textbf{לכל היותר בן מניה} ($|I| \leq \aleph_0$) של קבוצות \textbf{לכל היותר בנות מניה} ($|A_i| \leq \aleph_0$ לכל $i \in I$).
+
+אזי האיחוד $\bigcup_{i \in I} A_i$ הוא \textbf{לכל היותר בן מניה}:
+\[\left| \bigcup_{i \in I} A_i \right| \leq \aleph_0\]
+\end{thmbox}
+
+\begin{notebox}
+\textbf{מקרה פרטי}
+
+איחוד בן מניה של קבוצות בנות מניה הוא בן מניה.
+\end{notebox}
+
+\subsection{יישומים}
+%====================================
+
+\begin{exbox}
+\textbf{דוגמה 1: $\Q$ בת מניה}
+
+\[\Q = \bigcup_{n \in \Z \setminus \{0\}} \left\{ \frac{m}{n} \mid m \in \Z \right\}\]
+
+\begin{itemize}
+    \item $\Z \setminus \{0\}$ בת מניה (אינדקס בן מניה)
+    \item לכל $n$, הקבוצה $\left\{ \frac{m}{n} \mid m \in \Z \right\}$ בת מניה
+    \item לכן $\Q$ בת מניה
+\end{itemize}
+\end{exbox}
+
+\begin{exbox}
+\textbf{דוגמה 2: מחרוזות בינאריות מיוחדות}
+
+מצאו את עוצמת המחרוזות הבינאריות האינסופיות בהן 1 לא מופיע פעמיים ברצף.
+
+\textbf{פתרון:} נסמן את הקבוצה ב-$A$.
+
+\textbf{חסם עליון:} $A \subseteq \N \to \{0,1\}$, לכן:
+\[|A| \leq |\N \to \{0,1\}| = 2^{\aleph_0}\]
+
+\textbf{חסם תחתון:} נגדיר $F \in (\N_{\text{even}} \to \{0,1\}) \to A$ ע``י:
+\[F = \lambda g \in \N_{\text{even}} \to \{0,1\}. \lambda n \in \N. \begin{cases} g(n) & n \in \N_{\text{even}} \\ 0 & n \in \N_{\text{odd}} \end{cases}\]
+
+$F$ חח``ע, לכן $|A| \geq |\N_{\text{even}} \to \{0,1\}| = 2^{\aleph_0}$.
+
+מקש``ב: $|A| = 2^{\aleph_0}$.
+\end{exbox}
+
+\subsection{אקסיומת הבחירה (העשרה)}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: פונקציית בחירה}
+
+תהי $X$ קבוצה שאיבריה הם קבוצות לא-ריקות.
+
+\textbf{פונקציית בחירה} היא פונקציה $f \in X \to \bigcup X$ המקיימת:
+\[\forall A \in X. f(A) \in A\]
+
+הרעיון: לכל איבר $A$ של $X$, הפונקציה ``בוחרת'' איבר $f(A)$ מתוך $A$.
+\end{defbox}
+
+\begin{thmbox}
+\textbf{אקסיומת הבחירה}
+
+תהי $X$ קבוצה שאיבריה הם קבוצות לא ריקות. אז קיימת פונקציית בחירה $f \in X \to \bigcup X$.
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמה: קבוצות סופיות}
+
+עבור $X = \{\{1,2,3\}, \{4,5\}\}$:
+
+\begin{itemize}
+    \item $\bigcup X = \{1,2,3,4,5\}$
+    \item פונקציית בחירה אפשרית: $f(\{1,2,3\}) = 2$, $f(\{4,5\}) = 4$
+\end{itemize}
+\end{exbox}
+
+\begin{exbox}
+\textbf{דוגמה: תתי-קבוצות של $\N$}
+
+עבור $X = \mathcal{P}(\N) \setminus \{\emptyset\}$:
+
+ניתן להגדיר $f = \lambda A \in X. \min(A)$ (בלי אקסיומת הבחירה!)
+\end{exbox}
+
+\begin{notebox}
+\textbf{מתי צריך את האקסיומה?}
+
+עבור $X = \mathcal{P}(\R) \setminus \{\emptyset\}$, לא ניתן להגדיר פונקציית בחירה במפורש (אין מינימום ב-$\R$).
+
+אקסיומת הבחירה מבטיחה שקיימת פונקציה כזו, מבלי להגדיר אותה במפורש.
+\end{notebox}
+
+\subsection{סיכום היחידה}
+%====================================
+
+\begin{thmbox}
+\textbf{נקודות מפתח}
+
+\begin{enumerate}
+    \item \textbf{איחוד בן מניה:} איחוד של לכל היותר $\aleph_0$ קבוצות בנות מניה הוא בן מניה
+    \item \textbf{חשבון עוצמות:} $\aleph_0 \cdot \aleph_0 = \aleph_0$, $\aleph \cdot \aleph = \aleph$
+    \item \textbf{שיטת קש``ב:} למציאת עוצמה -- מוצאים חסם עליון ותחתון שווים
+    \item \textbf{אקסיומת הבחירה:} מבטיחה קיום פונקציית בחירה לכל קבוצת קבוצות לא-ריקות
+\end{enumerate}
+\end{thmbox}
+

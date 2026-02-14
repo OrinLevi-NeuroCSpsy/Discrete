@@ -1,334 +1,165 @@
-% יחידה 7 - יחסי סדר
+% יחידה 7 - הרכבת פונקציות ופונקציה הפוכה
 %====================================
-\section{יחידה 7: יחסי סדר}
+\section{יחידה 7: הרכבת פונקציות ופונקציה הפוכה}
 
-\subsection{יחס סדר חלקי}
+\subsection{הרכבת פונקציות}
 %====================================
 
 \begin{defbox}
-\textbf{הגדרה: יחס סדר חלקי}
+\textbf{הגדרה: הרכבת פונקציות}
 
-יחס $R$ על קבוצה $A$ נקרא \textbf{יחס סדר חלקי} (partial order) אם הוא מקיים:
+תהיינה $f: A \to B$ ו-$g: B \to C$. \textbf{ההרכבה} $g \circ f$ היא פונקציה מ-$A$ ל-$C$ המוגדרת:
+\[(g \circ f)(x) = g(f(x))\]
 
-\begin{enumerate}
-    \item \textbf{רפלקסיביות:} $\forall x \in A. \; xRx$
-    \item \textbf{אנטי-סימטריות:} $(xRy \land yRx) \Rightarrow x = y$
-    \item \textbf{טרנזיטיביות:} $(xRy \land yRz) \Rightarrow xRz$
-\end{enumerate}
-
-מסמנים לעתים $\leq$ או $\preceq$ ליחס סדר חלקי.
+או בסימון למבדא:
+\[g \circ f = \lambda x \in A. g(f(x))\]
 \end{defbox}
 
 \begin{notebox}
-\textbf{סימון:} הזוג $(A, \leq)$ נקרא \textbf{קבוצה סדורה חלקית} (poset -- partially ordered set).
+\textbf{סדר ההרכבה}
+
+ב-$g \circ f$:
+\begin{itemize}
+    \item \textbf{קודם} מפעילים את $f$
+    \item \textbf{אחר כך} מפעילים את $g$
+\end{itemize}
+זה הפוך מסדר הכתיבה!
 \end{notebox}
 
 \begin{exbox}
-\textbf{דוגמאות ליחסי סדר חלקי:}
+\textbf{דוגמה:}
 
+$f(x) = x^2$, $g(x) = x + 1$ על $\R$:
 \begin{itemize}
-    \item $\leq$ על $\R$ (או על $\N, \Z, \Q$)
-    \item $\subseteq$ על $\mathcal{P}(A)$ (יחס ההכלה על קבוצת החזקה)
-    \item יחס ההתחלקות $|$ על $\N^+$: $a \mid b \iff \exists k \in \N. \; b = ak$
-    \item יחס ``$f$ גדולה נקודתית מ-$g$'' על קבוצת הפונקציות
+    \item $(g \circ f)(x) = g(f(x)) = g(x^2) = x^2 + 1$
+    \item $(f \circ g)(x) = f(g(x)) = f(x+1) = (x+1)^2$
 \end{itemize}
-\end{exbox}
-
-%====================================
-\subsection{יחס סדר מלא}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרה: יחס סדר מלא}
-
-יחס סדר חלקי $R$ על $A$ נקרא \textbf{יחס סדר מלא} (total/linear order) אם בנוסף הוא \textbf{קשר} (connected):
-
-\[\forall x, y \in A. \; xRy \lor yRx\]
-
-כלומר, כל שני איברים ניתנים להשוואה.
-\end{defbox}
-
-\begin{exbox}
-\textbf{דוגמאות:}
-
-\begin{itemize}
-    \item $\leq$ על $\R$ -- יחס סדר \textbf{מלא}
-    \item $\subseteq$ על $\mathcal{P}(A)$ -- יחס סדר \textbf{חלקי} (לא מלא):
-    \begin{itemize}
-        \item $\{1\} \not\subseteq \{2\}$ וגם $\{2\} \not\subseteq \{1\}$
-    \end{itemize}
-    \item $|$ (מחלק) על $\N^+$ -- \textbf{חלקי}: $2 \nmid 3$ וגם $3 \nmid 2$
-\end{itemize}
-\end{exbox}
-
-%====================================
-\subsection{יחס סדר חזק}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרה: יחס סדר חלקי חזק}
-
-\textbf{יחס סדר חלקי חזק} (strict partial order) הוא יחס שהוא:
-
-\begin{enumerate}
-    \item \textbf{אי-רפלקסיבי:} $\forall x. \; \neg(xRx)$
-    \item \textbf{טרנזיטיבי:} $(xRy \land yRz) \Rightarrow xRz$
-\end{enumerate}
-
-(אנטי-סימטריות חזקה נובעת מהטרנזיטיביות והאי-רפלקסיביות)
-\end{defbox}
-
-\begin{exbox}
-\textbf{דוגמאות:}
-\begin{itemize}
-    \item $<$ על $\R$
-    \item $\subsetneq$ (הכלה ממש)
-\end{itemize}
+שימו לב: $g \circ f \neq f \circ g$
 \end{exbox}
 
 \begin{thmbox}
-\textbf{קשר בין סדר חלקי לסדר חזק}
-
-אם $\leq$ יחס סדר חלקי על $A$, אז:
-\[< \; = \; \{(x, y) \in A^2 \mid x \leq y \land x \neq y\}\]
-הוא יחס סדר חלקי חזק.
-
-ולהפך: אם $<$ יחס סדר חלקי חזק, אז:
-\[\leq \; = \; < \cup I_A\]
-הוא יחס סדר חלקי (כאשר $I_A$ הוא יחס הזהות).
+\textbf{משפט: תכונות הרכבת פונקציות}
+\begin{enumerate}
+    \item \textbf{אסוציאטיביות}: $(h \circ g) \circ f = h \circ (g \circ f)$
+    \item \textbf{פונקציית הזהות}: $f \circ i_A = f = i_B \circ f$ עבור $f: A \to B$
+    \item \textbf{אי-קומוטטיביות}: בדרך כלל $f \circ g \neq g \circ f$
+\end{enumerate}
 \end{thmbox}
 
+\subsection{שימור תכונות בהרכבה}
 %====================================
-\subsection{איברים מיוחדים}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרות: איברים מיוחדים בקבוצה סדורה}
-
-יהי $(A, \leq)$ קבוצה סדורה חלקית. עבור $a \in A$:
-
-\textbf{מינימלי ומקסימלי:}
-\begin{itemize}
-    \item \textbf{מינימלי:} אין איבר קטן ממנו ממש
-    \[\neg \exists x \in A. \; x < a\]
-    \item \textbf{מקסימלי:} אין איבר גדול ממנו ממש
-    \[\neg \exists x \in A. \; a < x\]
-\end{itemize}
-
-\textbf{מינימום ומקסימום:}
-\begin{itemize}
-    \item \textbf{מינימום} (הקטן ביותר): קטן או שווה לכל איבר
-    \[\forall x \in A. \; a \leq x\]
-    \item \textbf{מקסימום} (הגדול ביותר): גדול או שווה לכל איבר
-    \[\forall x \in A. \; x \leq a\]
-\end{itemize}
-\end{defbox}
-
-\begin{notebox}
-\textbf{הבדל חשוב: מינימלי vs מינימום}
-
-\begin{itemize}
-    \item \textbf{מינימום:} אם קיים, הוא \textbf{יחיד}
-    \item \textbf{מינימלי:} יכולים להיות \textbf{כמה}, או \textbf{אף אחד}
-    \item בסדר \textbf{מלא}: מינימלי = מינימום
-    \item בסדר \textbf{חלקי}: יכול להיות מינימלי בלי מינימום
-\end{itemize}
-\end{notebox}
-
-\begin{exbox}
-\textbf{דוגמה: הכלה על קבוצת חזקה}
-
-$(\mathcal{P}(\{1,2,3\}) \setminus \{\emptyset\}, \subseteq)$
-
-\begin{itemize}
-    \item \textbf{מינימליים:} $\{1\}, \{2\}, \{3\}$ (אין קטנים מהם)
-    \item \textbf{מינימום:} אין! (אף איבר לא מוכל בכולם)
-    \item \textbf{מקסימום:} $\{1,2,3\}$
-\end{itemize}
-\end{exbox}
-
-%====================================
-\subsection{חסמים}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרות: חסמים}
-
-יהי $(A, \leq)$ קבוצה סדורה ו-$B \subseteq A$:
-
-\textbf{חסמים עליונים ותחתונים:}
-\begin{itemize}
-    \item \textbf{חסם עליון} של $B$: איבר $a \in A$ כך ש-$\forall b \in B. \; b \leq a$
-    \item \textbf{חסם תחתון} של $B$: איבר $a \in A$ כך ש-$\forall b \in B. \; a \leq b$
-\end{itemize}
-
-\textbf{סופרמום ואינפימום:}
-\begin{itemize}
-    \item \textbf{סופרמום} (חסם עליון הדוק): החסם העליון \textbf{הקטן ביותר} -- $\sup(B)$
-    \item \textbf{אינפימום} (חסם תחתון הדוק): החסם התחתון \textbf{הגדול ביותר} -- $\inf(B)$
-\end{itemize}
-\end{defbox}
-
-\begin{exbox}
-\textbf{דוגמה:} $B = (0, 1) \subseteq \R$ עם הסדר הרגיל:
-
-\begin{itemize}
-    \item \textbf{חסמים עליונים:} כל $x \geq 1$
-    \item \textbf{חסמים תחתונים:} כל $x \leq 0$
-    \item \textbf{סופרמום:} $\sup(B) = 1$ (לא שייך ל-$B$!)
-    \item \textbf{אינפימום:} $\inf(B) = 0$ (לא שייך ל-$B$!)
-    \item \textbf{מקסימום:} אין
-    \item \textbf{מינימום:} אין
-\end{itemize}
-\end{exbox}
-
-%====================================
-\subsection{קבוצות סדורות טובות}
-%====================================
-
-\begin{defbox}
-\textbf{הגדרה: קבוצה סדורה טובה}
-
-קבוצה סדורה $(A, \leq)$ נקראת \textbf{סדורה טובה} (well-ordered) אם:
-
-\begin{enumerate}
-    \item $\leq$ הוא יחס סדר \textbf{מלא}
-    \item לכל תת-קבוצה לא ריקה $B \subseteq A$ יש \textbf{מינימום}
-\end{enumerate}
-\end{defbox}
 
 \begin{thmbox}
-\textbf{משפט: סדר טוב על הטבעיים}
+\textbf{משפט: הרכבה משמרת חח"ע ועל}
 
-$(\N, \leq)$ היא קבוצה סדורה טובה.
-
-זהו \textbf{עקרון הסדר הטוב} (Well-Ordering Principle).
+\begin{enumerate}
+    \item אם $f$ ו-$g$ חח"ע, אז $g \circ f$ חח"ע
+    \item אם $f$ ו-$g$ על, אז $g \circ f$ על
+    \item אם $f$ ו-$g$ ביאקציות, אז $g \circ f$ ביאקציה
+\end{enumerate}
 \end{thmbox}
 
-\begin{notebox}
-\textbf{שקילות לאינדוקציה:}
+\begin{thmbox}
+\textbf{משפט: מסקנות מהרכבה}
 
-עקרון הסדר הטוב שקול לעקרון האינדוקציה על $\N$.
-\end{notebox}
+\begin{enumerate}
+    \item אם $g \circ f$ חח"ע, אז $f$ חח"ע
+    \item אם $g \circ f$ על, אז $g$ על
+\end{enumerate}
+\end{thmbox}
 
-%====================================
-\subsection{דיאגרמת האסה}
+\subsection{פונקציה הפוכה}
 %====================================
 
 \begin{defbox}
-\textbf{הגדרה: דיאגרמת האסה}
+\textbf{הגדרה: פונקציה הפוכה}
 
-\textbf{דיאגרמת האסה} (Hasse diagram) היא ייצוג גרפי של יחס סדר חלקי:
+תהי $f: A \to B$ ביאקציה. \textbf{הפונקציה ההפוכה} $f^{-1}: B \to A$ מוגדרת:
+\[f^{-1}(y) = x \iff f(x) = y\]
+\end{defbox}
 
+\begin{notebox}
+\textbf{שימו לב:}
+פונקציה הפוכה $f^{-1}$ קיימת \textbf{אם ורק אם} $f$ היא ביאקציה.
 \begin{itemize}
-    \item כל איבר מיוצג כנקודה
-    \item אם $x < y$ ואין $z$ כך ש-$x < z < y$, מציירים קו מ-$x$ ל-$y$
-    \item איברים גדולים יותר מצוירים למעלה
+    \item אם $f$ לא חח"ע: יש $y$ עם כמה מקורות -- מי יהיה $f^{-1}(y)$?
+    \item אם $f$ לא על: יש $y$ בלי מקור -- מה יהיה $f^{-1}(y)$?
 \end{itemize}
+\end{notebox}
+
+\begin{thmbox}
+\textbf{משפט: תכונות הפונקציה ההפוכה}
+
+אם $f: A \to B$ ביאקציה, אז:
+\begin{enumerate}
+    \item $f^{-1} \circ f = i_A$
+    \item $f \circ f^{-1} = i_B$
+    \item $(f^{-1})^{-1} = f$
+    \item $f^{-1}$ גם היא ביאקציה
+\end{enumerate}
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{משפט: היפוך הרכבה}
+
+אם $f: A \to B$ ו-$g: B \to C$ ביאקציות, אז $g \circ f$ ביאקציה ו:
+\[(g \circ f)^{-1} = f^{-1} \circ g^{-1}\]
+\end{thmbox}
+
+\begin{exbox}
+\textbf{דוגמה:}
+
+$f(x) = 2x + 3$ על $\R$:
+\begin{itemize}
+    \item $f$ ביאקציה
+    \item $f^{-1}(y) = \frac{y - 3}{2}$
+    \item בדיקה: $(f^{-1} \circ f)(x) = f^{-1}(2x + 3) = \frac{(2x+3) - 3}{2} = x$ \checkmark
+\end{itemize}
+\end{exbox}
+
+\subsection{צמצום והרחבה}
+%====================================
+
+\begin{defbox}
+\textbf{הגדרה: צמצום פונקציה}
+
+תהי $f: A \to B$ ו-$X \subseteq A$. \textbf{הצמצום של $f$ ל-$X$} הוא הפונקציה:
+\[f|_X = \lambda x \in X. f(x)\]
+זו אותה פונקציה, רק עם תחום מצומצם.
 \end{defbox}
 
 \begin{exbox}
-\textbf{דוגמה: מחלקי 12}
+\textbf{דוגמה:}
 
-דיאגרמת האסה של $(D_{12}, |)$ כאשר $D_{12} = \{1, 2, 3, 4, 6, 12\}$:
-
-\begin{verbatim}
-       12
-      /  \
-     4    6
-     |   / \
-     2  /   3
-      \/
-       1
-\end{verbatim}
+$f(x) = x^2$ על $\R$:
+\begin{itemize}
+    \item $f|_{\R^+}$ היא $\lambda x \in \R^+. x^2$
+    \item $f$ לא חח"ע, אבל $f|_{\R^+}$ כן חח"ע!
+\end{itemize}
 \end{exbox}
 
-%====================================
-\subsection{טבלת סיכום -- סוגי יחסי סדר}
-%====================================
-
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{סוג יחס} & \color{white}\textbf{תכונות} & \color{white}\textbf{דוגמאות} \\
-\hline
-\rowcolor{tablerow1} \textbf{סדר חלקי} & רפלקסיבי, אנטי-סימטרי, טרנזיטיבי & $\leq$, $\subseteq$, $|$ \\
-\hline
-\rowcolor{tablerow2} \textbf{סדר מלא} & סדר חלקי + קשר (טוטאלי) & $\leq$ על $\R$ \\
-\hline
-\rowcolor{tablerow1} \textbf{סדר חזק} & אי-רפלקסיבי, טרנזיטיבי & $<$, $\subsetneq$ \\
-\hline
-\rowcolor{tablerow2} \textbf{סדר טוב} & סדר מלא + לכל ת``ק יש מינימום & $\leq$ על $\N$ \\
-\hline
-\end{tabular}
-\end{center}
-
-%====================================
-\subsection{טבלת סיכום -- איברים מיוחדים}
-%====================================
-
-\begin{center}
-\begin{tabular}{|l|l|l|l|}
-\hline
-\rowcolor{tableheader}\color{white}\textbf{מושג} & \color{white}\textbf{הגדרה} & \color{white}\textbf{יחידות?} & \color{white}\textbf{בסדר מלא} \\
-\hline
-\rowcolor{tablerow1} \textbf{מינימום} & $\forall x. \; a \leq x$ & כן (אם קיים) & = מינימלי \\
-\hline
-\rowcolor{tablerow2} \textbf{מינימלי} & $\neg \exists x. \; x < a$ & לא בהכרח & = מינימום \\
-\hline
-\rowcolor{tablerow1} \textbf{אינפימום} & חסם תחתון גדול ביותר & כן (אם קיים) & = מינימום אם שייך \\
-\hline
-\rowcolor{tablerow2} \textbf{חסם תחתון} & $\forall b \in B. \; a \leq b$ & לא בהכרח & -- \\
-\hline
-\end{tabular}
-\end{center}
-
-%====================================
 \subsection{שגיאות נפוצות}
 %====================================
 
 \begin{notebox}
-\textbf{שגיאה 1: בלבול בין מינימלי למינימום}
+\textbf{שגיאה 1: סדר ההרכבה}
 
-\begin{itemize}
-    \item \textbf{מינימום:} קטן מ\textbf{כולם} -- יחיד אם קיים
-    \item \textbf{מינימלי:} אין קטן \textbf{ממנו} -- יכולים להיות כמה
-\end{itemize}
+ב-$g \circ f$ קודם מפעילים את $f$!
+
+$(g \circ f)(x) = g(f(x))$ -- קודם $f$, אחר כך $g$
 \end{notebox}
 
 \begin{notebox}
-\textbf{שגיאה 2: הנחה שסדר חלקי הוא מלא}
+\textbf{שגיאה 2: פונקציה הפוכה לא תמיד קיימת}
 
-רוב יחסי הסדר הם חלקיים! לא כל שני איברים ניתנים להשוואה.
+$f^{-1}$ קיימת \textbf{רק אם} $f$ ביאקציה.
 \end{notebox}
 
 \begin{notebox}
-\textbf{שגיאה 3: בלבול בין סופרמום למקסימום}
-
+\textbf{שגיאה 3: בלבול בין $f^{-1}$ לבין $f^{-1}[Y]$}
 \begin{itemize}
-    \item \textbf{מקסימום:} שייך לקבוצה
-    \item \textbf{סופרמום:} לא בהכרח שייך לקבוצה
+    \item $f^{-1}$ -- הפונקציה ההפוכה (קיימת רק לביאקציות)
+    \item $f^{-1}[Y]$ -- מקור הקבוצה $Y$ (קיים תמיד)
 \end{itemize}
 \end{notebox}
-
-%====================================
-\subsection{תרגילים לתרגול}
-%====================================
-
-\begin{exbox}
-\textbf{תרגיל 1:}
-ציירו את דיאגרמת האסה של $(\mathcal{P}(\{a, b, c\}), \subseteq)$.
-מצאו את כל האיברים המינימליים והמקסימליים.
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 2:}
-תהי $A = \{2, 3, 4, 6, 8, 12, 24\}$ עם יחס ההתחלקות.
-מצאו את הסופרמום והאינפימום של $B = \{4, 6\}$ אם קיימים.
-\end{exbox}
-
-\begin{exbox}
-\textbf{תרגיל 3:}
-הוכיחו שאם $(A, \leq)$ קבוצה סדורה טובה ו-$B \subseteq A$ לא ריקה, אז לכל תת-קבוצה לא ריקה של $B$ יש מינימום.
-\end{exbox}
 

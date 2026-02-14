@@ -1,0 +1,139 @@
+% יחידה 11 - לכסון
+%====================================
+\section{יחידה 11: לכסון}
+
+\subsection{משפט קנטור}
+%====================================
+
+\begin{thmbox}
+\textbf{משפט קנטור (כללי)}
+
+לכל קבוצה $A$: $|A| < |\mathcal{P}(A)|$
+
+במילים: קבוצת החזקה תמיד גדולה יותר מהקבוצה המקורית.
+\end{thmbox}
+
+\begin{proofbox}
+\textbf{הוכחה:}
+
+$|A| \leq |\mathcal{P}(A)|$: הפונקציה $f: A \to \mathcal{P}(A)$, $f(a) = \{a\}$ היא חח``ע.
+
+$|A| \neq |\mathcal{P}(A)|$: נניח בשלילה שקיים זיווג $g: A \to \mathcal{P}(A)$.
+
+נגדיר $D = \{x \in A \mid x \notin g(x)\}$.
+
+$D \in \mathcal{P}(A)$, לכן מ-$g$ על קיים $d \in A$ כך ש-$g(d) = D$.
+
+האם $d \in D$?
+\begin{itemize}
+    \item אם $d \in D$ אז לפי הגדרת $D$: $d \notin g(d) = D$. סתירה!
+    \item אם $d \notin D$ אז לפי הגדרת $D$: $d \in g(d) = D$. סתירה!
+\end{itemize}
+
+לכן אין זיווג, ו-$|A| < |\mathcal{P}(A)|$. $\square$
+\end{proofbox}
+
+\subsection{טכניקת הלכסון (Diagonalization)}
+%====================================
+
+\begin{notebox}
+\textbf{טכניקת הלכסון}
+
+נניח בשלילה שקיים זיווג $F: \N \to A$ (כאשר $A \subseteq \N \to X$).
+
+נבנה $h \in A$ כך ש-$h$ \textbf{שונה מכל שורה} ב``מטריצה'' של $F$:
+
+\begin{itemize}
+    \item $h(0) \neq F(0)(0)$
+    \item $h(1) \neq F(1)(1)$
+    \item $h(n) \neq F(n)(n)$ לכל $n$
+\end{itemize}
+
+אז $h \in A$ אבל $h \notin \text{Im}(F)$ -- סתירה להנחה ש-$F$ על.
+\end{notebox}
+
+\subsubsection{ייצוג כמטריצה}
+
+\begin{verbatim}
+        0    1    2    3    4    ...
+F(0): [ a_00  a_01  a_02  a_03  a_04  ... ]
+F(1): [ a_10  a_11  a_12  a_13  a_14  ... ]
+F(2): [ a_20  a_21  a_22  a_23  a_24  ... ]
+F(3): [ a_30  a_31  a_32  a_33  a_34  ... ]
+...
+
+h:    [ ≠a_00 ≠a_11 ≠a_22 ≠a_33 ≠a_44 ... ]
+\end{verbatim}
+
+$h$ נבנה מהאלכסון, ושונה ממנו בכל מקום!
+
+\subsection{דוגמאות לשימוש בלכסון}
+%====================================
+
+\begin{proofbox}
+\textbf{הוכחה: קבוצת הסדרות הבינאריות אינה בת-מניה}
+
+כלומר: $|\N \to \{0,1\}| \neq \aleph_0$
+
+נניח בשלילה שקיים זיווג $F: \N \to (\N \to \{0,1\})$.
+
+נגדיר:
+\[h = \lambda n \in \N. \; 1 - F(n)(n)\]
+
+\textbf{$h \in \N \to \{0,1\}$}: אם $F(n)(n) = 0$ אז $h(n) = 1$, ואם $F(n)(n) = 1$ אז $h(n) = 0$.
+
+\textbf{$h \notin \text{Im}(F)$}: נניח בשלילה שקיים $n$ כך ש-$F(n) = h$.
+
+אז: $F(n)(n) = h(n) = 1 - F(n)(n)$ -- סתירה!
+
+לכן $|\N \to \{0,1\}| \neq \aleph_0$.
+\end{proofbox}
+
+\begin{proofbox}
+\textbf{הוכחה: קבוצת הפונקציות החח``ע מ-$\N$ ל-$\N$ אינה בת-מניה}
+
+יהי $A = \{f \in \N \to \N \mid f \text{ חח``ע}\}$.
+
+נניח בשלילה שקיים זיווג $F: \N \to A$. נגדיר:
+\[g = \lambda n \in \N. \; \sum_{i=0}^{n} F(i)(i) + n + 1\]
+
+\textbf{$g$ חח``ע}: לכל $n_1 \neq n_2$, נניח $n_1 > n_2$:
+\[g(n_2) = \sum_{i=0}^{n_2} F(i)(i) + n_2 + 1 \leq \sum_{i=0}^{n_1} F(i)(i) + n_2 + 1 < g(n_1)\]
+
+\textbf{סתירה}: מ-$F$ על, קיים $n$ כך ש-$F(n) = g$, אבל:
+\[g(n) = \sum_{i=0}^{n} F(i)(i) + n + 1 \geq F(n)(n) + 1 > F(n)(n) = g(n)\]
+סתירה!
+\end{proofbox}
+
+\subsection{מסקנות}
+%====================================
+
+\begin{thmbox}
+\textbf{מסקנה: $\R$ אינה בת-מניה}
+
+\[|\R| = |\mathcal{P}(\N)| = |\N \to \{0,1\}| > |\N| = \aleph_0\]
+\end{thmbox}
+
+\begin{thmbox}
+\textbf{מסקנה: קיימות אינסוף עוצמות}
+
+\[|\N| < |\mathcal{P}(\N)| < |\mathcal{P}(\mathcal{P}(\N))| < \ldots\]
+\end{thmbox}
+
+\subsection{שגיאות נפוצות}
+%====================================
+
+\begin{notebox}
+\textbf{שגיאה 1: לשכוח להוכיח $h \in A$}
+
+בהוכחת לכסון, לא מספיק להגדיר $h$ -- צריך להוכיח שהיא אכן איבר בקבוצה $A$!
+\end{notebox}
+
+\begin{notebox}
+\textbf{שגיאה 2: בניית $h$ שלא מהאלכסון}
+
+$h$ חייב להיות שונה מ-$F(n)$ \textbf{במקום ה-$n$} (באלכסון).
+
+לא מספיק שהוא שונה באיזשהו מקום.
+\end{notebox}
+
